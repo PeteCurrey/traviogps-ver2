@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { MapPin } from "lucide-react";
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -10,12 +11,9 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Show text after logo animation completes
-    const textTimer = setTimeout(() => setShowText(true), 1600);
-    // Start exit animation
-    const exitTimer = setTimeout(() => setIsExiting(true), 3800);
-    // Complete and unmount
-    const completeTimer = setTimeout(() => onComplete(), 4800);
+    const textTimer = setTimeout(() => setShowText(true), 1200);
+    const exitTimer = setTimeout(() => setIsExiting(true), 3000);
+    const completeTimer = setTimeout(() => onComplete(), 3800);
 
     return () => {
       clearTimeout(textTimer);
@@ -24,8 +22,53 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
     };
   }, [onComplete]);
 
-  // Logo color matching the header logo (darker burnt orange/terracotta)
-  const logoColor = "#a14c2e";
+  const logoContent = (
+    <div className="flex flex-col items-center">
+      <div className="flex items-center gap-3 mb-6">
+        <motion.div
+          className="relative"
+          initial={{ scale: 0, rotate: -180 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <MapPin className="h-10 w-10 text-accent" />
+          <motion.div
+            className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full"
+            initial={{ scale: 0 }}
+            animate={{ scale: [0, 1.3, 1] }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          />
+        </motion.div>
+
+        <motion.span
+          className="font-bold text-2xl md:text-3xl tracking-tight"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: showText ? 1 : 0, x: showText ? 0 : -20 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <span className="text-foreground">RAM</span>
+          <span className="text-accent ml-2">Tracking</span>
+        </motion.span>
+      </div>
+
+      <motion.div
+        className="h-px bg-accent"
+        initial={{ width: 0 }}
+        animate={{ width: showText ? 120 : 0 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+      />
+
+      <motion.p
+        className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showText ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        Fleet Management Solutions
+      </motion.p>
+    </div>
+  );
 
   return (
     <AnimatePresence>
@@ -34,106 +77,9 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           key="splash"
           className="fixed inset-0 z-[100] bg-background flex items-center justify-center"
           exit={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-          <div className="flex flex-col items-center">
-            {/* Animated Logo - Two semi-circles, one from top, one from bottom */}
-            <div className="flex items-center mb-10">
-              {/* Left semi-circle - fades from top */}
-              <motion.div
-                initial={{ y: -40, opacity: 0 }}
-                animate={{ 
-                  y: 4, 
-                  opacity: 1,
-                }}
-                transition={{ 
-                  duration: 1.4, 
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  delay: 0.2 
-                }}
-              >
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Left crescent - semi-circle facing right */}
-                  <path
-                    d="M20 2C10.06 2 2 10.06 2 20C2 29.94 10.06 38 20 38C20 38 20 29.94 20 20C20 10.06 20 2 20 2Z"
-                    fill={logoColor}
-                  />
-                </svg>
-              </motion.div>
-
-              {/* Right semi-circle - fades from bottom */}
-              <motion.div
-                initial={{ y: 40, opacity: 0 }}
-                animate={{ 
-                  y: -4, 
-                  opacity: 1,
-                }}
-                transition={{ 
-                  duration: 1.4, 
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  delay: 0.35 
-                }}
-                style={{ marginLeft: "-36px" }}
-              >
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Right arc - semi-circle facing left */}
-                  <path
-                    d="M20 2C29.94 2 38 10.06 38 20C38 29.94 29.94 38 20 38C20 38 20 29.94 20 20C20 10.06 20 2 20 2Z"
-                    fill={logoColor}
-                  />
-                </svg>
-              </motion.div>
-
-              {/* Text: DALES & PEAKS */}
-              <motion.span
-                className="ml-4 font-sans text-lg md:text-xl tracking-[0.25em] text-primary font-light uppercase"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ 
-                  opacity: showText ? 1 : 0, 
-                  x: showText ? 0 : 20 
-                }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              >
-                Dales & Peaks
-              </motion.span>
-            </div>
-
-            {/* Subtle glow effect */}
-            <motion.div
-              className="absolute pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.3, 0] }}
-              transition={{ 
-                duration: 2.5, 
-                delay: 1.2,
-                ease: "easeInOut" 
-              }}
-              style={{
-                width: "200px",
-                height: "100px",
-                background: `radial-gradient(ellipse at center, ${logoColor}40 0%, transparent 70%)`,
-                filter: "blur(25px)",
-              }}
-            />
-
-            {/* Animated underline */}
-            <motion.div
-              className="h-px bg-accent"
-              initial={{ width: 0 }}
-              animate={{ width: showText ? 140 : 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            />
-
-            {/* Tagline */}
-            <motion.p
-              className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showText ? 1 : 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              Premium Estate Agents
-            </motion.p>
-          </div>
+          {logoContent}
         </motion.div>
       ) : (
         <motion.div
@@ -141,32 +87,9 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           className="fixed inset-0 z-[100] bg-background flex items-center justify-center"
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-          <div className="flex flex-col items-center">
-            {/* Static final logo state */}
-            <div className="flex items-center mb-10">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "translateY(4px)" }}>
-                <path
-                  d="M20 2C10.06 2 2 10.06 2 20C2 29.94 10.06 38 20 38C20 38 20 29.94 20 20C20 10.06 20 2 20 2Z"
-                  fill={logoColor}
-                />
-              </svg>
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "-36px", transform: "translateY(-4px)" }}>
-                <path
-                  d="M20 2C29.94 2 38 10.06 38 20C38 29.94 29.94 38 20 38C20 38 20 29.94 20 20C20 10.06 20 2 20 2Z"
-                  fill={logoColor}
-                />
-              </svg>
-              <span className="ml-4 font-sans text-lg md:text-xl tracking-[0.25em] text-primary font-light uppercase">
-                Dales & Peaks
-              </span>
-            </div>
-            <div className="h-px bg-accent w-[140px]" />
-            <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-5">
-              Premium Estate Agents
-            </p>
-          </div>
+          {logoContent}
         </motion.div>
       )}
     </AnimatePresence>

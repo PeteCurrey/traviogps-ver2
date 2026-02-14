@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Eye, Bell, Zap, BarChart3 } from "lucide-react";
+
+const features = [
+  { icon: Eye, text: "See every vehicle and job in one place" },
+  { icon: Bell, text: "Get alerts for delays, maintenance or route deviations" },
+  { icon: Zap, text: "Make fast decisions that keep teams on schedule" },
+  { icon: BarChart3, text: "Access reports and insights instantly" },
+];
 
 export function AboutSection() {
   return (
@@ -15,18 +22,17 @@ export function AboutSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="relative"
           >
-            <div className="aspect-[4/5] overflow-hidden rounded-sm">
+            <div className="aspect-[4/3] overflow-hidden rounded-lg">
               <motion.img
-                src="https://ggfx-dalesandpeaks.s3.eu-west-2.amazonaws.com/x.prod/528x535/1_8ba42c10c6.webp"
-                alt="Dales and Peaks Estate Agents"
+                src="https://assets.ramtracking.com/_assets/uploads/pages/8e3986-fleet-manager-with-vans.jpg"
+                alt="Fleet manager monitoring vehicles"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               />
             </div>
-            {/* Accent element */}
             <motion.div 
-              className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-sm"
+              className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-lg"
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
@@ -42,42 +48,42 @@ export function AboutSection() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.p 
-              initial={{ opacity: 0, letterSpacing: "0.2em" }}
-              whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
               className="text-sm uppercase tracking-[0.3em] text-accent mb-4"
             >
-              About Dales & Peaks
+              Why RAM Tracking
             </motion.p>
-            <h2 className="font-serif text-display-3 md:text-display-2 text-foreground mb-6 leading-tight">
-              We understand that every home <span className="italic-accent">has its own story to tell.</span>
+            <h2 className="font-bold text-display-3 md:text-display-2 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Manage Your Fleet with <span className="text-accent">Confidence</span>
             </h2>
             <motion.div 
-              className="space-y-4 text-muted-foreground leading-relaxed mb-8"
+              className="space-y-4 mb-8"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <p>
-                Our homes are everything; we create memories within them. Bring family to them. 
-                Make friends in the streets around them. As a family-owned business, we understand 
-                the importance of homes, and the memories locked within their walls.
-              </p>
-              <p>
-                A team of truly passionate professionals and expertise in not only showcasing your 
-                home, but telling its story. This isn't about us, it's about you, it's about your 
-                home and its about your home's story.
-              </p>
-              <p className="text-foreground font-medium">
-                Gone are the days of mediocre, welcome to a new era of estate agency, where standards 
-                are high, stress is low and results are market leading. 
-                <span className="text-accent"> Your next move could be your forever move.</span>
-              </p>
+              {features.map((feature, i) => (
+                <motion.div
+                  key={i}
+                  className="flex items-start gap-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <feature.icon className="h-4 w-4 text-accent" />
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">{feature.text}</p>
+                </motion.div>
+              ))}
             </motion.div>
             <motion.div 
-              className="flex flex-wrap gap-6"
+              className="flex flex-wrap gap-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
@@ -85,16 +91,9 @@ export function AboutSection() {
             >
               <Link
                 to="/about"
-                className="group inline-flex items-center text-sm font-medium text-foreground link-underline"
+                className="group inline-flex items-center text-sm font-medium text-accent link-underline"
               >
-                About Us
-                <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/about/team"
-                className="group inline-flex items-center text-sm font-medium text-foreground link-underline"
-              >
-                Our People
+                Learn How Fleet Tracking Works
                 <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>

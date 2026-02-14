@@ -57,7 +57,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Premium custom colors
+        // Custom tech colors
         gold: "hsl(var(--gold))",
         "gold-muted": "hsl(var(--gold-muted))",
         cream: "hsl(var(--cream))",
@@ -66,7 +66,7 @@ export default {
         charcoal: "hsl(var(--charcoal))",
       },
       fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
+        serif: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
@@ -125,8 +125,8 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "hero-gradient": "linear-gradient(180deg, hsl(160 20% 8% / 0.3) 0%, hsl(160 20% 8% / 0.85) 100%)",
-        "card-gradient": "linear-gradient(180deg, hsl(160 18% 10%) 0%, hsl(160 20% 8%) 100%)",
+        "hero-gradient": "linear-gradient(180deg, hsl(220 25% 7% / 0.3) 0%, hsl(220 25% 7% / 0.85) 100%)",
+        "card-gradient": "linear-gradient(180deg, hsl(220 22% 10%) 0%, hsl(220 25% 7%) 100%)",
       },
     },
   },

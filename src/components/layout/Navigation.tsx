@@ -8,45 +8,45 @@ import { DalesAndPeaksLogo } from "./DalesAndPeaksLogo";
 
 const leftNavLinks = [
   { 
-    label: "Buy Your Home", 
-    href: "/sales",
+    label: "Vehicle Tracking", 
+    href: "/vehicle-tracking",
     submenu: [
-      { label: "Properties for Sale", href: "/sales" },
-      { label: "New Homes", href: "/new-homes" },
-      { label: "Request a Viewing", href: "/contact" },
+      { label: "GPS Trackers", href: "/vehicle-tracking" },
+      { label: "OBD Trackers", href: "/vehicle-tracking" },
+      { label: "Asset Trackers", href: "/vehicle-tracking" },
     ]
   },
   { 
-    label: "Sell Your Home", 
-    href: "/sell",
+    label: "Fleet Management", 
+    href: "/fleet-management",
     submenu: [
-      { label: "Sell with Us", href: "/sell" },
-      { label: "Request a Valuation", href: "/valuation" },
-      { label: "Why Choose Us", href: "/about" },
+      { label: "Driver App", href: "/fleet-management" },
+      { label: "Vehicle Checks", href: "/fleet-management" },
+      { label: "Mileage Reports", href: "/fleet-management" },
     ]
   },
 ];
 
 const rightNavLinks = [
   { 
-    label: "Lettings", 
-    href: "/lettings",
+    label: "Dash Cams", 
+    href: "/dash-cams",
     submenu: [
-      { label: "Properties to Rent", href: "/lettings" },
-      { label: "Landlord Services", href: "/landlords" },
-      { label: "Tenant Information", href: "/tenants" },
+      { label: "Connected Dash Cams", href: "/dash-cams" },
+      { label: "HD Cameras", href: "/dash-cams" },
     ]
   },
   { 
-    label: "Areas", 
-    href: "/areas",
+    label: "Solutions", 
+    href: "/solutions",
     submenu: [
-      { label: "Peak District", href: "/areas/peak-district" },
-      { label: "Sheffield", href: "/areas/sheffield" },
-      { label: "Chesterfield", href: "/areas/chesterfield" },
-      { label: "Nottingham", href: "/areas/nottingham" },
+      { label: "Construction", href: "/solutions/construction" },
+      { label: "Logistics", href: "/solutions/logistics" },
+      { label: "Delivery", href: "/solutions/delivery" },
+      { label: "Field Service", href: "/solutions/field-service" },
     ]
   },
+  { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -73,17 +73,16 @@ function NavLinkItem({ link, activeSubmenu, setActiveSubmenu, pathname }: NavLin
       <Link
         to={link.href}
         className={cn(
-          "px-4 py-2 text-xs uppercase tracking-[0.15em] font-medium transition-colors flex items-center gap-1",
+          "px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1",
           pathname === link.href
-            ? "text-primary"
-            : "text-foreground/80 hover:text-primary"
+            ? "text-accent"
+            : "text-foreground/80 hover:text-accent"
         )}
       >
         {link.label}
         {link.submenu && <ChevronDown className="h-3 w-3" />}
       </Link>
 
-      {/* Submenu */}
       <AnimatePresence>
         {link.submenu && activeSubmenu === link.label && (
           <motion.div
@@ -93,12 +92,12 @@ function NavLinkItem({ link, activeSubmenu, setActiveSubmenu, pathname }: NavLin
             transition={{ duration: 0.2 }}
             className="absolute top-full left-0 pt-2 z-50"
           >
-            <div className="bg-card border border-border rounded-sm shadow-elevated min-w-[200px] py-2">
+            <div className="bg-card border border-border rounded-lg shadow-elevated min-w-[200px] py-2">
               {link.submenu.map((sublink) => (
                 <Link
                   key={sublink.label}
                   to={sublink.href}
-                  className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-colors"
+                  className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-accent hover:bg-secondary/50 transition-colors"
                 >
                   {sublink.label}
                 </Link>
@@ -121,7 +120,6 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -133,27 +131,21 @@ export function Navigation() {
 
   return (
     <>
-      {/* Top bar - contact info */}
+      {/* Top bar */}
       <div className="hidden lg:block bg-charcoal border-b border-border/30">
         <div className="container-premium flex justify-between items-center py-2 text-sm">
           <div className="flex items-center gap-6 text-muted-foreground">
-            <a 
-              href="tel:+441246567540" 
-              className="flex items-center gap-2 hover:text-primary transition-colors"
-            >
+            <a href="tel:+441onal" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="h-3.5 w-3.5" />
-              <span>01246 567 540</span>
+              <span>0330 060 0499</span>
             </a>
-            <a 
-              href="mailto:info@dalesandpeaks.co.uk" 
-              className="flex items-center gap-2 hover:text-primary transition-colors"
-            >
+            <a href="mailto:info@ramtracking.com" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="h-3.5 w-3.5" />
-              <span>info@dalesandpeaks.co.uk</span>
+              <span>info@ramtracking.com</span>
             </a>
           </div>
           <div className="text-muted-foreground">
-            Covering Peak District, Sheffield, Chesterfield & Nottingham
+            Trusted by 22,000+ UK Businesses
           </div>
         </div>
       </div>
@@ -163,16 +155,15 @@ export function Navigation() {
         className={cn(
           "fixed top-0 lg:top-[41px] left-0 right-0 z-50 transition-all duration-500",
           isScrolled 
-            ? "bg-background/90 backdrop-blur-md border-b border-border/50 shadow-soft" 
-            : "bg-transparent"
+            ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-soft" 
+            : "bg-background/80 backdrop-blur-sm"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <nav className="container-premium">
-          <div className="flex items-center justify-between h-20 lg:h-24">
-            {/* Mobile Menu Button - Left side on mobile */}
+          <div className="flex items-center justify-between h-16 lg:h-20">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-foreground"
@@ -181,7 +172,7 @@ export function Navigation() {
               <Menu className="h-6 w-6" />
             </button>
 
-            {/* Left Navigation - Desktop */}
+            {/* Left Navigation */}
             <div className="hidden lg:flex items-center gap-1 flex-1 justify-start">
               {leftNavLinks.map((link) => (
                 <NavLinkItem
@@ -194,12 +185,12 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Centered Logo */}
+            {/* Logo */}
             <Link to="/" className="flex items-center justify-center lg:flex-none">
               <DalesAndPeaksLogo size="md" />
             </Link>
 
-            {/* Right Navigation - Desktop */}
+            {/* Right Navigation */}
             <div className="hidden lg:flex items-center gap-1 flex-1 justify-end">
               {rightNavLinks.map((link) => (
                 <NavLinkItem
@@ -210,9 +201,11 @@ export function Navigation() {
                   pathname={location.pathname}
                 />
               ))}
+              <Button asChild size="sm" className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Link to="/get-quote">Get a Quote</Link>
+              </Button>
             </div>
 
-            {/* Mobile - Right side placeholder for balance */}
             <div className="lg:hidden w-10" />
           </div>
         </nav>
@@ -239,7 +232,6 @@ export function Navigation() {
               className="absolute left-0 top-0 bottom-0 w-full max-w-sm bg-card border-r border-border shadow-elevated"
             >
               <div className="flex flex-col h-full pt-6 pb-8 px-6">
-                {/* Close button and logo */}
                 <div className="flex items-center justify-between mb-8">
                   <DalesAndPeaksLogo size="sm" />
                   <button
@@ -264,8 +256,8 @@ export function Navigation() {
                         className={cn(
                           "block py-3 text-lg font-medium border-b border-border/50 transition-colors",
                           location.pathname === link.href
-                            ? "text-primary"
-                            : "text-foreground hover:text-primary"
+                            ? "text-accent"
+                            : "text-foreground hover:text-accent"
                         )}
                       >
                         {link.label}
@@ -276,7 +268,7 @@ export function Navigation() {
                             <Link
                               key={sublink.label}
                               to={sublink.href}
-                              className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                              className="block py-2 text-sm text-muted-foreground hover:text-accent transition-colors"
                             >
                               {sublink.label}
                             </Link>
@@ -288,15 +280,15 @@ export function Navigation() {
                 </nav>
 
                 <div className="space-y-4 pt-6 border-t border-border/50">
-                  <Button asChild className="w-full btn-premium">
-                    <Link to="/valuation">Book Valuation</Link>
+                  <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                    <Link to="/get-quote">Get a Quote</Link>
                   </Button>
                   <div className="text-center space-y-2 text-sm text-muted-foreground">
-                    <a href="tel:01246567540" className="block hover:text-primary transition-colors">
-                      01246 567 540
+                    <a href="tel:03300600499" className="block hover:text-accent transition-colors">
+                      0330 060 0499
                     </a>
-                    <a href="mailto:info@dalesandpeaks.co.uk" className="block hover:text-primary transition-colors">
-                      info@dalesandpeaks.co.uk
+                    <a href="mailto:info@ramtracking.com" className="block hover:text-accent transition-colors">
+                      info@ramtracking.com
                     </a>
                   </div>
                 </div>
