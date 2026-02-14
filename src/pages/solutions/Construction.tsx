@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HardHat, MapPin, Shield, Clock, FileCheck, Fuel, Users, BarChart3 } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import constructionHero from "@/assets/solution-construction-hero.webp";
 
 const features = [
@@ -114,7 +115,42 @@ const Construction = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* FAQ */}
+      <section className="section-padding">
+        <div className="container-premium">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">FAQ</p>
+              <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Common <span className="text-accent">Questions</span>
+              </h2>
+            </div>
+            <Accordion type="single" collapsible className="space-y-3">
+              <AccordionItem value="q1" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Can you track plant equipment that doesn't have a battery?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Yes — we offer battery-powered GPS trackers with up to 5 years of battery life, perfect for unpowered assets like generators, containers, and tool trailers.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q2" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>How does out-of-hours theft alerting work?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">You set geofences around your sites and define working hours. If any tracked asset moves outside those boundaries or times, you receive an instant push notification and email alert.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q3" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Can subcontractor vehicles be tracked too?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Absolutely. You can add subcontractor vehicles to your account with their own tracking devices, giving you verified time-on-site data without relying on self-reporting.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q4" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>How long does installation take?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Most vehicle trackers are installed in under 30 minutes. For plant equipment, our battery-powered devices are simply attached with heavy-duty magnets or bolts — no wiring needed.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q5" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Do you offer contracts or is it pay monthly?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">We offer flexible monthly rolling plans with no long-term contracts. You can scale up or down as your fleet changes across projects.</AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       <section className="section-padding bg-accent/5">
         <div className="container-premium text-center">
           <h2 className="font-bold text-display-3 text-foreground mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>

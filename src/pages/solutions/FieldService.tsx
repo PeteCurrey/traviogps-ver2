@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Wrench, MapPin, Clock, ClipboardList, Smartphone, Route, BarChart3, Users } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import fieldServiceHero from "@/assets/solution-field-service-hero.webp";
 
 const features = [
@@ -107,6 +108,41 @@ const FieldService = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-premium">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">FAQ</p>
+              <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Common <span className="text-accent">Questions</span>
+              </h2>
+            </div>
+            <Accordion type="single" collapsible className="space-y-3">
+              <AccordionItem value="q1" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>How does smart scheduling decide which engineer to send?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Travio considers each engineer's real-time location, skill set, availability, and current workload to recommend the best person for the job — minimising travel time and maximising first-time fix rates.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q2" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Can engineers use their own phones?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Yes — the Travio mobile app runs on both iOS and Android. Engineers can use their personal or company-issued devices to receive jobs, navigate, and submit reports.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q3" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>How are automated timesheets calculated?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">When an engineer arrives at and leaves a job site, Travio logs GPS-verified timestamps automatically. These are compiled into timesheets ready for payroll or client billing.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q4" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Do customers receive appointment notifications?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Yes. Customers get automated SMS or email updates with their appointment window and a live ETA link on the day, so they know exactly when the engineer will arrive.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q5" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Can I manage reactive and planned maintenance jobs?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Absolutely. Travio handles both emergency callouts and scheduled maintenance. You can prioritise urgent jobs and slot planned work around them for maximum efficiency.</AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>
