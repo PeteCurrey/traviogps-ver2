@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { HeroSection } from "@/components/home/HeroSection";
+import { StatsSection } from "@/components/home/StatsSection";
 import { AboutSection } from "@/components/home/AboutSection";
 import { FeaturedProperties } from "@/components/home/FeaturedProperties";
 import { AreasSection } from "@/components/home/AreasSection";
@@ -14,8 +15,6 @@ const Index = () => {
 
   const handleSplashComplete = () => {
     setShowSplash(false);
-    // TODO: Re-enable session storage check for production
-    // sessionStorage.setItem("splashSeen", "true");
   };
 
   return (
@@ -25,6 +24,7 @@ const Index = () => {
       )}
       <PageWrapper>
         <HeroSection />
+        <StatsSection />
         <AboutSection />
         <FeaturedProperties />
         <AreasSection />

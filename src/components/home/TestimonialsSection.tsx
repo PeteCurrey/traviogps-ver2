@@ -5,30 +5,30 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    quote: "Dales and Peaks have sold our house very professionally. Always keeping you updated on everything. They go above and beyond to get you sorted.",
-    author: "Joanne Johnson",
-    location: "Chesterfield",
+    quote: "RAM Tracking has transformed the way we manage our fleet. We've reduced fuel costs by 18% and improved job completion rates significantly.",
+    author: "Mark Richards",
+    location: "Operations Director, BuildRight Construction",
     rating: 5
   },
   {
     id: 2,
-    quote: "From the initial valuation to completion, the team were exceptional. Their local knowledge and marketing was outstanding. Highly recommended.",
-    author: "Michael & Sarah Thompson",
-    location: "Sheffield",
+    quote: "The real-time tracking and driver behaviour monitoring has been a game-changer. Our insurance premiums dropped within the first year.",
+    author: "Sarah Mitchell",
+    location: "Fleet Manager, Express Logistics",
     rating: 5
   },
   {
     id: 3,
-    quote: "We found our dream home in the Peak District through Dales and Peaks. Their expertise in the area was invaluable and they made the process seamless.",
-    author: "The Harrison Family",
-    location: "Bakewell",
+    quote: "Setting up was incredibly easy and the support team has been fantastic. We now complete 3 extra jobs per van per day thanks to better routing.",
+    author: "James Cooper",
+    location: "Managing Director, Cooper's Plumbing",
     rating: 5
   },
   {
     id: 4,
-    quote: "Excellent service from start to finish. The photography and marketing of our property was superb and resulted in a quick sale at full asking price.",
-    author: "David Chambers",
-    location: "Nottingham",
+    quote: "The dash cam integration gives us complete peace of mind. We've successfully defended two false claims this year alone.",
+    author: "Lisa Chambers",
+    location: "Transport Manager, Swift Deliveries",
     rating: 5
   }
 ];
@@ -36,83 +36,51 @@ const testimonials = [
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const next = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prev = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
     <section className="section-padding bg-card relative overflow-hidden">
-      {/* Background accent */}
       <motion.div 
         className="absolute top-0 right-0 w-1/2 h-full bg-secondary/30 -skew-x-12 translate-x-1/4"
         initial={{ x: "100%", opacity: 0 }}
         whileInView={{ x: "25%", opacity: 1 }}
-        transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 1.2 }}
         viewport={{ once: true }}
       />
       
       <div className="container-premium relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.p 
-              initial={{ opacity: 0, letterSpacing: "0.2em" }}
-              whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
-              transition={{ duration: 1, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-sm uppercase tracking-[0.3em] text-accent mb-4"
-            >
-              Testimonials
-            </motion.p>
-            <h2 className="font-serif text-display-3 text-foreground mb-6">
-              What our <span className="italic-accent">clients</span> say
+            <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">Testimonials</p>
+            <h2 className="font-bold text-display-3 text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              What Our <span className="text-accent">Customers</span> Say
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md">
-              We're proud of the relationships we build with our clients. 
-              Here's what some of them have to say about their experience with Dales & Peaks.
+              22,000+ businesses trust RAM Tracking to manage their fleets. Here's what some of them say.
             </p>
 
-            {/* Navigation */}
             <div className="flex items-center gap-4">
-              <motion.button
-                onClick={prev}
-                className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-accent hover:text-accent transition-colors duration-300"
-                aria-label="Previous testimonial"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <motion.button onClick={prev} className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-accent hover:text-accent transition-colors duration-300" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <ChevronLeft className="h-5 w-5" />
               </motion.button>
-              <motion.button
-                onClick={next}
-                className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-accent hover:text-accent transition-colors duration-300"
-                aria-label="Next testimonial"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <motion.button onClick={next} className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:border-accent hover:text-accent transition-colors duration-300" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <ChevronRight className="h-5 w-5" />
               </motion.button>
-              <span className="text-sm text-muted-foreground ml-4">
-                {currentIndex + 1} / {testimonials.length}
-              </span>
+              <span className="text-sm text-muted-foreground ml-4">{currentIndex + 1} / {testimonials.length}</span>
             </div>
           </motion.div>
 
-          {/* Testimonial card */}
           <motion.div 
             className="relative"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <AnimatePresence mode="wait">
@@ -121,51 +89,27 @@ export function TestimonialsSection() {
                 initial={{ opacity: 0, y: 30, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -30, scale: 0.98 }}
-                transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="bg-background p-8 md:p-10 rounded-sm shadow-elevated"
+                transition={{ duration: 0.5 }}
+                className="bg-background p-8 md:p-10 rounded-lg shadow-elevated"
               >
-                <motion.div
-                  initial={{ scale: 0, rotate: -10 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                >
-                  <Quote className="h-10 w-10 text-accent/30 mb-6" />
-                </motion.div>
-                <blockquote className="font-serif text-xl md:text-2xl text-foreground leading-relaxed mb-6">
+                <Quote className="h-10 w-10 text-accent/30 mb-6" />
+                <blockquote className="font-bold text-xl md:text-2xl text-foreground leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                   "{testimonials[currentIndex].quote}"
                 </blockquote>
                 <div className="flex items-center gap-4">
-                  <motion.div 
-                    className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <span className="font-serif text-lg text-foreground">
+                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                    <span className="font-bold text-lg text-accent">
                       {testimonials[currentIndex].author.charAt(0)}
                     </span>
-                  </motion.div>
+                  </div>
                   <div>
-                    <p className="font-medium text-foreground">
-                      {testimonials[currentIndex].author}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonials[currentIndex].location}
-                    </p>
+                    <p className="font-medium text-foreground">{testimonials[currentIndex].author}</p>
+                    <p className="text-sm text-muted-foreground">{testimonials[currentIndex].location}</p>
                   </div>
                 </div>
-
-                {/* Rating */}
                 <div className="flex gap-1 mt-4">
                   {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
-                    <motion.span 
-                      key={i} 
-                      className="text-accent"
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
-                    >
-                      ★
-                    </motion.span>
+                    <span key={i} className="text-accent">★</span>
                   ))}
                 </div>
               </motion.div>
