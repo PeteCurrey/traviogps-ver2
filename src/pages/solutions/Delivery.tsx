@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Package, Route, Clock, MapPin, Smartphone, Bell, BarChart3, Shield } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import deliveryHero from "@/assets/solution-delivery-hero.webp";
 
 const features = [
@@ -107,6 +108,41 @@ const Delivery = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-premium">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">FAQ</p>
+              <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Common <span className="text-accent">Questions</span>
+              </h2>
+            </div>
+            <Accordion type="single" collapsible className="space-y-3">
+              <AccordionItem value="q1" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>How does multi-drop route optimisation work?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Upload your daily delivery list and Travio automatically sequences the stops into the fastest route, factoring in traffic, time windows, and vehicle capacity.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q2" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Can customers track their delivery in real time?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Yes — customers receive an automated SMS or email with a live tracking link showing the driver's location and estimated arrival time, updated in real time.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q3" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>What counts as proof of delivery?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Drivers capture a digital signature, photo of the parcel at the door, and timestamped GPS location. All evidence is stored against the delivery record for dispute resolution.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q4" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Does the driver app work offline?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Yes. The driver app caches the route and delivery details so drivers can continue working in areas with poor signal. Data syncs automatically when connectivity is restored.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q5" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Can I integrate Travio with my existing systems?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Travio integrates with popular order management and e-commerce platforms via API. We also offer CSV import for quick daily upload of delivery manifests.</AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>

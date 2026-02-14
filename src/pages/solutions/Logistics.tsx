@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Truck, Route, Clock, BarChart3, Bell, Fuel, FileCheck, MapPin } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import logisticsHero from "@/assets/solution-logistics-hero.webp";
 
 const features = [
@@ -107,6 +108,41 @@ const Logistics = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-premium">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">FAQ</p>
+              <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Common <span className="text-accent">Questions</span>
+              </h2>
+            </div>
+            <Accordion type="single" collapsible className="space-y-3">
+              <AccordionItem value="q1" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Can you track trailers separately from the cab?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Yes — each trailer has its own GPS device so you always know where it is, whether hitched to a cab or parked at a depot. You can see cab and trailer pairings on the live map.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q2" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>How does Travio help with driver hours compliance?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Travio automatically downloads digital tachograph data and alerts you when drivers are approaching their limits, helping you stay compliant with UK and EU driving regulations.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q3" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>What fuel savings can I realistically expect?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Most logistics customers see 10–15% fuel savings through route optimisation, reduced idling alerts, and driver behaviour coaching. For a 20-vehicle fleet, that typically translates to over £1,000 per month.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q4" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Does Travio integrate with our TMS?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Yes. Travio offers API integrations with popular transport management systems, allowing you to sync jobs, routes, and delivery confirmations without double-handling data.</AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q5" className="border border-border/50 rounded-xl px-6 bg-card">
+                <AccordionTrigger className="text-foreground font-semibold text-left" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>How quickly can we get up and running?</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">Most fleets are fully live within a week. Vehicle installation takes under 30 minutes per unit, and our team handles the full setup including user training and system configuration.</AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>
