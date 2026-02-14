@@ -1,0 +1,125 @@
+import { PageWrapper } from "@/components/layout/PageWrapper";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Package, Route, Clock, MapPin, Smartphone, Bell, BarChart3, Shield } from "lucide-react";
+
+const features = [
+  { icon: Route, title: "Multi-Drop Routing", description: "Automatically sequence stops for the fastest route across dozens of daily deliveries." },
+  { icon: Clock, title: "Live Customer ETAs", description: "Send automated ETA notifications so customers know exactly when to expect their delivery." },
+  { icon: Package, title: "Proof of Delivery", description: "Capture photos, signatures, and notes at every stop for complete delivery confirmation." },
+  { icon: Smartphone, title: "Driver App", description: "Turn-by-turn navigation, stop lists, and delivery instructions — all on the driver's phone." },
+  { icon: MapPin, title: "Real-Time Tracking", description: "See every delivery van on a live map. Reassign stops on the fly when plans change." },
+  { icon: Bell, title: "Failed Delivery Alerts", description: "Instant notifications when a delivery can't be completed, with reason codes and photos." },
+  { icon: BarChart3, title: "Delivery Analytics", description: "Track success rates, average delivery times, and driver performance across your fleet." },
+  { icon: Shield, title: "Safe Driving Scores", description: "Monitor harsh braking, speeding, and acceleration to keep your drivers and public safe." },
+];
+
+const benefits = [
+  { stat: "25%", label: "More deliveries per day" },
+  { stat: "99.2%", label: "Delivery success rate" },
+  { stat: "40%", label: "Fewer customer complaints" },
+  { stat: "Real-time", label: "Customer ETA updates" },
+];
+
+const Delivery = () => {
+  return (
+    <PageWrapper>
+      <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
+        <div className="container-premium relative">
+          <motion.div
+            className="max-w-3xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">Delivery & Last Mile</p>
+            <h1 className="font-bold text-display-2 md:text-display-1 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Deliver More, <span className="text-accent">Faster</span>
+            </h1>
+            <p className="text-muted-foreground text-lg mb-8 max-w-xl">
+              Optimise multi-drop routes, send live ETAs to customers, and capture proof of every delivery with Travio.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Link to="/get-quote">Get a Quote</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/book-demo">Book a Demo</Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-12 border-y border-border/50 bg-card/50">
+        <div className="container-premium">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {benefits.map((b, i) => (
+              <motion.div
+                key={b.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <p className="text-3xl md:text-4xl font-bold text-accent mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{b.stat}</p>
+                <p className="text-sm text-muted-foreground">{b.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-premium">
+          <div className="text-center mb-16">
+            <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">Delivery Features</p>
+            <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Built for <span className="text-accent">Last-Mile Excellence</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                className="p-6 rounded-xl bg-card border border-border/50 hover:border-accent/30 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <feature.icon className="h-8 w-8 text-accent mb-4" />
+                <h3 className="font-semibold text-foreground mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-accent/5">
+        <div className="container-premium text-center">
+          <h2 className="font-bold text-display-3 text-foreground mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            Supercharge Your Delivery Operations
+          </h2>
+          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+            See how Travio helps delivery companies improve efficiency and customer satisfaction.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link to="/get-quote">Get a Quote</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link to="/book-demo">Book a Demo</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </PageWrapper>
+  );
+};
+
+export default Delivery;

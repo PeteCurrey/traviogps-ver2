@@ -22,6 +22,11 @@ import Blog from "./pages/Blog";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
+import Solutions from "./pages/solutions/Solutions";
+import Construction from "./pages/solutions/Construction";
+import Logistics from "./pages/solutions/Logistics";
+import Delivery from "./pages/solutions/Delivery";
+import FieldService from "./pages/solutions/FieldService";
 
 // Admin pages
 import Login from "./pages/admin/Login";
@@ -61,6 +66,11 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/solutions/construction" element={<Construction />} />
+            <Route path="/solutions/logistics" element={<Logistics />} />
+            <Route path="/solutions/delivery" element={<Delivery />} />
+            <Route path="/solutions/field-service" element={<FieldService />} />
 
             {/* Admin routes */}
             <Route path="/admin/login" element={<Login />} />
