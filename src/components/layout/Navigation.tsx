@@ -5,6 +5,7 @@ import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { DalesAndPeaksLogo } from "./DalesAndPeaksLogo";
+import { ThemeToggle } from "./ThemeToggle";
 
 const leftNavLinks = [
   { 
@@ -201,7 +202,8 @@ export function Navigation() {
                   pathname={location.pathname}
                 />
               ))}
-              <Button asChild size="sm" className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground">
+              <ThemeToggle />
+              <Button asChild size="sm" className="ml-2 bg-accent hover:bg-accent/90 text-accent-foreground">
                 <Link to="/get-quote">Get a Quote</Link>
               </Button>
             </div>
@@ -280,6 +282,9 @@ export function Navigation() {
                 </nav>
 
                 <div className="space-y-4 pt-6 border-t border-border/50">
+                  <div className="flex items-center justify-center">
+                    <ThemeToggle />
+                  </div>
                   <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
                     <Link to="/get-quote">Get a Quote</Link>
                   </Button>
@@ -288,7 +293,7 @@ export function Navigation() {
                       0330 060 0499
                     </a>
                     <a href="mailto:info@travio.com" className="block hover:text-accent transition-colors">
-                    info@travio.com
+                      info@travio.com
                     </a>
                   </div>
                 </div>
