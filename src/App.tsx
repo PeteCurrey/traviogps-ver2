@@ -8,19 +8,18 @@ import { AuthProvider } from "@/hooks/useAuth";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import Index from "./pages/Index";
-import Sales from "./pages/Sales";
-import Lettings from "./pages/Lettings";
-import MapSearch from "./pages/MapSearch";
-import PropertyDetail from "./pages/PropertyDetail";
-import Valuation from "./pages/Valuation";
+import VehicleTracking from "./pages/VehicleTracking";
+import DashCams from "./pages/DashCams";
+import FleetManagement from "./pages/FleetManagement";
+import Pricing from "./pages/Pricing";
+import GetQuote from "./pages/GetQuote";
+import BookDemo from "./pages/BookDemo";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
-import Areas from "./pages/Areas";
-import AreaGuide from "./pages/AreaGuide";
-import Sell from "./pages/Sell";
-import Landlords from "./pages/Landlords";
-import Tenants from "./pages/Tenants";
+import Blog from "./pages/Blog";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 // Admin pages
@@ -38,16 +37,6 @@ import Marketing from "./pages/admin/Marketing";
 import AdminShowcase from "./pages/admin/Showcase";
 import AdminDevelopments from "./pages/admin/Developments";
 
-// Additional public pages
-import NewHomes from "./pages/NewHomes";
-import DevelopmentDetail from "./pages/DevelopmentDetail";
-import ShowcaseIndex from "./pages/ShowcaseIndex";
-import ShowcaseDetail from "./pages/ShowcaseDetail";
-import PropertyManagement from "./pages/PropertyManagement";
-import Blog from "./pages/Blog";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -57,32 +46,21 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          {/* Scroll to top on route change */}
           <ScrollToTop />
-          {/* Premium scroll progress indicator */}
           <ScrollProgress />
           
           <Routes>
             {/* Public routes */}
             <Route path="/" element={<Index />} />
-            <Route path="/sales" element={<Sales />} />
-            <Route path="/lettings" element={<Lettings />} />
-            <Route path="/map-search" element={<MapSearch />} />
-            <Route path="/property/:slug" element={<PropertyDetail />} />
-            <Route path="/valuation" element={<Valuation />} />
+            <Route path="/vehicle-tracking" element={<VehicleTracking />} />
+            <Route path="/dash-cams" element={<DashCams />} />
+            <Route path="/fleet-management" element={<FleetManagement />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/get-quote" element={<GetQuote />} />
+            <Route path="/book-demo" element={<BookDemo />} />
             <Route path="/about" element={<About />} />
             <Route path="/about/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/areas" element={<Areas />} />
-            <Route path="/areas/:slug" element={<AreaGuide />} />
-            <Route path="/sell" element={<Sell />} />
-            <Route path="/landlords" element={<Landlords />} />
-            <Route path="/tenants" element={<Tenants />} />
-            <Route path="/new-homes" element={<NewHomes />} />
-            <Route path="/new-homes/:slug" element={<DevelopmentDetail />} />
-            <Route path="/showcase" element={<ShowcaseIndex />} />
-            <Route path="/showcase/:slug" element={<ShowcaseDetail />} />
-            <Route path="/property-management" element={<PropertyManagement />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
