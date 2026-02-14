@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Truck, Route, Clock, BarChart3, Bell, Fuel, FileCheck, MapPin } from "lucide-react";
+import logisticsHero from "@/assets/solution-logistics-hero.webp";
 
 const features = [
   { icon: Route, title: "Route Optimisation", description: "Plan the most efficient routes to reduce mileage, fuel costs, and driver hours." },
@@ -28,28 +29,38 @@ const Logistics = () => {
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">
-          <motion.div
-            className="max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">Logistics & Haulage</p>
-            <h1 className="font-bold text-display-2 md:text-display-1 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Smarter Logistics, <span className="text-accent">Lower Costs</span>
-            </h1>
-            <p className="text-muted-foreground text-lg mb-8 max-w-xl">
-              Optimise routes, track deliveries in real time, and give your customers accurate ETAs — all from one platform.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Link to="/get-quote">Get a Quote</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/book-demo">Book a Demo</Link>
-              </Button>
-            </div>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">Logistics & Haulage</p>
+              <h1 className="font-bold text-display-2 md:text-display-1 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Smarter Logistics, <span className="text-accent">Lower Costs</span>
+              </h1>
+              <p className="text-muted-foreground text-lg mb-8 max-w-xl">
+                Optimise routes, track deliveries in real time, and give your customers accurate ETAs — all from one platform.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Link to="/get-quote">Get a Quote</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link to="/book-demo">Book a Demo</Link>
+                </Button>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <img src={logisticsHero} alt="Large logistics fleet of HGV trucks at a distribution centre" className="w-full h-auto object-cover" loading="eager" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
