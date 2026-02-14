@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Wrench, MapPin, Clock, ClipboardList, Smartphone, Route, BarChart3, Users } from "lucide-react";
+import fieldServiceHero from "@/assets/solution-field-service-hero.webp";
 
 const features = [
   { icon: MapPin, title: "Engineer Location", description: "See where every engineer is in real time and dispatch the nearest available person to each job." },
@@ -28,28 +29,38 @@ const FieldService = () => {
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">
-          <motion.div
-            className="max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">Field Service</p>
-            <h1 className="font-bold text-display-2 md:text-display-1 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Get the Right Engineer to the <span className="text-accent">Right Job, Faster</span>
-            </h1>
-            <p className="text-muted-foreground text-lg mb-8 max-w-xl">
-              Dispatch smarter, track engineers in real time, and complete more jobs per day with Travio field service management.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Link to="/get-quote">Get a Quote</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/book-demo">Book a Demo</Link>
-              </Button>
-            </div>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">Field Service</p>
+              <h1 className="font-bold text-display-2 md:text-display-1 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Get the Right Engineer to the <span className="text-accent">Right Job, Faster</span>
+              </h1>
+              <p className="text-muted-foreground text-lg mb-8 max-w-xl">
+                Dispatch smarter, track engineers in real time, and complete more jobs per day with Travio field service management.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Link to="/get-quote">Get a Quote</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link to="/book-demo">Book a Demo</Link>
+                </Button>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <img src={fieldServiceHero} alt="Field service engineer with branded work van" className="w-full h-auto object-cover" loading="eager" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
