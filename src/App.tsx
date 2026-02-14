@@ -26,16 +26,11 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/admin/Login";
 import AdminLayout from "./components/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
-import Properties from "./pages/admin/Properties";
-import PropertyEdit from "./pages/admin/PropertyEdit";
 import Leads from "./pages/admin/Leads";
 import TeamMembers from "./pages/admin/TeamMembers";
 import Testimonials from "./pages/admin/Testimonials";
-import AdminAreaGuides from "./pages/admin/AreaGuides";
 import Settings from "./pages/admin/Settings";
 import Marketing from "./pages/admin/Marketing";
-import AdminShowcase from "./pages/admin/Showcase";
-import AdminDevelopments from "./pages/admin/Developments";
 
 const queryClient = new QueryClient();
 
@@ -69,16 +64,11 @@ const App = () => (
             <Route path="/admin/login" element={<Login />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<Dashboard />} />
-              <Route path="properties" element={<Properties />} />
-              <Route path="properties/:id" element={<PropertyEdit />} />
               <Route path="leads" element={<Leads />} />
               <Route path="team" element={<TeamMembers />} />
               <Route path="testimonials" element={<Testimonials />} />
-              <Route path="areas" element={<AdminAreaGuides />} />
               <Route path="settings" element={<Settings />} />
               <Route path="marketing" element={<Marketing />} />
-              <Route path="showcase" element={<AdminShowcase />} />
-              <Route path="developments" element={<AdminDevelopments />} />
             </Route>
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
