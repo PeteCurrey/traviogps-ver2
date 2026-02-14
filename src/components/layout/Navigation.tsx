@@ -26,9 +26,6 @@ const leftNavLinks = [
       { label: "Mileage Reports", href: "/fleet-management" },
     ]
   },
-];
-
-const rightNavLinks = [
   { 
     label: "Dash Cams", 
     href: "/dash-cams",
@@ -37,6 +34,9 @@ const rightNavLinks = [
       { label: "HD Cameras", href: "/dash-cams" },
     ]
   },
+];
+
+const rightNavLinks = [
   { 
     label: "Solutions", 
     href: "/solutions",
