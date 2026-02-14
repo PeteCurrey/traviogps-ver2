@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Estate Agency Design System
+   Inspired by Blenheim.co.uk's sophisticated dark aesthetic
+   All colors in HSL format
+*/
+
+@layer base {
+  :root {
+    /* Core brand colors - Deep forest green palette */
+    --background: 160 20% 8%;
+    --foreground: 45 20% 95%;
+
+    /* Card surfaces with subtle depth */
+    --card: 160 18% 10%;
+    --card-foreground: 45 20% 95%;
+
+    /* Popover - slightly elevated */
+    --popover: 160 16% 12%;
+    --popover-foreground: 45 20% 95%;
+
+    /* Primary - Warm cream/gold accent */
+    --primary: 38 35% 85%;
+    --primary-foreground: 160 20% 8%;
+
+    /* Secondary - Muted forest tones */
+    --secondary: 160 12% 18%;
+    --secondary-foreground: 45 20% 90%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 160 10% 15%;
+    --muted-foreground: 45 10% 65%;
+
+    /* Accent - Copper/bronze highlights */
+    --accent: 25 45% 50%;
+    --accent-foreground: 45 20% 98%;
+
+    /* Destructive states */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 160 10% 20%;
+    --input: 160 10% 18%;
+    --ring: 38 35% 75%;
+
+    /* Border radius */
+    --radius: 0.25rem;
+
+    /* Sidebar colors */
+    --sidebar-background: 160 18% 10%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 38 35% 85%;
+    --sidebar-primary-foreground: 160 20% 8%;
+    --sidebar-accent: 160 12% 18%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 160 10% 20%;
+    --sidebar-ring: 38 35% 75%;
+
+    /* Custom premium tokens */
+    --gold: 38 55% 65%;
+    --gold-muted: 38 25% 45%;
+    --cream: 45 30% 92%;
+    --forest: 160 25% 12%;
+    --forest-light: 160 20% 18%;
+    --charcoal: 160 15% 6%;
+
+    /* Gradient definitions */
+    --gradient-hero: linear-gradient(180deg, hsl(160 20% 8% / 0.3) 0%, hsl(160 20% 8% / 0.8) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(160 18% 10%) 0%, hsl(160 20% 8%) 100%);
+    
+    /* Premium shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 40px -8px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px -10px hsl(38 55% 65% / 0.2);
+  }
+
+  /* Light mode - maintaining premium feel */
+  .light {
+    --background: 45 30% 97%;
+    --foreground: 160 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 25% 12%;
+
+    --primary: 160 25% 15%;
+    --primary-foreground: 45 30% 97%;
+
+    --secondary: 45 20% 92%;
+    --secondary-foreground: 160 25% 15%;
+
+    --muted: 45 15% 92%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 25 45% 50%;
+    --accent-foreground: 45 30% 97%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 15% 85%;
+    --input: 45 15% 88%;
+    --ring: 160 25% 25%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 160 25% 12%;
+    --sidebar-primary: 160 25% 15%;
+    --sidebar-primary-foreground: 45 30% 97%;
+    --sidebar-accent: 45 20% 92%;
+    --sidebar-accent-foreground: 160 25% 15%;
+    --sidebar-border: 45 15% 85%;
+    --sidebar-ring: 160 25% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Premium typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply font-medium tracking-tight;
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Premium button styles */
+  .btn-premium {
+    @apply relative overflow-hidden transition-all duration-500 ease-out;
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-premium:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-md bg-background/80 border border-border/50;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Container with max width */
+  .container-premium {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Image overlay gradient */
+  .image-overlay {
+    @apply absolute inset-0;
+    background: var(--gradient-hero);
+  }
+
+  /* Elegant underline animation */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Italic accent text (like Blenheim's "your" styling) */
+  .italic-accent {
+    font-family: 'Playfair Display', serif;
+    @apply italic font-normal;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
+  /* Fade in animation */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  /* Slide in from left */
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+  }
+
+  /* Scale in */
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+  }
+}
