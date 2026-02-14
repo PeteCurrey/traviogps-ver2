@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Truck, Video, Settings } from "lucide-react";
+import fleetHeroTracking from "@/assets/fleet-hero-tracking.webp";
+import fleetHeroDashcam from "@/assets/fleet-hero-dashcam.webp";
+import fleetManagerAbout from "@/assets/fleet-manager-about.webp";
 
 interface ServiceCard {
   category: string;
@@ -18,7 +21,7 @@ const serviceCards: ServiceCard[] = [
     category: "GPS Tracking",
     title: "Vehicle",
     titleAccent: "Tracking",
-    image: "https://assets.ramtracking.com/_assets/uploads/pages/691884-mixed-fleet-banner.jpg",
+    image: fleetHeroTracking,
     href: "/vehicle-tracking",
     icon: Truck,
     singleCta: { label: "Learn More", href: "/vehicle-tracking" }
@@ -27,7 +30,7 @@ const serviceCards: ServiceCard[] = [
     category: "HD Video",
     title: "Connected",
     titleAccent: "Dash Cams",
-    image: "https://assets.ramtracking.com/_assets/uploads/home/f9f7d0-new-banner.jpg",
+    image: fleetHeroDashcam,
     href: "/dash-cams",
     icon: Video,
     singleCta: { label: "Learn More", href: "/dash-cams" }
@@ -36,7 +39,7 @@ const serviceCards: ServiceCard[] = [
     category: "Complete Control",
     title: "Fleet",
     titleAccent: "Management",
-    image: "https://assets.ramtracking.com/_assets/uploads/pages/8e3986-fleet-manager-with-vans.jpg",
+    image: fleetManagerAbout,
     href: "/fleet-management",
     icon: Settings,
     singleCta: { label: "Learn More", href: "/fleet-management" }

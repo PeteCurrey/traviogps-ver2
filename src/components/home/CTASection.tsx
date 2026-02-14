@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import fleetCtaBanner from "@/assets/fleet-cta-banner.webp";
 
 export function CTASection() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0">
         <motion.img
-          src="https://assets.ramtracking.com/_assets/uploads/pages/691884-mixed-fleet-banner.jpg"
+          src={fleetCtaBanner}
           alt="Fleet vehicles"
           className="w-full h-full object-cover"
           initial={{ scale: 1.1 }}

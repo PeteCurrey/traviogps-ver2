@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Eye, Bell, Zap, BarChart3 } from "lucide-react";
+import fleetManagerAbout from "@/assets/fleet-manager-about.webp";
 
 const features = [
   { icon: Eye, text: "See every vehicle and job in one place" },
@@ -24,7 +25,7 @@ export function AboutSection() {
           >
             <div className="aspect-[4/3] overflow-hidden rounded-lg">
               <motion.img
-                src="https://assets.ramtracking.com/_assets/uploads/pages/8e3986-fleet-manager-with-vans.jpg"
+                src={fleetManagerAbout}
                 alt="Fleet manager monitoring vehicles"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
