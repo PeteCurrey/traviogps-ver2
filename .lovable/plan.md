@@ -1,172 +1,202 @@
 
-# Plan: Import All Property Listings from dalesandpeaks.co.uk
+
+# Redesign: Dales and Peaks → RAM Tracking-Inspired GPS Tracker Website
 
 ## Overview
 
-Based on my analysis of the old dalesandpeaks.co.uk website, there are approximately **68 currently available properties for sale** (with 127 total including sold/under offer properties). The old website currently shows no active rental listings. The new build currently has only **12 properties** in the database.
+This plan transforms the current estate agency website into a professional GPS vehicle tracking and fleet management website, using content and structure inspired by ramtracking.com. We will use Firecrawl to crawl the RAM Tracking website for deeper content extraction, then systematically replace all property/estate agency content with GPS tracking content across every page and component.
 
-This plan covers:
-1. Scraping and importing all available property listings from the old website
-2. Downloading main images for each property
-3. Ensuring properties appear correctly in the admin panel and front-end
-4. Updating the hero section right-hand card image to a Peak District stone property
+## Phase 1: Connect Firecrawl and Crawl ramtracking.com
 
----
+1. Connect the existing Firecrawl connector ("Avorria") to this project
+2. Create a backend function to crawl key pages from ramtracking.com:
+   - Homepage, Vehicle Tracking, Dash Cams, Fleet Management, Job Management, Pricing, About, Contact, Case Studies
+3. Store the crawled content for reference during the redesign
 
-## Phase 1: Property Data Extraction and Import
+## Phase 2: Rebrand Core Identity
 
-### Step 1.1: Create a Property Import Edge Function
+**Navigation (`Navigation.tsx`)**
+- Replace "Dales and Peaks" branding with new GPS tracking brand name and logo
+- New nav structure:
+  - Vehicle Tracking (submenu: GPS Trackers, OBD Trackers, Asset Trackers)
+  - Fleet Management (submenu: Driver App, Vehicle Checks, Mileage Reports)
+  - Dash Cams (submenu: Connected Dash Cams, HD Cameras)
+  - Solutions (submenu: Small Fleets, Enterprise, Industries)
+  - Pricing
+  - Contact
+- Update top bar: replace phone/email/location with fleet-relevant contact info
+- Replace "Book Valuation" CTA with "Get a Quote"
 
-I will create a backend function to systematically scrape property listings from the old website. The function will:
+**Logo (`DalesAndPeaksLogo.tsx`)**
+- Replace with a new GPS/tracking themed logo component
 
-- Fetch property listing pages (for-sale and lettings)
-- Parse property details from each listing page including:
-  - Title and address
-  - Price
-  - Bedrooms, bathrooms, property type
-  - Main image URL
-  - Description and features
-  - Postcode/location details
-  - EPC rating, tenure, council tax band
+**Footer (`Footer.tsx`)**
+- Replace all property-related footer links with tracking product categories
+- Update company info, address, and social links
+- New columns: Products, Solutions, Resources, Company
 
-### Step 1.2: Property Data Mapping
+**Color Scheme (`index.css`)**
+- Shift from dark forest green estate agency palette to a modern dark navy/blue tech palette
+- Keep the premium dark aesthetic but with blue/orange tech accents inspired by RAM Tracking
 
-Each scraped property will be mapped to the database schema:
+## Phase 3: Redesign Homepage Sections
 
-| Old Website Field | Database Column |
-|-------------------|-----------------|
-| Address | street, area, city, postcode, location |
-| Price | price, price_formatted |
-| Bedrooms | bedrooms |
-| Property Type | property_type (mapped to enum values) |
-| Listing Type | listing_type (sale/rent) |
-| Main Image | images array |
-| Description | description, short_description |
-| Features | features array |
-| EPC/Tenure | epc_rating, tenure |
+**Hero Section (`HeroSection.tsx`)**
+- Replace 3 property service cards with 3 product cards:
+  - "Vehicle Tracking" - GPS tracking for your fleet
+  - "Connected Dash Cams" - HD video and fleet data
+  - "Fleet Management" - Complete fleet control
+- Use fleet/van imagery from RAM Tracking's asset URLs
+- Update bottom tagline to "Fleet Management Solutions for UK Businesses"
 
-### Step 1.3: Database Insertions
+**Stats/Social Proof Section (new component)**
+- Add a "Proven Results" stats bar (inspired by RAM Tracking):
+  - 15% Average Fuel Savings
+  - 22,000+ Business Fleets
+  - 98% Customer Retention
+  - 200M+ Calculated Savings
+- Use the existing `AnimatedCounter` component
 
-I will insert approximately 60+ new property records into the `properties` table. These will:
-- Generate unique slugs for each property
-- Set appropriate default values for optional fields
-- Mark all as `status: available` unless identified as sold/under offer
-- Not mark any as `featured` initially (you can set these manually via admin)
+**About Section (`AboutSection.tsx`)**
+- Replace estate agency story with fleet management company story
+- "Manage Your Fleet with Confidence" messaging
+- Highlight: see every vehicle, get alerts, make fast decisions, access reports
+- Update image to fleet/tracking imagery
 
----
+**Featured Properties → Featured Products (`FeaturedProperties.tsx`)**
+- Complete replacement: instead of property cards, show product/solution cards:
+  - RAM Tracking (vehicle tracking system)
+  - RAM Live (connected dash cams)
+  - DVLA Driver Checks
+  - Job Management (Klipboard)
+- Each card with icon, title, description, and CTA
 
-## Phase 2: Image Handling
+**Areas Section → Industries/Solutions Section (`AreasSection.tsx`)**
+- Replace area guides with industry solutions:
+  - Construction, Logistics, Delivery, Field Service
+- Each with relevant imagery and description
 
-### Step 2.1: Download and Store Main Images
+**Services Section (`ServicesSection.tsx`)**
+- Replace property services with fleet benefits:
+  - "Complete More Jobs" - smarter scheduling
+  - "Ongoing Support" - UK-based team
+  - "Proven Savings" - reduce running costs
+  - "Stay Compliant" - automatic records
 
-For each property, I will:
-1. Download the main/hero image from the old website's S3 bucket
-2. Store images in `public/properties/` directory using the property slug as filename
-3. Update the property record with the local image path
+**Testimonials Section (`TestimonialsSection.tsx`)**
+- Replace property testimonials with fleet management customer quotes
+- Update author details to business names/roles
 
-### Step 2.2: Image Naming Convention
+**CTA Section (`CTASection.tsx`)**
+- Replace "Ready to find your next home?" with "Ready to take control of your fleet?"
+- CTAs: "Get a Quote" and "Book a Demo"
 
-Images will follow the pattern:
-```
-public/properties/{property-slug}.webp
-```
+## Phase 4: Replace/Repurpose Pages
 
-Example: `public/properties/walton-back-lane-walton.webp`
+**Keep and Adapt:**
+- `/` (Index) - redesigned homepage
+- `/about` - company story adapted for fleet tracking
+- `/contact` - update form for fleet enquiries
+- `/blog` - keep structure, update for fleet content
+- `/privacy`, `/terms` - update company references
 
----
+**Replace:**
+- `/sales` → `/vehicle-tracking` - GPS tracker products page
+- `/lettings` → `/dash-cams` - Connected dash cam products
+- `/sell` → `/fleet-management` - Fleet management software
+- `/landlords` → `/job-management` - Job management solutions
+- `/valuation` → `/get-quote` - Quote request form
+- `/areas` → `/solutions` - Industry solutions overview
+- `/areas/:slug` → `/solutions/:slug` - Individual industry pages
+- `/map-search` → `/pricing` - Pricing packages (Lite, Core, Plus)
+- `/new-homes` → `/resources` - Resources hub
+- `/tenants` → `/book-demo` - Demo booking page
 
-## Phase 3: Hero Section Image Update
+**Remove:**
+- `/property/:slug` - Property detail (no longer needed)
+- `/showcase` pages - Not relevant
+- Property matcher chat widget
 
-### Step 3.1: Update Right-Hand Card Image
+**Admin panel:** Keep the structure but update labels/fields for managing fleet content instead of properties.
 
-The hero section in `src/components/home/HeroSection.tsx` uses three cards with Unsplash stock images. I will:
+## Phase 5: Update Routing and App Structure
 
-1. Source an appropriate image of a beautiful Peak District stone-built property (either from the scraped properties or a high-quality representative image)
-2. Update the third card (Valuations) image URL to use this authentic Peak District property image
+**`App.tsx`**
+- Update all route paths to new fleet-focused URLs
+- Remove PropertyMatcherChat widget
+- Update page imports
 
-Current images:
-- Card 1 (Find Property): Modern interior shot
-- Card 2 (Buy/Sell): Luxury exterior
-- Card 3 (Valuations): Modern property exterior - **will be replaced**
+## Phase 6: Content Pages (Key New Pages)
 
----
+**Pricing Page (`/pricing`)**
+- 3-tier pricing cards: Lite, Core, Plus (Most Popular)
+- Feature comparison table
+- "Get Pricing" and "Book a Demo" CTAs
 
-## Phase 4: Verification and Quality Assurance
+**Vehicle Tracking Page (`/vehicle-tracking`)**
+- Hero with product imagery
+- Feature grid: real-time tracking, alerts, reports, OBD plug-in
+- How it works section
 
-### Step 4.1: Admin Panel Verification
+**Get a Quote Page (`/get-quote`)**
+- Lead capture form: company name, fleet size, contact details, requirements
+- Saves to existing `leads` table with adapted fields
 
-All imported properties will automatically appear in:
-- `/admin/properties` - Full CRUD management
-- Filtering by status (available/sold/under-offer)
-- Filtering by type (sale/rent)
-- Search functionality
+## Phase 7: Asset and Image Updates
 
-### Step 4.2: Front-End Display
+- Replace all property images with fleet/vehicle/tracking imagery
+- Use RAM Tracking's public asset URLs where appropriate for placeholder content
+- Update favicon and meta information
 
-Properties will display on:
-- `/sales` - Sales listings page
-- `/lettings` - Rental listings page (if any rentals exist)
-- `/property/{slug}` - Individual property detail pages
-- Homepage Featured Properties section (if marked as featured)
-- Map search functionality
+## Technical Details
 
----
+### Files to Create:
+- `src/components/home/StatsSection.tsx` - Animated stats bar
+- `src/components/home/ProductsSection.tsx` - Featured products grid
+- `src/components/home/IndustriesSection.tsx` - Industry solutions
+- `src/pages/VehicleTracking.tsx`
+- `src/pages/DashCams.tsx`
+- `src/pages/FleetManagement.tsx`
+- `src/pages/JobManagement.tsx`
+- `src/pages/Pricing.tsx`
+- `src/pages/GetQuote.tsx`
+- `src/pages/BookDemo.tsx`
+- `src/pages/Solutions.tsx`
+- `src/pages/SolutionDetail.tsx`
+- `src/pages/Resources.tsx`
 
-## Technical Implementation Details
+### Files to Heavily Modify:
+- `src/App.tsx` - All routes
+- `src/pages/Index.tsx` - New section composition
+- `src/components/layout/Navigation.tsx` - Complete nav restructure
+- `src/components/layout/Footer.tsx` - Complete footer restructure
+- `src/components/layout/DalesAndPeaksLogo.tsx` - New brand
+- `src/components/home/HeroSection.tsx` - Fleet hero cards
+- `src/components/home/AboutSection.tsx` - Fleet about content
+- `src/components/home/ServicesSection.tsx` - Fleet benefits
+- `src/components/home/AreasSection.tsx` → Industries
+- `src/components/home/TestimonialsSection.tsx` - Fleet testimonials
+- `src/components/home/CTASection.tsx` - Fleet CTA
+- `src/components/home/FeaturedProperties.tsx` → Products
+- `src/index.css` - Color palette shift
+- `src/components/SplashScreen.tsx` - New brand splash
 
-### Database Changes Required
-None - the existing `properties` table schema fully supports all required fields.
+### Files to Remove/Deprecate:
+- Property-specific components (PropertyCard, PropertyGrid, PropertyFilters, etc.)
+- Property hooks (useProperties, useSavedProperties)
+- Property types
+- Property matcher chat
+- Showcase components
+- Development components
 
-### Files to Modify
+### Execution Order:
+1. Connect Firecrawl and crawl RAM Tracking pages for content reference
+2. Update color scheme and branding (CSS, logo, splash)
+3. Rebuild navigation and footer
+4. Rebuild homepage sections one by one
+5. Create new product/service pages
+6. Update routing in App.tsx
+7. Clean up unused property components
 
-1. **`src/components/home/HeroSection.tsx`**
-   - Update image URL for the third (rightmost) service card to use a Peak District stone property image
+This is a large transformation that will be done incrementally, section by section, to ensure quality at each step.
 
-2. **New Edge Function: `supabase/functions/import-properties/index.ts`**
-   - Handles property scraping and import logic
-   - Can be triggered manually or via admin panel
-
-3. **Property Images**
-   - Download and store ~60+ property images to `public/properties/`
-
-### Database Insertions
-- INSERT ~60+ new property records via SQL or the import function
-
----
-
-## Estimated Scope
-
-| Component | Quantity |
-|-----------|----------|
-| New properties to import | ~60-68 |
-| Images to download | ~60-68 |
-| Code files to modify | 1-2 |
-| New edge function | 1 |
-
----
-
-## Considerations and Notes
-
-1. **Image Quality**: Main images from the old site are high-resolution WebP format, suitable for direct use.
-
-2. **Data Accuracy**: Property details (bedrooms, price, location) will be extracted as displayed on the old website.
-
-3. **Duplicate Prevention**: I will check for existing properties by address/slug to avoid duplicates.
-
-4. **Rental Properties**: The old website currently shows no active rentals ("Unfortunately, we do not currently have any properties that match your search criteria" on the lettings page). Only sales listings will be imported.
-
-5. **Status Tracking**: Properties marked as "Sold Subject To Contract" on the old site will be imported with `status: under-offer`.
-
-6. **Additional Images**: This initial import will only include the main/hero image for each property. You mentioned you will upload additional images via the admin panel later - the system fully supports multiple images per property.
-
----
-
-## Ready to Implement
-
-Upon approval, I will:
-1. Create the property import edge function
-2. Systematically scrape all available properties from dalesandpeaks.co.uk
-3. Download main images for each property
-4. Insert all properties into the database
-5. Update the hero section with an authentic Peak District property image
-6. Verify everything displays correctly in admin and front-end
