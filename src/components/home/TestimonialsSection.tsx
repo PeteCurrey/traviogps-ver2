@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    quote: "RAM Tracking has transformed the way we manage our fleet. We've reduced fuel costs by 18% and improved job completion rates significantly.",
+    quote: "Travio has transformed the way we manage our fleet. We've reduced fuel costs by 18% and improved job completion rates significantly.",
     author: "Mark Richards",
     location: "Operations Director, BuildRight Construction",
     rating: 5
@@ -62,7 +62,7 @@ export function TestimonialsSection() {
               What Our <span className="text-accent">Customers</span> Say
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md">
-              22,000+ businesses trust RAM Tracking to manage their fleets. Here's what some of them say.
+              22,000+ businesses trust Travio to manage their fleets. Here's what some of them say.
             </p>
 
             <div className="flex items-center gap-4">

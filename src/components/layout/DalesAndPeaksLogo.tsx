@@ -29,8 +29,8 @@ export function DalesAndPeaksLogo({ className, size = "md" }: DalesAndPeaksLogoP
         "font-bold tracking-tight",
         sizeClasses[size]
       )} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-        <span className="text-foreground">RAM</span>
-        <span className="text-accent ml-1">Tracking</span>
+        <span className="text-foreground">Trav</span>
+        <span className="text-accent">io</span>
       </span>
     </div>
   );

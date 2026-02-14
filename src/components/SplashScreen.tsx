@@ -47,8 +47,8 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           animate={{ opacity: showText ? 1 : 0, x: showText ? 0 : -20 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="text-foreground">RAM</span>
-          <span className="text-accent ml-2">Tracking</span>
+          <span className="text-foreground">Trav</span>
+          <span className="text-accent">io</span>
         </motion.span>
       </div>
 

@@ -62,7 +62,7 @@ export function ServicesSection() {
         >
           <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">Key Benefits</p>
           <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Why Choose <span className="text-accent">RAM Tracking</span>
+            Why Choose <span className="text-accent">Travio</span>
           </h2>
         </motion.div>
 

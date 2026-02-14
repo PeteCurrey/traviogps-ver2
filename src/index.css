@@ -4,9 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* GPS Fleet Tracking Tech Design System
+/* Travio GPS Fleet Tracking Design System
    Modern dark navy/blue palette with orange tech accents
-   Inspired by RAM Tracking's professional fleet aesthetic
 */
 
 @layer base {

@@ -54,7 +54,7 @@ export function AboutSection() {
               viewport={{ once: true }}
               className="text-sm uppercase tracking-[0.3em] text-accent mb-4"
             >
-              Why RAM Tracking
+              Why Travio
             </motion.p>
             <h2 className="font-bold text-display-3 md:text-display-2 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Manage Your Fleet with <span className="text-accent">Confidence</span>
