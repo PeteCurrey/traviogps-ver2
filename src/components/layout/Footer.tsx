@@ -30,9 +30,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com/ramtracking", label: "Facebook" },
-  { icon: Twitter, href: "https://twitter.com/ramtracking", label: "Twitter" },
-  { icon: Linkedin, href: "https://linkedin.com/company/ramtracking", label: "LinkedIn" },
+  { icon: Facebook, href: "https://facebook.com/travio", label: "Facebook" },
+  { icon: Twitter, href: "https://twitter.com/travio", label: "Twitter" },
+  { icon: Linkedin, href: "https://linkedin.com/company/travio", label: "LinkedIn" },
 ];
 
 export function Footer() {
@@ -46,16 +46,16 @@ export function Footer() {
               <DalesAndPeaksLogo size="sm" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
-              Powering every working day since 2004. GPS vehicle tracking and fleet management solutions trusted by 22,000+ UK businesses.
+              Powering every working day since 2004. GPS vehicle tracking and fleet management solutions trusted by 22,000+ businesses.
             </p>
             <div className="space-y-3">
               <a href="tel:03300600499" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors">
                 <Phone className="h-4 w-4" />
                 <span>0330 060 0499</span>
               </a>
-              <a href="mailto:info@ramtracking.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors">
+              <a href="mailto:info@travio.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors">
                 <Mail className="h-4 w-4" />
-                <span>info@ramtracking.com</span>
+                <span>info@travio.com</span>
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
@@ -121,7 +121,7 @@ export function Footer() {
       <div className="border-t border-border/30">
         <div className="container-premium py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-xs md:text-sm text-muted-foreground text-center md:text-left">
-            © {new Date().getFullYear()} RAM Tracking. All rights reserved.
+            © {new Date().getFullYear()} Travio. All rights reserved.
           </div>
           
           <div className="flex items-center gap-3">

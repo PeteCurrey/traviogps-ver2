@@ -32,7 +32,7 @@ export function CTASection() {
             Ready to Take Control of <span className="text-accent">Your Fleet?</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-lg mx-auto">
-            Join 22,000+ UK businesses who trust RAM Tracking to manage their fleet. Get a quote today or book a free demo.
+            Join 22,000+ businesses who trust Travio to manage their fleet. Get a quote today or book a free demo.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>

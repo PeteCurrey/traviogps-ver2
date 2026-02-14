@@ -139,13 +139,13 @@ export function Navigation() {
               <Phone className="h-3.5 w-3.5" />
               <span>0330 060 0499</span>
             </a>
-            <a href="mailto:info@ramtracking.com" className="flex items-center gap-2 hover:text-accent transition-colors">
+            <a href="mailto:info@travio.com" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="h-3.5 w-3.5" />
-              <span>info@ramtracking.com</span>
+              <span>info@travio.com</span>
             </a>
           </div>
           <div className="text-muted-foreground">
-            Trusted by 22,000+ UK Businesses
+            Trusted by 22,000+ Businesses
           </div>
         </div>
       </div>
@@ -287,8 +287,8 @@ export function Navigation() {
                     <a href="tel:03300600499" className="block hover:text-accent transition-colors">
                       0330 060 0499
                     </a>
-                    <a href="mailto:info@ramtracking.com" className="block hover:text-accent transition-colors">
-                      info@ramtracking.com
+                    <a href="mailto:info@travio.com" className="block hover:text-accent transition-colors">
+                    info@travio.com
                     </a>
                   </div>
                 </div>
