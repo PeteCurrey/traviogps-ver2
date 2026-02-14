@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 
-import heroBanner from "@/assets/hero-banner.webp";
+import fleetHeroTracking from "@/assets/fleet-hero-tracking.webp";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -46,8 +46,8 @@ export default function Team() {
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroBanner}
-            alt="Meet the Dales & Peaks team"
+            src={fleetHeroTracking}
+            alt="Meet the Travio team"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-background/85" />
