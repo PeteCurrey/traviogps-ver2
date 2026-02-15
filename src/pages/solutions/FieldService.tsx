@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Wrench, MapPin, Clock, ClipboardList, Smartphone, Route, BarChart3, Users } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import fieldServiceHero from "@/assets/solution-field-service-hero.webp";
+import { SEOHead } from "@/components/SEOHead";
 
 const features = [
   { icon: MapPin, title: "Engineer Location", description: "See where every engineer is in real time and dispatch the nearest available person to each job." },
@@ -39,6 +40,7 @@ const faqJsonLd = {
 const FieldService = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Field Service Management | Engineer Tracking | Travio" description="Dispatch the nearest engineer, track jobs in real time, and automate timesheets. Travio field service software helps you complete more jobs daily." />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />

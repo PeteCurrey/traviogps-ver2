@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { LayoutDashboard, Users, FileCheck, Fuel, ClipboardList, Smartphone, TrendingUp, Wrench } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const features = [
   { icon: LayoutDashboard, title: "Central Dashboard", description: "One platform to manage your entire fleet — vehicles, drivers, jobs, and costs." },
@@ -18,6 +19,7 @@ const features = [
 const FleetManagement = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Fleet Management Software | All-in-One Platform | Travio" description="Manage your entire fleet from one platform. Driver management, vehicle checks, fuel monitoring, and maintenance scheduling with Travio fleet software." />
       {/* Hero */}
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />

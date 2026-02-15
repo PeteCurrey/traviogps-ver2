@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const plans = [
   {
@@ -55,6 +56,7 @@ const plans = [
 const PricingPage = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Pricing | Affordable Fleet Tracking Plans | Travio" description="Simple, transparent pricing for GPS tracking, dash cams, and fleet management. Plans from £12.99/month per vehicle. No hidden fees." />
       {/* Hero */}
       <section className="relative pt-32 lg:pt-44 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />

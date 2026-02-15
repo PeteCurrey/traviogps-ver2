@@ -8,6 +8,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Monitor, Clock, Users, CheckCircle } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const benefits = [
   { icon: Monitor, title: "Live Platform Walkthrough", description: "See the tracking dashboard in action with real fleet data." },
@@ -51,6 +52,7 @@ const BookDemo = () => {
 
   return (
     <PageWrapper>
+      <SEOHead title="Book a Demo | See Travio Fleet Tracking in Action" description="Book a free 30-minute demo of Travio's GPS tracking, dash cams, and fleet management platform. No obligation, tailored to your business." />
       <section className="relative pt-32 lg:pt-44 pb-20">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">

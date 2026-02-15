@@ -9,6 +9,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Phone, Mail, Clock } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const GetQuote = () => {
   const [loading, setLoading] = useState(false);
@@ -47,6 +48,7 @@ const GetQuote = () => {
 
   return (
     <PageWrapper>
+      <SEOHead title="Get a Quote | Fleet Tracking Pricing | Travio" description="Request a free, no-obligation quote for GPS vehicle tracking, dash cams, and fleet management. Tailored pricing for your fleet size." />
       <section className="relative pt-32 lg:pt-44 pb-20">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">

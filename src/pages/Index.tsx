@@ -9,6 +9,7 @@ import { ServicesSection } from "@/components/home/ServicesSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { CTASection } from "@/components/home/CTASection";
 import { SplashScreen } from "@/components/SplashScreen";
+import { SEOHead } from "@/components/SEOHead";
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -19,6 +20,7 @@ const Index = () => {
 
   return (
     <>
+      <SEOHead title="Travio | GPS Vehicle Tracking & Fleet Management UK" description="Travio provides real-time GPS vehicle tracking, dash cams, and fleet management software for UK businesses. Cut costs, boost productivity, and protect your fleet." />
       {showSplash && (
         <SplashScreen onComplete={handleSplashComplete} />
       )}
