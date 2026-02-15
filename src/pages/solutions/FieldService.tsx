@@ -24,9 +24,22 @@ const benefits = [
   { stat: "Zero", label: "Missed appointments" },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How does smart scheduling decide which engineer to send?", "acceptedAnswer": { "@type": "Answer", "text": "Travio considers each engineer's real-time location, skill set, availability, and current workload to recommend the best person for the job — minimising travel time and maximising first-time fix rates." } },
+    { "@type": "Question", "name": "Can engineers use their own phones?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — the Travio mobile app runs on both iOS and Android. Engineers can use their personal or company-issued devices to receive jobs, navigate, and submit reports." } },
+    { "@type": "Question", "name": "How are automated timesheets calculated?", "acceptedAnswer": { "@type": "Answer", "text": "When an engineer arrives at and leaves a job site, Travio logs GPS-verified timestamps automatically. These are compiled into timesheets ready for payroll or client billing." } },
+    { "@type": "Question", "name": "Do customers receive appointment notifications?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Customers get automated SMS or email updates with their appointment window and a live ETA link on the day, so they know exactly when the engineer will arrive." } },
+    { "@type": "Question", "name": "Can I manage reactive and planned maintenance jobs?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Travio handles both emergency callouts and scheduled maintenance. You can prioritise urgent jobs and slot planned work around them for maximum efficiency." } },
+  ]
+};
+
 const FieldService = () => {
   return (
     <PageWrapper>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">

@@ -24,9 +24,22 @@ const benefits = [
   { stat: "24/7", label: "Theft & movement alerts" },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can you track plant equipment that doesn't have a battery?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we offer battery-powered GPS trackers with up to 5 years of battery life, perfect for unpowered assets like generators, containers, and tool trailers." } },
+    { "@type": "Question", "name": "How does out-of-hours theft alerting work?", "acceptedAnswer": { "@type": "Answer", "text": "You set geofences around your sites and define working hours. If any tracked asset moves outside those boundaries or times, you receive an instant push notification and email alert." } },
+    { "@type": "Question", "name": "Can subcontractor vehicles be tracked too?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. You can add subcontractor vehicles to your account with their own tracking devices, giving you verified time-on-site data without relying on self-reporting." } },
+    { "@type": "Question", "name": "How long does installation take?", "acceptedAnswer": { "@type": "Answer", "text": "Most vehicle trackers are installed in under 30 minutes. For plant equipment, our battery-powered devices are simply attached with heavy-duty magnets or bolts — no wiring needed." } },
+    { "@type": "Question", "name": "Do you offer contracts or is it pay monthly?", "acceptedAnswer": { "@type": "Answer", "text": "We offer flexible monthly rolling plans with no long-term contracts. You can scale up or down as your fleet changes across projects." } },
+  ]
+};
+
 const Construction = () => {
   return (
     <PageWrapper>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Hero */}
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
