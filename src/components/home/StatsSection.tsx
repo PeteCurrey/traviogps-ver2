@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
 import { StatsCounter } from "@/components/ui/animated-counter";
 import { Fuel, Building2, Heart, PiggyBank } from "lucide-react";
-
-const stats = [
-  { value: 15, suffix: "%", label: "Average Fuel Savings", icon: <Fuel className="h-6 w-6" /> },
-  { value: 22000, suffix: "+", label: "Business Fleets", icon: <Building2 className="h-6 w-6" /> },
-  { value: 98, suffix: "%", label: "Customer Retention", icon: <Heart className="h-6 w-6" /> },
-  { value: 200, prefix: "£", suffix: "M+", label: "Calculated Savings", icon: <PiggyBank className="h-6 w-6" /> },
-];
+import { usePageContent } from "@/hooks/usePageContent";
 
 export function StatsSection() {
+  const { content } = usePageContent("home_stats");
+
+  const stats = [
+    { value: Number(content.stat1Value) || 15, prefix: String(content.stat1Prefix || ""), suffix: String(content.stat1Suffix), label: String(content.stat1Label), icon: <Fuel className="h-6 w-6" /> },
+    { value: Number(content.stat2Value) || 22000, prefix: String(content.stat2Prefix || ""), suffix: String(content.stat2Suffix), label: String(content.stat2Label), icon: <Building2 className="h-6 w-6" /> },
+    { value: Number(content.stat3Value) || 98, prefix: String(content.stat3Prefix || ""), suffix: String(content.stat3Suffix), label: String(content.stat3Label), icon: <Heart className="h-6 w-6" /> },
+    { value: Number(content.stat4Value) || 200, prefix: String(content.stat4Prefix || "£"), suffix: String(content.stat4Suffix), label: String(content.stat4Label), icon: <PiggyBank className="h-6 w-6" /> },
+  ];
+
   return (
     <section className="py-16 md:py-20 bg-secondary/50 border-y border-border/30">
       <div className="container-premium">
@@ -21,10 +24,10 @@ export function StatsSection() {
           className="text-center mb-12"
         >
           <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">
-            Proven Results
+            {String(content.sectionLabel)}
           </p>
           <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Trusted by UK Fleets
+            {String(content.sectionHeading)}
           </h2>
         </motion.div>
 

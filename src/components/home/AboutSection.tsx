@@ -2,15 +2,20 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Eye, Bell, Zap, BarChart3 } from "lucide-react";
 import fleetManagerAbout from "@/assets/fleet-manager-about.webp";
+import { usePageContent } from "@/hooks/usePageContent";
 
-const features = [
-  { icon: Eye, text: "See every vehicle and job in one place" },
-  { icon: Bell, text: "Get alerts for delays, maintenance or route deviations" },
-  { icon: Zap, text: "Make fast decisions that keep teams on schedule" },
-  { icon: BarChart3, text: "Access reports and insights instantly" },
-];
+const icons = [Eye, Bell, Zap, BarChart3];
 
 export function AboutSection() {
+  const { content } = usePageContent("home_about");
+
+  const features = [
+    { icon: icons[0], text: String(content.feature1) },
+    { icon: icons[1], text: String(content.feature2) },
+    { icon: icons[2], text: String(content.feature3) },
+    { icon: icons[3], text: String(content.feature4) },
+  ];
+
   return (
     <section className="section-padding bg-card">
       <div className="container-premium">
@@ -55,10 +60,10 @@ export function AboutSection() {
               viewport={{ once: true }}
               className="text-sm uppercase tracking-[0.3em] text-accent mb-4"
             >
-              Why Travio
+              {String(content.sectionLabel)}
             </motion.p>
             <h2 className="font-bold text-display-3 md:text-display-2 text-foreground mb-6 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Manage Your Fleet with <span className="text-accent">Confidence</span>
+              {String(content.heading)} <span className="text-accent">{String(content.headingAccent)}</span>
             </h2>
             <motion.div 
               className="space-y-4 mb-8"
@@ -94,7 +99,7 @@ export function AboutSection() {
                 to="/about"
                 className="group inline-flex items-center text-sm font-medium text-accent link-underline"
               >
-                Learn How Fleet Tracking Works
+                {String(content.ctaText)}
                 <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>
