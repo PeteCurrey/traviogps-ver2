@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
-import { DalesAndPeaksLogo } from "@/components/layout/DalesAndPeaksLogo";
+import { TravioLogo } from "@/components/layout/TravioLogo";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -51,16 +51,16 @@ export default function Login() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex justify-center mb-6">
-            <DalesAndPeaksLogo size="md" />
+            <TravioLogo size="lg" />
           </Link>
-          <h1 className="font-serif text-2xl text-foreground mb-2">Admin Portal</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Admin Portal</h1>
           <p className="text-muted-foreground text-sm">
-            Sign in to manage your properties and leads
+            Sign in to manage your fleet tracking website
           </p>
         </div>
 
         {/* Form */}
-        <div className="bg-card border border-border rounded-sm p-8">
+        <div className="bg-card border border-border rounded-xl p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="text-sm text-muted-foreground mb-2 block">
@@ -106,7 +106,7 @@ export default function Login() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full btn-premium bg-accent hover:bg-accent/90 text-accent-foreground"
+              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
             >
               {isLoading ? (
                 <>

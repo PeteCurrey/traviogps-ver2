@@ -37,16 +37,16 @@ export default function Terms() {
           >
             <h2>1. Introduction</h2>
             <p>
-              These Terms and Conditions govern your use of the Dales & Peaks Estate Agents website 
+              These Terms and Conditions govern your use of the Travio website 
               and the services we provide. By accessing our website or using our services, you agree 
               to be bound by these terms.
             </p>
 
             <h2>2. About Us</h2>
             <p>
-              Dales & Peaks Estate Agents is a trading name of Dales & Peaks Property Limited, 
-              a company registered in England and Wales. We are members of The Property Ombudsman 
-              and adhere to their Code of Practice.
+              Travio is a trading name of Travio Ltd, 
+              a company registered in England and Wales. We provide GPS vehicle tracking, 
+              dash cam, and fleet management services.
             </p>
 
             <h2>3. Services</h2>
@@ -69,7 +69,7 @@ export default function Terms() {
             <h3>Intellectual Property</h3>
             <p>
               All content on this website, including text, graphics, logos, and images, is the 
-              property of Dales & Peaks Estate Agents and is protected by copyright laws. You may 
+              property of Travio and is protected by copyright laws. You may 
               not reproduce, distribute, or use any content without our written permission.
             </p>
 
@@ -109,7 +109,7 @@ export default function Terms() {
 
             <h2>9. Limitation of Liability</h2>
             <p>
-              To the fullest extent permitted by law, Dales & Peaks Estate Agents shall not be 
+              To the fullest extent permitted by law, Travio shall not be 
               liable for any indirect, incidental, or consequential damages arising from your 
               use of our website or services.
             </p>
@@ -146,11 +146,10 @@ export default function Terms() {
               For questions about these Terms and Conditions, please contact us at:
             </p>
             <p>
-              <strong>Dales & Peaks Estate Agents</strong><br />
-              131 Chatsworth Road<br />
-              Chesterfield, Derbyshire S40 1AB<br />
-              Email: info@dalesandpeaks.co.uk<br />
-              Phone: 01246 567 540
+              <strong>Travio</strong><br />
+              Sheffield, UK<br />
+              Email: hello@travio.co.uk<br />
+              Phone: 0800 123 4567
             </p>
           </motion.div>
         </div>

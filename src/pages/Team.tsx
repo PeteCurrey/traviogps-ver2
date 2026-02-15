@@ -71,9 +71,9 @@ export default function Team() {
               Meet the <span className="italic-accent">team</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              We're a family-owned business with a passionate team of property experts. 
-              Get to know the people behind Dales & Peaks who work tirelessly to help you 
-              find your perfect home.
+              We're a dedicated team of fleet technology experts. 
+              Get to know the people behind Travio who work tirelessly to help you 
+              manage your fleet smarter.
             </p>
           </motion.div>
         </div>
@@ -180,7 +180,7 @@ export default function Team() {
               </h2>
               <p className="text-muted-foreground max-w-md mx-auto mb-8">
                 We're currently updating our team profiles. Check back soon to meet the 
-                amazing people behind Dales & Peaks.
+                amazing people behind Travio.
               </p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 <Link to="/contact">
@@ -262,8 +262,8 @@ export default function Team() {
               Want to join our team?
             </h2>
             <p className="text-accent-foreground/70 mb-8 max-w-xl mx-auto">
-              We're always looking for passionate people to join the Dales & Peaks family. 
-              If you share our values and love property, we'd love to hear from you.
+              We're always looking for passionate people to join the Travio team. 
+              If you share our values and love fleet tech, we'd love to hear from you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90">

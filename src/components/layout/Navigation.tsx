@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { DalesAndPeaksLogo } from "./DalesAndPeaksLogo";
+import { TravioLogo } from "./TravioLogo";
 import { ThemeToggle } from "./ThemeToggle";
 
 const leftNavLinks = [
@@ -188,7 +188,7 @@ export function Navigation() {
 
             {/* Logo */}
             <Link to="/" className="flex items-center justify-center lg:flex-none">
-              <DalesAndPeaksLogo size="md" />
+              <TravioLogo size="md" />
             </Link>
 
             {/* Right Navigation */}
@@ -235,7 +235,7 @@ export function Navigation() {
             >
               <div className="flex flex-col h-full pt-6 pb-8 px-6">
                 <div className="flex items-center justify-between mb-8">
-                  <DalesAndPeaksLogo size="sm" />
+                  <TravioLogo size="sm" />
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 text-foreground"

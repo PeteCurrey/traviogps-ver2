@@ -23,7 +23,6 @@ export default function Settings() {
 
   const handleSave = async () => {
     setIsSaving(true);
-    // Simulate save
     await new Promise((resolve) => setTimeout(resolve, 1000));
     toast({
       title: "Settings saved",
@@ -36,8 +35,8 @@ export default function Settings() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="font-serif text-2xl text-foreground">Settings</h1>
-        <p className="text-muted-foreground">Manage your account and preferences</p>
+        <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Settings</h1>
+        <p className="text-muted-foreground">Manage your account and company preferences</p>
       </div>
 
       {/* Tabs */}
@@ -67,8 +66,8 @@ export default function Settings() {
         transition={{ duration: 0.2 }}
       >
         {activeTab === "profile" && (
-          <div className="bg-card border border-border rounded-sm p-6 max-w-2xl">
-            <h2 className="font-serif text-lg text-foreground mb-6">Your Profile</h2>
+          <div className="bg-card border border-border rounded-xl p-6 max-w-2xl">
+            <h2 className="text-lg font-bold text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Your Profile</h2>
             <div className="space-y-4">
               <div>
                 <label className="text-sm text-muted-foreground mb-2 block">Email</label>
@@ -85,11 +84,11 @@ export default function Settings() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm text-muted-foreground mb-2 block">First Name</label>
-                  <Input className="bg-secondary border-border" placeholder="John" />
+                  <Input className="bg-secondary border-border" placeholder="Your first name" />
                 </div>
                 <div>
                   <label className="text-sm text-muted-foreground mb-2 block">Last Name</label>
-                  <Input className="bg-secondary border-border" placeholder="Smith" />
+                  <Input className="bg-secondary border-border" placeholder="Your last name" />
                 </div>
               </div>
 
@@ -109,13 +108,13 @@ export default function Settings() {
         )}
 
         {activeTab === "company" && (
-          <div className="bg-card border border-border rounded-sm p-6 max-w-2xl">
-            <h2 className="font-serif text-lg text-foreground mb-6">Company Details</h2>
+          <div className="bg-card border border-border rounded-xl p-6 max-w-2xl">
+            <h2 className="text-lg font-bold text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Company Details</h2>
             <div className="space-y-4">
               <div>
                 <label className="text-sm text-muted-foreground mb-2 block">Company Name</label>
                 <Input
-                  defaultValue="Dales & Peaks"
+                  defaultValue="Travio"
                   className="bg-secondary border-border"
                 />
               </div>
@@ -123,7 +122,7 @@ export default function Settings() {
               <div>
                 <label className="text-sm text-muted-foreground mb-2 block">Phone Number</label>
                 <Input
-                  defaultValue="01246 567 540"
+                  defaultValue="0800 123 4567"
                   className="bg-secondary border-border"
                 />
               </div>
@@ -131,7 +130,7 @@ export default function Settings() {
               <div>
                 <label className="text-sm text-muted-foreground mb-2 block">Email</label>
                 <Input
-                  defaultValue="info@dalesandpeaks.co.uk"
+                  defaultValue="hello@travio.co.uk"
                   className="bg-secondary border-border"
                 />
               </div>
@@ -139,7 +138,7 @@ export default function Settings() {
               <div>
                 <label className="text-sm text-muted-foreground mb-2 block">Address</label>
                 <Textarea
-                  defaultValue="25 Glumangate, Chesterfield, S40 1UA"
+                  defaultValue="Travio HQ, Sheffield, UK"
                   className="bg-secondary border-border"
                 />
               </div>
@@ -148,14 +147,14 @@ export default function Settings() {
         )}
 
         {activeTab === "notifications" && (
-          <div className="bg-card border border-border rounded-sm p-6 max-w-2xl">
-            <h2 className="font-serif text-lg text-foreground mb-6">Notification Preferences</h2>
+          <div className="bg-card border border-border rounded-xl p-6 max-w-2xl">
+            <h2 className="text-lg font-bold text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Notification Preferences</h2>
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-foreground font-medium">New Lead Notifications</p>
+                  <p className="text-foreground font-medium">New Enquiry Notifications</p>
                   <p className="text-sm text-muted-foreground">
-                    Get notified when a new lead is submitted
+                    Get notified when a new enquiry is submitted
                   </p>
                 </div>
                 <Switch defaultChecked />
@@ -163,9 +162,9 @@ export default function Settings() {
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-foreground font-medium">Valuation Requests</p>
+                  <p className="text-foreground font-medium">Demo Requests</p>
                   <p className="text-sm text-muted-foreground">
-                    Get notified when someone requests a valuation
+                    Get notified when someone requests a demo
                   </p>
                 </div>
                 <Switch defaultChecked />
@@ -175,7 +174,7 @@ export default function Settings() {
                 <div>
                   <p className="text-foreground font-medium">Weekly Summary</p>
                   <p className="text-sm text-muted-foreground">
-                    Receive a weekly summary of activity
+                    Receive a weekly summary of enquiries and activity
                   </p>
                 </div>
                 <Switch />
@@ -183,12 +182,12 @@ export default function Settings() {
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-foreground font-medium">Marketing Emails</p>
+                  <p className="text-foreground font-medium">Quote Requests</p>
                   <p className="text-sm text-muted-foreground">
-                    Receive tips and updates from Dales & Peaks
+                    Get notified when someone requests a quote
                   </p>
                 </div>
-                <Switch />
+                <Switch defaultChecked />
               </div>
             </div>
           </div>

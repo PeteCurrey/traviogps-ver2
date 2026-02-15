@@ -37,7 +37,7 @@ export default function Privacy() {
           >
             <h2>1. Introduction</h2>
             <p>
-              Dales & Peaks Estate Agents ("we", "us", or "our") is committed to protecting your privacy. 
+              Travio ("we", "us", or "our") is committed to protecting your privacy. 
               This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
               when you visit our website or use our services.
             </p>
@@ -126,11 +126,10 @@ export default function Privacy() {
               please contact us at:
             </p>
             <p>
-              <strong>Dales & Peaks Estate Agents</strong><br />
-              131 Chatsworth Road<br />
-              Chesterfield, Derbyshire S40 1AB<br />
-              Email: info@dalesandpeaks.co.uk<br />
-              Phone: 01246 567 540
+              <strong>Travio</strong><br />
+              Sheffield, UK<br />
+              Email: hello@travio.co.uk<br />
+              Phone: 0800 123 4567
             </p>
 
             <h2>11. Changes to This Policy</h2>
