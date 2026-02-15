@@ -5,6 +5,7 @@ import { PageWrapper } from "@/components/layout/PageWrapper";
 import { Button } from "@/components/ui/button";
 import fleetManagerAbout from "@/assets/fleet-manager-about.webp";
 import fleetHeroTracking from "@/assets/fleet-hero-tracking.webp";
+import { SEOHead } from "@/components/SEOHead";
 
 const stats = [
   { value: "10+", label: "Years in Fleet Tech" },
@@ -56,6 +57,7 @@ const itemVariants = {
 export default function About() {
   return (
     <PageWrapper>
+      <SEOHead title="About Travio | UK Fleet Tracking Experts" description="Travio is a UK-based fleet tracking company with 10+ years in fleet tech. We help businesses cut costs, improve safety, and boost productivity." />
       {/* Hero */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0">

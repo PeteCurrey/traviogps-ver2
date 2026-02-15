@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Truck, Route, Clock, BarChart3, Bell, Fuel, FileCheck, MapPin } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import logisticsHero from "@/assets/solution-logistics-hero.webp";
+import { SEOHead } from "@/components/SEOHead";
 
 const features = [
   { icon: Route, title: "Route Optimisation", description: "Plan the most efficient routes to reduce mileage, fuel costs, and driver hours." },
@@ -39,6 +40,7 @@ const faqJsonLd = {
 const Logistics = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Logistics Fleet Tracking | Haulage & HGV GPS | Travio" description="Optimise logistics operations with route planning, trailer tracking, tachograph compliance, and fuel analytics for haulage fleets." />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { HardHat, MapPin, Shield, Clock, FileCheck, Fuel, Users, BarChart3 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import constructionHero from "@/assets/solution-construction-hero.webp";
+import { SEOHead } from "@/components/SEOHead";
 
 const features = [
   { icon: MapPin, title: "Site-to-Site Tracking", description: "Monitor vehicle movements between construction sites. Know which assets are where at all times." },
@@ -39,6 +40,7 @@ const faqJsonLd = {
 const Construction = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Construction Fleet Tracking | Plant & Vehicle GPS | Travio" description="Track construction vehicles and plant equipment across sites. Reduce theft, automate timesheets, and control fuel costs with Travio." />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Hero */}
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">

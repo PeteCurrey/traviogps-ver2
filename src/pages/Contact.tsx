@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { SEOHead } from "@/components/SEOHead";
 
 const enquiryTypes = [
   { id: "tracking", label: "Vehicle Tracking" },
@@ -60,6 +61,7 @@ export default function Contact() {
 
   return (
     <PageWrapper>
+      <SEOHead title="Contact Us | Get in Touch with Travio" description="Contact Travio for GPS vehicle tracking, dash cams, and fleet management enquiries. Call, email, or visit us. UK-based support available 24/7." />
       {/* Hero */}
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-card">
         <div className="container-premium">

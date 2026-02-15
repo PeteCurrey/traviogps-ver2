@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Package, Route, Clock, MapPin, Smartphone, Bell, BarChart3, Shield } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import deliveryHero from "@/assets/solution-delivery-hero.webp";
+import { SEOHead } from "@/components/SEOHead";
 
 const features = [
   { icon: Route, title: "Multi-Drop Routing", description: "Automatically sequence stops for the fastest route across dozens of daily deliveries." },
@@ -39,6 +40,7 @@ const faqJsonLd = {
 const Delivery = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Delivery Fleet Tracking | Last Mile & Multi-Drop | Travio" description="Automate multi-drop routes, send live ETAs, and capture proof of delivery. Travio helps delivery fleets complete more drops every day." />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />

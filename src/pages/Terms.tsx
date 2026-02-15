@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
+import { SEOHead } from "@/components/SEOHead";
 
 export default function Terms() {
   return (
     <PageWrapper>
+      <SEOHead title="Terms & Conditions | Travio GPS Fleet Tracking" description="Review the terms and conditions for using Travio's GPS vehicle tracking, dash cam, and fleet management services." />
       {/* Hero Section */}
       <section className="pt-32 pb-12 lg:pt-40 lg:pb-16 bg-card">
         <div className="container-premium">

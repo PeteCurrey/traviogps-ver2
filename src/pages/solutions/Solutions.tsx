@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HardHat, Truck, Package, Wrench, ArrowRight } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const industries = [
   {
@@ -38,6 +39,7 @@ const industries = [
 const Solutions = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Industry Solutions | Fleet Tracking by Sector | Travio" description="Fleet tracking solutions for construction, logistics, delivery, and field service. Travio has purpose-built tools for every industry." />
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">

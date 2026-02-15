@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Video, Shield, Wifi, HardDrive, Eye, AlertTriangle, Camera, Cloud } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const features = [
   { icon: Video, title: "HD Video Recording", description: "Crystal-clear 1080p front and rear recording with night vision capability." },
@@ -18,6 +19,7 @@ const features = [
 const DashCams = () => {
   return (
     <PageWrapper>
+      <SEOHead title="Fleet Dash Cams | HD Connected Cameras | Travio" description="Protect your fleet with Travio connected dash cams. HD recording, live streaming, automatic incident detection, and AI driver coaching for UK businesses." />
       {/* Hero */}
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />

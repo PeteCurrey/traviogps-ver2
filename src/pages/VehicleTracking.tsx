@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, Bell, BarChart3, Plug, Shield, Clock, Fuel, Route } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const features = [
   {
@@ -56,6 +57,7 @@ const steps = [
 const VehicleTracking = () => {
   return (
     <PageWrapper>
+      <SEOHead title="GPS Vehicle Tracking | Real-Time Fleet Location | Travio" description="Track every vehicle in real time with Travio GPS tracking. Live map updates, instant alerts, geofencing, and detailed journey reports for UK fleets." />
       {/* Hero */}
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />

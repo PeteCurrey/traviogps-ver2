@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 
 import fleetHeroTracking from "@/assets/fleet-hero-tracking.webp";
+import { SEOHead } from "@/components/SEOHead";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,6 +43,7 @@ export default function Team() {
 
   return (
     <PageWrapper>
+      <SEOHead title="Our Team | Meet the Travio Fleet Experts" description="Meet the team behind Travio. Our experienced fleet technology specialists are dedicated to helping UK businesses manage their vehicles smarter." />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0">
