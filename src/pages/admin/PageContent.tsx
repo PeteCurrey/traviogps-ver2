@@ -202,6 +202,136 @@ const sections: SectionEditorProps[] = [
       { key: "secondaryCta", label: "Secondary Button Text" },
     ],
   },
+  // Vehicle Tracking
+  {
+    pageKey: "vehicle_tracking_hero",
+    title: "Vehicle Tracking — Hero",
+    description: "Hero section heading and description",
+    fields: [
+      { key: "label", label: "Label" },
+      { key: "heading", label: "Heading" },
+      { key: "headingAccent", label: "Heading (Accent)" },
+      { key: "description", label: "Description", type: "textarea" },
+    ],
+  },
+  {
+    pageKey: "vehicle_tracking_features",
+    title: "Vehicle Tracking — Features",
+    description: "The 8 feature cards on the tracking page",
+    fields: [
+      { key: "sectionLabel", label: "Section Label" },
+      { key: "heading", label: "Heading" },
+      { key: "headingAccent", label: "Heading (Accent)" },
+      ...Array.from({ length: 8 }, (_, i) => [
+        { key: `feature${i + 1}Title`, label: `Feature ${i + 1} — Title` },
+        { key: `feature${i + 1}Description`, label: `Feature ${i + 1} — Description`, type: "textarea" as const },
+      ]).flat(),
+    ],
+  },
+  {
+    pageKey: "vehicle_tracking_steps",
+    title: "Vehicle Tracking — How It Works",
+    description: "The 3-step process section",
+    fields: [
+      { key: "sectionLabel", label: "Section Label" },
+      { key: "heading", label: "Heading" },
+      { key: "headingAccent", label: "Heading (Accent)" },
+      { key: "step1Number", label: "Step 1 — Number" },
+      { key: "step1Title", label: "Step 1 — Title" },
+      { key: "step1Description", label: "Step 1 — Description", type: "textarea" },
+      { key: "step2Number", label: "Step 2 — Number" },
+      { key: "step2Title", label: "Step 2 — Title" },
+      { key: "step2Description", label: "Step 2 — Description", type: "textarea" },
+      { key: "step3Number", label: "Step 3 — Number" },
+      { key: "step3Title", label: "Step 3 — Title" },
+      { key: "step3Description", label: "Step 3 — Description", type: "textarea" },
+    ],
+  },
+  {
+    pageKey: "vehicle_tracking_cta",
+    title: "Vehicle Tracking — CTA",
+    description: "Bottom call-to-action section",
+    fields: [
+      { key: "heading", label: "Heading" },
+      { key: "description", label: "Description", type: "textarea" },
+      { key: "primaryCta", label: "Primary Button Text" },
+      { key: "secondaryCta", label: "Secondary Button Text" },
+    ],
+  },
+  // Dash Cams
+  {
+    pageKey: "dashcams_hero",
+    title: "Dash Cams — Hero",
+    description: "Hero section heading and description",
+    fields: [
+      { key: "label", label: "Label" },
+      { key: "heading", label: "Heading" },
+      { key: "headingAccent", label: "Heading (Accent)" },
+      { key: "description", label: "Description", type: "textarea" },
+    ],
+  },
+  {
+    pageKey: "dashcams_features",
+    title: "Dash Cams — Features",
+    description: "The 8 feature cards on the dash cams page",
+    fields: [
+      { key: "sectionLabel", label: "Section Label" },
+      { key: "heading", label: "Heading" },
+      { key: "headingAccent", label: "Heading (Accent)" },
+      ...Array.from({ length: 8 }, (_, i) => [
+        { key: `feature${i + 1}Title`, label: `Feature ${i + 1} — Title` },
+        { key: `feature${i + 1}Description`, label: `Feature ${i + 1} — Description`, type: "textarea" as const },
+      ]).flat(),
+    ],
+  },
+  {
+    pageKey: "dashcams_cta",
+    title: "Dash Cams — CTA",
+    description: "Bottom call-to-action section",
+    fields: [
+      { key: "heading", label: "Heading" },
+      { key: "description", label: "Description", type: "textarea" },
+      { key: "primaryCta", label: "Primary Button Text" },
+      { key: "secondaryCta", label: "Secondary Button Text" },
+    ],
+  },
+  // Fleet Management
+  {
+    pageKey: "fleet_mgmt_hero",
+    title: "Fleet Management — Hero",
+    description: "Hero section heading and description",
+    fields: [
+      { key: "label", label: "Label" },
+      { key: "heading", label: "Heading" },
+      { key: "headingAccent", label: "Heading (Accent)" },
+      { key: "description", label: "Description", type: "textarea" },
+    ],
+  },
+  {
+    pageKey: "fleet_mgmt_features",
+    title: "Fleet Management — Features",
+    description: "The 8 feature cards on the fleet management page",
+    fields: [
+      { key: "sectionLabel", label: "Section Label" },
+      { key: "heading", label: "Heading" },
+      { key: "headingAccent", label: "Heading (Accent)" },
+      ...Array.from({ length: 8 }, (_, i) => [
+        { key: `feature${i + 1}Title`, label: `Feature ${i + 1} — Title` },
+        { key: `feature${i + 1}Description`, label: `Feature ${i + 1} — Description`, type: "textarea" as const },
+      ]).flat(),
+    ],
+  },
+  {
+    pageKey: "fleet_mgmt_cta",
+    title: "Fleet Management — CTA",
+    description: "Bottom call-to-action section",
+    fields: [
+      { key: "heading", label: "Heading" },
+      { key: "description", label: "Description", type: "textarea" },
+      { key: "primaryCta", label: "Primary Button Text" },
+      { key: "secondaryCta", label: "Secondary Button Text" },
+    ],
+  },
 ];
 
 export default function PageContentAdmin() {
