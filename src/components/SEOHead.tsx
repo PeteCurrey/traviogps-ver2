@@ -1,4 +1,7 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+const BASE_URL = "https://traviogps-ver2.lovable.app";
 
 interface SEOHeadProps {
   title: string;
@@ -6,6 +9,8 @@ interface SEOHeadProps {
 }
 
 export const SEOHead = ({ title, description }: SEOHeadProps) => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     document.title = title;
 
@@ -25,7 +30,19 @@ export const SEOHead = ({ title, description }: SEOHeadProps) => {
 
     const twitterDescription = document.querySelector('meta[name="twitter:description"]');
     if (twitterDescription) twitterDescription.setAttribute("content", description);
-  }, [title, description]);
+
+    // Canonical URL
+    const canonicalUrl = `${BASE_URL}${pathname === "/" ? "" : pathname}`;
+    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (link) {
+      link.href = canonicalUrl;
+    } else {
+      link = document.createElement("link");
+      link.rel = "canonical";
+      link.href = canonicalUrl;
+      document.head.appendChild(link);
+    }
+  }, [title, description, pathname]);
 
   return null;
 };
