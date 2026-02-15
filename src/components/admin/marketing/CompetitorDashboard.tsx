@@ -109,7 +109,7 @@ export function CompetitorDashboard() {
         body: { 
           type: 'competitor_analysis',
           data: competitors,
-          context: 'Analyze competitor estate agencies in Peak District, Sheffield, Chesterfield, and Nottingham areas.'
+          context: 'Analyze competitor fleet management and GPS tracking companies in the UK market.'
         }
       });
 
