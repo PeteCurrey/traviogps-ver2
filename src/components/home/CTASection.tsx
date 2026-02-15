@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import fleetCtaBanner from "@/assets/fleet-cta-banner.webp";
+import { usePageContent } from "@/hooks/usePageContent";
 
 export function CTASection() {
+  const { content } = usePageContent("home_cta");
+
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0">
@@ -28,24 +31,24 @@ export function CTASection() {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-2xl mx-auto text-center"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">Get Started Today</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-accent mb-4">{String(content.sectionLabel)}</p>
           <h2 className="font-bold text-display-3 md:text-display-2 text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Ready to Take Control of <span className="text-accent">Your Fleet?</span>
+            {String(content.heading)} <span className="text-accent">{String(content.headingAccent)}</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-lg mx-auto">
-            Join 22,000+ businesses who trust Travio to manage their fleet. Get a quote today or book a free demo.
+            {String(content.description)}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button asChild size="lg" className="btn-premium bg-accent hover:bg-accent/90 text-accent-foreground px-8">
                 <Link to="/get-quote">
-                  Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                  {String(content.primaryCta)} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button asChild variant="outline" size="lg" className="border-accent/30 text-foreground hover:bg-accent/10 px-8">
-                <Link to="/book-demo">Book a Demo</Link>
+                <Link to="/book-demo">{String(content.secondaryCta)}</Link>
               </Button>
             </motion.div>
           </div>

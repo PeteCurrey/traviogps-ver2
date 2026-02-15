@@ -5,6 +5,7 @@ import {
   LayoutDashboard,
   MessageSquare,
   FileText,
+  FileEdit,
   Users,
   Star,
   Settings,
@@ -21,6 +22,7 @@ import { TravioLogo } from "@/components/layout/TravioLogo";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { label: "Page Content", href: "/admin/page-content", icon: FileEdit },
   { label: "Enquiries", href: "/admin/leads", icon: MessageSquare },
   { label: "Blog Posts", href: "/admin/blog", icon: FileText },
   {

@@ -38,6 +38,7 @@ import Testimonials from "./pages/admin/Testimonials";
 import Settings from "./pages/admin/Settings";
 import Marketing from "./pages/admin/Marketing";
 import BlogAdmin from "./pages/admin/BlogAdmin";
+import PageContentAdmin from "./pages/admin/PageContent";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +78,7 @@ const App = () => (
             <Route path="/admin/login" element={<Login />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<Dashboard />} />
+              <Route path="page-content" element={<PageContentAdmin />} />
               <Route path="leads" element={<Leads />} />
               <Route path="blog" element={<BlogAdmin />} />
               <Route path="team" element={<TeamMembers />} />

@@ -5,6 +5,7 @@ import { Truck, Video, Settings } from "lucide-react";
 import fleetHeroTracking from "@/assets/fleet-hero-tracking.webp";
 import fleetHeroDashcam from "@/assets/fleet-hero-dashcam.webp";
 import fleetManagerAbout from "@/assets/fleet-manager-about.webp";
+import { usePageContent } from "@/hooks/usePageContent";
 
 interface ServiceCard {
   category: string;
@@ -15,36 +16,6 @@ interface ServiceCard {
   icon: React.ElementType;
   singleCta: { label: string; href: string };
 }
-
-const serviceCards: ServiceCard[] = [
-  {
-    category: "GPS Tracking",
-    title: "Vehicle",
-    titleAccent: "Tracking",
-    image: fleetHeroTracking,
-    href: "/vehicle-tracking",
-    icon: Truck,
-    singleCta: { label: "Learn More", href: "/vehicle-tracking" }
-  },
-  {
-    category: "HD Video",
-    title: "Connected",
-    titleAccent: "Dash Cams",
-    image: fleetHeroDashcam,
-    href: "/dash-cams",
-    icon: Video,
-    singleCta: { label: "Learn More", href: "/dash-cams" }
-  },
-  {
-    category: "Complete Control",
-    title: "Fleet",
-    titleAccent: "Management",
-    image: fleetManagerAbout,
-    href: "/fleet-management",
-    icon: Settings,
-    singleCta: { label: "Learn More", href: "/fleet-management" }
-  }
-];
 
 function ServiceCardItem({ card, index }: { card: ServiceCard; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -139,6 +110,38 @@ function ServiceCardItem({ card, index }: { card: ServiceCard; index: number }) 
 }
 
 export function HeroSection() {
+  const { content } = usePageContent("home_hero");
+
+  const serviceCards: ServiceCard[] = [
+    {
+      category: String(content.card1Category),
+      title: String(content.card1Title),
+      titleAccent: String(content.card1Accent),
+      image: fleetHeroTracking,
+      href: "/vehicle-tracking",
+      icon: Truck,
+      singleCta: { label: "Learn More", href: "/vehicle-tracking" }
+    },
+    {
+      category: String(content.card2Category),
+      title: String(content.card2Title),
+      titleAccent: String(content.card2Accent),
+      image: fleetHeroDashcam,
+      href: "/dash-cams",
+      icon: Video,
+      singleCta: { label: "Learn More", href: "/dash-cams" }
+    },
+    {
+      category: String(content.card3Category),
+      title: String(content.card3Title),
+      titleAccent: String(content.card3Accent),
+      image: fleetManagerAbout,
+      href: "/fleet-management",
+      icon: Settings,
+      singleCta: { label: "Learn More", href: "/fleet-management" }
+    }
+  ];
+
   return (
     <section className="relative min-h-screen bg-background pt-20 lg:pt-[104px] pb-48 md:pb-56">
       <div className="h-[calc(100vh-280px)] md:h-[calc(100vh-320px)] lg:h-[calc(100vh-340px)] grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-8">
@@ -156,10 +159,10 @@ export function HeroSection() {
             className="text-center"
           >
             <p className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-2 md:mb-3">
-              Powering Every Working Day
+              {String(content.tagline)}
             </p>
             <h2 className="font-bold text-xl md:text-2xl lg:text-3xl text-foreground px-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Fleet Management Solutions for <span className="text-accent">UK Businesses</span>
+              {String(content.heading)} <span className="text-accent">{String(content.headingAccent)}</span>
             </h2>
           </motion.div>
         </div>

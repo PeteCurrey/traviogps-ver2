@@ -1,37 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CalendarCheck, Headphones, TrendingDown, ShieldCheck, ArrowRight } from "lucide-react";
+import { usePageContent } from "@/hooks/usePageContent";
 
-const services = [
-  {
-    icon: CalendarCheck,
-    title: "Complete More Jobs",
-    description: "Fit 2–3 extra jobs into your day with smarter scheduling and live updates.",
-    href: "/fleet-management",
-    cta: "Learn More"
-  },
-  {
-    icon: Headphones,
-    title: "Ongoing Support",
-    description: "Our UK-based team helps you get up and running and keeps you moving.",
-    href: "/contact",
-    cta: "Get in Touch"
-  },
-  {
-    icon: TrendingDown,
-    title: "Proven Savings",
-    description: "Cut waste and reduce running costs with insights into driver behaviour.",
-    href: "/vehicle-tracking",
-    cta: "See How"
-  },
-  {
-    icon: ShieldCheck,
-    title: "Stay Compliant",
-    description: "Automatic records and digital checks reduce admin and risk.",
-    href: "/fleet-management",
-    cta: "Learn More"
-  }
-];
+const icons = [CalendarCheck, Headphones, TrendingDown, ShieldCheck];
+const hrefs = ["/fleet-management", "/contact", "/vehicle-tracking", "/fleet-management"];
+const ctas = ["Learn More", "Get in Touch", "See How", "Learn More"];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,6 +24,15 @@ const cardVariants = {
 };
 
 export function ServicesSection() {
+  const { content } = usePageContent("home_services");
+
+  const services = [
+    { icon: icons[0], title: String(content.service1Title), description: String(content.service1Description), href: hrefs[0], cta: ctas[0] },
+    { icon: icons[1], title: String(content.service2Title), description: String(content.service2Description), href: hrefs[1], cta: ctas[1] },
+    { icon: icons[2], title: String(content.service3Title), description: String(content.service3Description), href: hrefs[2], cta: ctas[2] },
+    { icon: icons[3], title: String(content.service4Title), description: String(content.service4Description), href: hrefs[3], cta: ctas[3] },
+  ];
+
   return (
     <section className="section-padding bg-background">
       <div className="container-premium">
@@ -60,9 +43,9 @@ export function ServicesSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">Key Benefits</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">{String(content.sectionLabel)}</p>
           <h2 className="font-bold text-display-3 text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Why Choose <span className="text-accent">Travio</span>
+            {String(content.heading)} <span className="text-accent">{String(content.headingAccent)}</span>
           </h2>
         </motion.div>
 
