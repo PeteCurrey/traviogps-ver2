@@ -24,9 +24,22 @@ const benefits = [
   { stat: "50%", label: "Less admin time" },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can you track trailers separately from the cab?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — each trailer has its own GPS device so you always know where it is, whether hitched to a cab or parked at a depot. You can see cab and trailer pairings on the live map." } },
+    { "@type": "Question", "name": "How does Travio help with driver hours compliance?", "acceptedAnswer": { "@type": "Answer", "text": "Travio automatically downloads digital tachograph data and alerts you when drivers are approaching their limits, helping you stay compliant with UK and EU driving regulations." } },
+    { "@type": "Question", "name": "What fuel savings can I realistically expect?", "acceptedAnswer": { "@type": "Answer", "text": "Most logistics customers see 10–15% fuel savings through route optimisation, reduced idling alerts, and driver behaviour coaching. For a 20-vehicle fleet, that typically translates to over £1,000 per month." } },
+    { "@type": "Question", "name": "Does Travio integrate with our TMS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Travio offers API integrations with popular transport management systems, allowing you to sync jobs, routes, and delivery confirmations without double-handling data." } },
+    { "@type": "Question", "name": "How quickly can we get up and running?", "acceptedAnswer": { "@type": "Answer", "text": "Most fleets are fully live within a week. Vehicle installation takes under 30 minutes per unit, and our team handles the full setup including user training and system configuration." } },
+  ]
+};
+
 const Logistics = () => {
   return (
     <PageWrapper>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">

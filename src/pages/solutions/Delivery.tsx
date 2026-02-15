@@ -24,9 +24,22 @@ const benefits = [
   { stat: "Real-time", label: "Customer ETA updates" },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How does multi-drop route optimisation work?", "acceptedAnswer": { "@type": "Answer", "text": "Upload your daily delivery list and Travio automatically sequences the stops into the fastest route, factoring in traffic, time windows, and vehicle capacity." } },
+    { "@type": "Question", "name": "Can customers track their delivery in real time?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — customers receive an automated SMS or email with a live tracking link showing the driver's location and estimated arrival time, updated in real time." } },
+    { "@type": "Question", "name": "What counts as proof of delivery?", "acceptedAnswer": { "@type": "Answer", "text": "Drivers capture a digital signature, photo of the parcel at the door, and timestamped GPS location. All evidence is stored against the delivery record for dispute resolution." } },
+    { "@type": "Question", "name": "Does the driver app work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The driver app caches the route and delivery details so drivers can continue working in areas with poor signal. Data syncs automatically when connectivity is restored." } },
+    { "@type": "Question", "name": "Can I integrate Travio with my existing systems?", "acceptedAnswer": { "@type": "Answer", "text": "Travio integrates with popular order management and e-commerce platforms via API. We also offer CSV import for quick daily upload of delivery manifests." } },
+  ]
+};
+
 const Delivery = () => {
   return (
     <PageWrapper>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="container-premium relative">
