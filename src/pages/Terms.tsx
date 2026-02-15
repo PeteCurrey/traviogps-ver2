@@ -50,21 +50,21 @@ export default function Terms() {
             </p>
 
             <h2>3. Services</h2>
-            <p>We provide the following estate agency services:</p>
+            <p>We provide the following fleet management services:</p>
             <ul>
-              <li>Residential property sales</li>
-              <li>Property lettings and management</li>
-              <li>Property valuations</li>
-              <li>New homes sales</li>
-              <li>Landlord services</li>
+              <li>GPS vehicle tracking and telematics</li>
+              <li>Connected dash cam systems</li>
+              <li>Fleet management software</li>
+              <li>Driver behaviour monitoring</li>
+              <li>Vehicle maintenance scheduling</li>
             </ul>
 
             <h2>4. Website Use</h2>
             <h3>Accuracy of Information</h3>
             <p>
-              While we strive to ensure all property information on our website is accurate, 
-              we cannot guarantee its accuracy. Property details, prices, and availability are 
-              subject to change. Photographs may have been digitally enhanced.
+              While we strive to ensure all information on our website is accurate, 
+              we cannot guarantee its accuracy. Service details, pricing, and availability are 
+              subject to change.
             </p>
             <h3>Intellectual Property</h3>
             <p>
@@ -73,38 +73,38 @@ export default function Terms() {
               not reproduce, distribute, or use any content without our written permission.
             </p>
 
-            <h2>5. Seller Terms</h2>
-            <p>When instructing us to sell your property:</p>
+            <h2>5. Subscription Terms</h2>
+            <p>When subscribing to our tracking and fleet management services:</p>
             <ul>
-              <li>You confirm you are the legal owner or have authority to sell</li>
-              <li>Our fees are as agreed in writing and are payable on completion</li>
-              <li>We reserve the right to market your property on third-party portals</li>
-              <li>Notice periods and tie-in periods apply as per your signed agreement</li>
+              <li>You confirm you are authorised to manage the vehicles being tracked</li>
+              <li>Our fees are as agreed in writing and are payable monthly or annually</li>
+              <li>Hardware remains our property unless purchased outright</li>
+              <li>Minimum contract terms apply as per your signed agreement</li>
             </ul>
 
-            <h2>6. Landlord Terms</h2>
-            <p>When instructing us to let your property:</p>
+            <h2>6. Hardware & Installation</h2>
+            <p>When we install tracking devices or dash cams in your vehicles:</p>
             <ul>
-              <li>You confirm you have the legal right to let the property</li>
-              <li>You are responsible for ensuring the property meets all safety regulations</li>
-              <li>Our fees are as agreed in writing and are deducted from rent received</li>
-              <li>You must have appropriate landlord insurance in place</li>
+              <li>You confirm you have the legal right to install devices in the vehicles</li>
+              <li>You are responsible for informing drivers about tracking devices where required by law</li>
+              <li>Devices must not be tampered with, removed, or damaged</li>
+              <li>You must provide reasonable access to vehicles for installation and maintenance</li>
             </ul>
 
-            <h2>7. Buyer/Tenant Obligations</h2>
-            <p>When registering as a buyer or tenant:</p>
+            <h2>7. Data & Privacy</h2>
+            <p>When using our tracking and fleet management services:</p>
             <ul>
-              <li>You agree to provide accurate personal information</li>
-              <li>You confirm you are in a position to proceed with a purchase or tenancy</li>
-              <li>You agree to be contacted about suitable properties</li>
-              <li>You understand viewings are subject to availability</li>
+              <li>You agree to comply with data protection laws regarding driver tracking</li>
+              <li>You are responsible for informing employees about data collection</li>
+              <li>Dash cam footage is stored securely and subject to our data retention policy</li>
+              <li>GPS data is encrypted and accessible only to authorised users</li>
             </ul>
 
-            <h2>8. Anti-Money Laundering</h2>
+            <h2>8. Service Level</h2>
             <p>
-              We are required by law to verify the identity of our clients. You agree to provide 
-              identification documents and proof of funds as requested. We reserve the right to 
-              decline to act for anyone who fails to provide satisfactory documentation.
+              We aim to provide 99.9% uptime for our tracking platform. Planned maintenance 
+              windows will be communicated in advance. We are not liable for interruptions 
+              caused by factors outside our control including network outages.
             </p>
 
             <h2>9. Limitation of Liability</h2>
@@ -118,8 +118,7 @@ export default function Terms() {
             <p>
               If you have a complaint about our services, please contact us in writing. We will 
               acknowledge your complaint within 3 working days and provide a full response within 
-              15 working days. If you remain dissatisfied, you may refer your complaint to The 
-              Property Ombudsman.
+              15 working days.
             </p>
 
             <h2>11. Third-Party Links</h2>

@@ -163,10 +163,8 @@ export function MarketTrends() {
             activeListings,
             recentTrends: trends?.slice(0, 5)
           },
-          context: `Analyze current property market trends for Peak District, Sheffield, Chesterfield, and Nottingham. 
-                    Average property price: £${avgPrice.toLocaleString()}. 
-                    Active listings: ${activeListings}.
-                    Consider seasonal patterns, economic factors, and local developments.`
+          context: `Analyze current fleet management and telematics market trends in the UK. 
+                    Consider seasonal patterns, economic factors, regulatory changes, and technology adoption.`
         }
       });
 
@@ -193,7 +191,7 @@ export function MarketTrends() {
           </div>
           <div>
             <h2 className="text-xl font-semibold text-foreground">Market Trends</h2>
-            <p className="text-muted-foreground">Monitor property market trends and get AI insights</p>
+            <p className="text-muted-foreground">Monitor fleet industry trends and get AI insights</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -328,7 +326,7 @@ export function MarketTrends() {
               <p className="text-2xl font-bold text-foreground">
                 £{avgPrice > 0 ? avgPrice.toLocaleString() : '—'}
               </p>
-              <p className="text-sm text-muted-foreground">Avg. Property Price</p>
+              <p className="text-sm text-muted-foreground">Avg. Market Index</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -378,7 +376,7 @@ export function MarketTrends() {
         <Card className="bg-card border-border">
           <CardHeader>
             <CardTitle>Area Breakdown</CardTitle>
-            <CardDescription>Property market performance by location</CardDescription>
+            <CardDescription>Market performance by segment</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">

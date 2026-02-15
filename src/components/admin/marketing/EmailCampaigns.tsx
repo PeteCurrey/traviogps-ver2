@@ -226,10 +226,10 @@ export function EmailCampaigns() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="all">All Subscribers</SelectItem>
-                        <SelectItem value="buyers">Potential Buyers</SelectItem>
-                        <SelectItem value="sellers">Property Sellers</SelectItem>
-                        <SelectItem value="landlords">Landlords</SelectItem>
-                        <SelectItem value="tenants">Tenants</SelectItem>
+                        <SelectItem value="fleet_managers">Fleet Managers</SelectItem>
+                        <SelectItem value="business_owners">Business Owners</SelectItem>
+                        <SelectItem value="prospects">Prospects</SelectItem>
+                        <SelectItem value="existing_customers">Existing Customers</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
