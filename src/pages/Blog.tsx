@@ -76,8 +76,8 @@ export default function Blog() {
               Property <span className="italic-accent">insights</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Stay informed with the latest property news, market updates, and expert advice 
-              from the Dales & Peaks team.
+              Stay informed with the latest fleet management news, GPS tracking tips, and expert advice 
+              from the Travio team.
             </p>
           </motion.div>
         </div>

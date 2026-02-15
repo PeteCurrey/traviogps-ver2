@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 import { MapPin, Phone, Mail, Clock, ArrowRight, Check, Headphones, MessageSquare } from "lucide-react";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { Button } from "@/components/ui/button";
@@ -54,9 +56,30 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.from("leads").insert({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone || null,
+        message: `Enquiry Type: ${formData.enquiryType}\nCompany: ${formData.company}\nFleet Size: ${formData.fleetSize}\n\n${formData.message}`,
+        lead_type: "enquiry" as const,
+        source: "contact-page",
+      });
+      if (error) throw error;
+      setIsSubmitted(true);
+      toast.success("Enquiry submitted! We'll be in touch shortly.");
+    } catch (err) {
+      console.error("Error submitting enquiry:", err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

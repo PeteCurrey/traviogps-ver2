@@ -37,6 +37,7 @@ import TeamMembers from "./pages/admin/TeamMembers";
 import Testimonials from "./pages/admin/Testimonials";
 import Settings from "./pages/admin/Settings";
 import Marketing from "./pages/admin/Marketing";
+import BlogAdmin from "./pages/admin/BlogAdmin";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +78,7 @@ const App = () => (
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="leads" element={<Leads />} />
+              <Route path="blog" element={<BlogAdmin />} />
               <Route path="team" element={<TeamMembers />} />
               <Route path="testimonials" element={<Testimonials />} />
               <Route path="settings" element={<Settings />} />

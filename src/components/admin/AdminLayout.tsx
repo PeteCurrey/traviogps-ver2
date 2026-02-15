@@ -3,42 +3,35 @@ import { Link, useLocation, Navigate, Outlet } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
-  Home,
-  Users,
   MessageSquare,
   FileText,
-  MapPin,
+  Users,
   Star,
   Settings,
   LogOut,
   Menu,
-  X,
   ChevronDown,
   Megaphone,
-  Play,
-  Building2,
+  Search,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
-import { DalesAndPeaksLogo } from "@/components/layout/DalesAndPeaksLogo";
+import { TravioLogo } from "@/components/layout/TravioLogo";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { label: "Properties", href: "/admin/properties", icon: Home },
-  { label: "Showcase", href: "/admin/showcase", icon: Play },
-  { label: "Developments", href: "/admin/developments", icon: Building2 },
-  { label: "Leads", href: "/admin/leads", icon: MessageSquare },
-  { label: "Marketing", href: "/admin/marketing", icon: Megaphone },
+  { label: "Enquiries", href: "/admin/leads", icon: MessageSquare },
+  { label: "Blog Posts", href: "/admin/blog", icon: FileText },
   {
     label: "Content",
-    icon: FileText,
+    icon: Users,
     children: [
-      { label: "Area Guides", href: "/admin/areas", icon: MapPin },
       { label: "Team Members", href: "/admin/team", icon: Users },
       { label: "Testimonials", href: "/admin/testimonials", icon: Star },
     ],
   },
+  { label: "SEO & Marketing", href: "/admin/marketing", icon: Search },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
@@ -64,7 +57,7 @@ export default function AdminLayout() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center max-w-md p-8">
-          <h1 className="font-serif text-2xl text-foreground mb-4">Access Denied</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Access Denied</h1>
           <p className="text-muted-foreground mb-6">
             You don't have permission to access the admin area.
           </p>
@@ -104,7 +97,8 @@ export default function AdminLayout() {
           {/* Logo */}
           <div className="p-6 border-b border-border">
             <Link to="/admin" className="flex items-center gap-3">
-              <DalesAndPeaksLogo size="sm" />
+              <TravioLogo size="sm" />
+              <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Admin</span>
             </Link>
           </div>
 
@@ -221,8 +215,8 @@ export default function AdminLayout() {
             >
               <Menu className="h-5 w-5" />
             </button>
-            <DalesAndPeaksLogo size="sm" />
-            <div className="w-9" /> {/* Spacer */}
+            <TravioLogo size="sm" />
+            <div className="w-9" />
           </div>
         </header>
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
-import { DalesAndPeaksLogo } from "./DalesAndPeaksLogo";
+import { TravioLogo } from "./TravioLogo";
 
 const footerLinks = {
   products: [
@@ -43,7 +43,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <DalesAndPeaksLogo size="sm" />
+              <TravioLogo size="sm" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
               Powering every working day since 2004. GPS vehicle tracking and fleet management solutions trusted by 22,000+ businesses.

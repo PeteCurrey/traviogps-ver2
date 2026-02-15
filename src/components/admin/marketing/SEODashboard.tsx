@@ -98,7 +98,7 @@ export function SEODashboard() {
         body: { 
           type: 'seo_recommendations',
           data: keywordData,
-          context: 'Analyze SEO performance for Dales & Peaks estate agency website covering Peak District, Sheffield, Chesterfield, and Nottingham. Current tracked keywords and their rankings are provided.'
+          context: 'Analyze SEO performance for Travio GPS vehicle tracking website. Current tracked keywords and their rankings are provided.'
         }
       });
 

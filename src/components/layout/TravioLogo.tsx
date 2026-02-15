@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import { MapPin } from "lucide-react";
 
-interface DalesAndPeaksLogoProps {
+interface TravioLogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
 }
 
-export function DalesAndPeaksLogo({ className, size = "md" }: DalesAndPeaksLogoProps) {
+export function TravioLogo({ className, size = "md" }: TravioLogoProps) {
   const sizeClasses = {
     sm: "text-base md:text-lg",
     md: "text-lg md:text-xl",
