@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Truck, Video, FileCheck, Briefcase, ArrowRight } from "lucide-react";
 
@@ -71,7 +71,7 @@ export function FeaturedProperties() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Link to="/get-quote" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors">
+            <Link href="/get-quote" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors">
               Get a Quote <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
@@ -87,7 +87,7 @@ export function FeaturedProperties() {
           {products.map((product) => (
             <motion.div key={product.title} variants={cardVariants}>
               <Link
-                to={product.href}
+                href={product.href}
                 className="group block p-6 bg-card rounded-lg border border-border h-full relative overflow-hidden hover:border-accent/30 transition-colors duration-300"
               >
                 <motion.div

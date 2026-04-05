@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CalendarCheck, Headphones, TrendingDown, ShieldCheck, ArrowRight } from "lucide-react";
 import { usePageContent } from "@/hooks/usePageContent";
@@ -59,7 +59,7 @@ export function ServicesSection() {
           {services.map((service) => (
             <motion.div key={service.title} variants={cardVariants}>
               <Link
-                to={service.href}
+                href={service.href}
                 className="group block p-6 bg-card rounded-lg border border-border h-full relative overflow-hidden hover:border-accent/30 transition-colors duration-300"
               >
                 <motion.div

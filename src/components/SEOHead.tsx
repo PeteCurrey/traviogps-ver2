@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 const BASE_URL = "https://traviogps-ver2.lovable.app";
 
@@ -9,7 +9,7 @@ interface SEOHeadProps {
 }
 
 export const SEOHead = ({ title, description }: SEOHeadProps) => {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     document.title = title;

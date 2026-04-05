@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
 import { TravioLogo } from "./TravioLogo";
 
@@ -42,7 +42,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8">
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-6">
               <TravioLogo size="sm" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
@@ -69,7 +69,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.products.map(link => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -82,7 +82,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.solutions.map(link => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.resources.map(link => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -108,7 +108,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.company.map(link => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -133,8 +133,8 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-4 md:gap-6 text-xs md:text-sm text-muted-foreground">
-            <Link to="/privacy" className="hover:text-accent transition-colors">Privacy</Link>
-            <Link to="/terms" className="hover:text-accent transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-accent transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-accent transition-colors">Terms</Link>
           </div>
         </div>
       </div>

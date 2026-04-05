@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Truck, Video, Settings } from "lucide-react";
-import fleetHeroTracking from "@/assets/fleet-hero-tracking.webp";
-import fleetHeroDashcam from "@/assets/fleet-hero-dashcam.webp";
-import fleetManagerAbout from "@/assets/fleet-manager-about.webp";
+const fleetHeroTracking = "/assets/fleet-hero-tracking.webp";
+const fleetHeroDashcam = "/assets/fleet-hero-dashcam.webp";
+const fleetManagerAbout = "/assets/fleet-manager-about.webp";
 import { usePageContent } from "@/hooks/usePageContent";
 
 interface ServiceCard {
@@ -30,7 +30,7 @@ function ServiceCardItem({ card, index }: { card: ServiceCard; index: number }) 
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link
-        to={card.href}
+        href={card.href}
         className="group relative block h-full overflow-hidden rounded-lg"
       >
         <motion.div

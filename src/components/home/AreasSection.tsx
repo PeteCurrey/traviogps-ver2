@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -81,7 +81,7 @@ export function AreasSection() {
           {industries.map((industry) => (
             <motion.div key={industry.name} variants={itemVariants}>
               <Link
-                to={industry.href}
+                href={industry.href}
                 className="group block relative aspect-[16/9] overflow-hidden rounded-lg"
               >
                 <motion.img

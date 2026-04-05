@@ -1,5 +1,8 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -72,7 +75,7 @@ function NavLinkItem({ link, activeSubmenu, setActiveSubmenu, pathname }: NavLin
       onMouseLeave={() => setActiveSubmenu(null)}
     >
       <Link
-        to={link.href}
+        href={link.href}
         className={cn(
           "px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1",
           pathname === link.href
@@ -97,7 +100,7 @@ function NavLinkItem({ link, activeSubmenu, setActiveSubmenu, pathname }: NavLin
               {link.submenu.map((sublink) => (
                 <Link
                   key={sublink.label}
-                  to={sublink.href}
+                  href={sublink.href}
                   className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-accent hover:bg-secondary/50 transition-colors"
                 >
                   {sublink.label}
@@ -115,7 +118,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,7 +131,7 @@ export function Navigation() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveSubmenu(null);
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <>
@@ -181,13 +184,13 @@ export function Navigation() {
                   link={link}
                   activeSubmenu={activeSubmenu}
                   setActiveSubmenu={setActiveSubmenu}
-                  pathname={location.pathname}
+                  pathname={pathname}
                 />
               ))}
             </div>
 
             {/* Logo */}
-            <Link to="/" className="flex items-center justify-center lg:flex-none">
+            <Link href="/" className="flex items-center justify-center lg:flex-none">
               <TravioLogo size="md" />
             </Link>
 
@@ -199,12 +202,12 @@ export function Navigation() {
                   link={link}
                   activeSubmenu={activeSubmenu}
                   setActiveSubmenu={setActiveSubmenu}
-                  pathname={location.pathname}
+                  pathname={pathname}
                 />
               ))}
               <ThemeToggle />
               <Button asChild size="sm" className="ml-2 bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Link to="/get-quote">Get a Quote</Link>
+                <Link href="/get-quote">Get a Quote</Link>
               </Button>
             </div>
 
@@ -254,10 +257,10 @@ export function Navigation() {
                       transition={{ delay: index * 0.05 }}
                     >
                       <Link
-                        to={link.href}
+                        href={link.href}
                         className={cn(
                           "block py-3 text-lg font-medium border-b border-border/50 transition-colors",
-                          location.pathname === link.href
+                          pathname === link.href
                             ? "text-accent"
                             : "text-foreground hover:text-accent"
                         )}
@@ -269,7 +272,7 @@ export function Navigation() {
                           {link.submenu.map((sublink) => (
                             <Link
                               key={sublink.label}
-                              to={sublink.href}
+                              href={sublink.href}
                               className="block py-2 text-sm text-muted-foreground hover:text-accent transition-colors"
                             >
                               {sublink.label}
@@ -286,7 +289,7 @@ export function Navigation() {
                     <ThemeToggle />
                   </div>
                   <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                    <Link to="/get-quote">Get a Quote</Link>
+                    <Link href="/get-quote">Get a Quote</Link>
                   </Button>
                   <div className="text-center space-y-2 text-sm text-muted-foreground">
                     <a href="tel:03300600499" className="block hover:text-accent transition-colors">

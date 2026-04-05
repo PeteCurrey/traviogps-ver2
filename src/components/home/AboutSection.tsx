@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Eye, Bell, Zap, BarChart3 } from "lucide-react";
-import fleetManagerAbout from "@/assets/fleet-manager-about.webp";
+const fleetManagerAbout = "/assets/fleet-manager-about.webp";
 import { usePageContent } from "@/hooks/usePageContent";
 
 const icons = [Eye, Bell, Zap, BarChart3];
@@ -96,7 +96,7 @@ export function AboutSection() {
               viewport={{ once: true }}
             >
               <Link
-                to="/about"
+                href="/about"
                 className="group inline-flex items-center text-sm font-medium text-accent link-underline"
               >
                 {String(content.ctaText)}

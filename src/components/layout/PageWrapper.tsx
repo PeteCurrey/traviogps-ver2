@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import { motion, type Transition } from "framer-motion";
 import { Navigation } from "./Navigation";

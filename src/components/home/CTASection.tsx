@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import fleetCtaBanner from "@/assets/fleet-cta-banner.webp";
+const fleetCtaBanner = "/assets/fleet-cta-banner.webp";
 import { usePageContent } from "@/hooks/usePageContent";
 
 export function CTASection() {
@@ -41,14 +41,14 @@ export function CTASection() {
           <div className="flex flex-wrap justify-center gap-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button asChild size="lg" className="btn-premium bg-accent hover:bg-accent/90 text-accent-foreground px-8">
-                <Link to="/get-quote">
+                <Link href="/get-quote">
                   {String(content.primaryCta)} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button asChild variant="outline" size="lg" className="border-accent/30 text-foreground hover:bg-accent/10 px-8">
-                <Link to="/book-demo">{String(content.secondaryCta)}</Link>
+                <Link href="/book-demo">{String(content.secondaryCta)}</Link>
               </Button>
             </motion.div>
           </div>
