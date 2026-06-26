@@ -61,11 +61,11 @@ function HeroSection() {
 
   useEffect(() => {
     if (!heroRef.current) return;
-    const panels = heroRef.current.querySelectorAll("[data-hero-panel]");
+    const cards = heroRef.current.querySelectorAll("[data-hero-card]");
     gsap.fromTo(
-      panels,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.2 }
+      cards,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.15 }
     );
   }, []);
 
@@ -97,54 +97,72 @@ function HeroSection() {
   ];
 
   return (
-    <section className="h-[100svh] w-full flex flex-col md:flex-row" ref={heroRef}>
-      {panels.map((panel, i) => (
-        <Link
-          key={i}
-          href={panel.href}
-          data-hero-panel
-          className="relative flex-1 overflow-hidden group cursor-pointer min-h-[33svh] md:min-h-full"
-        >
-          {/* Background image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ backgroundImage: `url(${panel.image})` }}
-          />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
-          {/* Gold border on hover */}
-          <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#C9A84C] transition-all duration-300 pointer-events-none z-10" />
-
-          {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-10">
-            <p className="overline mb-3 text-[#C9A84C]">{panel.overline}</p>
-            <h2
-              className="text-4xl md:text-5xl leading-tight"
-              style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
+    <section className="relative min-h-screen bg-[#0A0A0A] pt-20 lg:pt-[104px] pb-48 md:pb-56" ref={heroRef}>
+      <div className="h-[calc(100vh-280px)] md:h-[calc(100vh-320px)] lg:h-[calc(100vh-340px)] grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-8">
+        {panels.map((panel, i) => (
+          <div key={i} data-hero-card className="relative h-full">
+            <Link
+              href={panel.href}
+              className="group relative block h-full overflow-hidden rounded-xl"
             >
-              <span className="text-[#F5F5F5] block">{panel.line1}</span>
-              <span className="text-[#C9A84C] block">{panel.line2}</span>
+              {/* Background image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${panel.image})` }}
+              />
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
+              {/* Gold border on hover */}
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#C9A84C] transition-all duration-300 pointer-events-none z-10 rounded-xl" />
+
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-10">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#C9A84C]/80 group-hover:text-[#C9A84C] mb-3 transition-colors" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  {panel.overline}
+                </span>
+                <h3
+                  className="text-3xl md:text-4xl lg:text-5xl text-[#F5F5F5] leading-tight"
+                  style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
+                >
+                  {panel.line1}
+                  <br />
+                  <span className="text-[#C9A84C]">{panel.line2}</span>
+                </h3>
+
+                <div className="mt-8 transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0">
+                  <span className="btn-gold py-2 px-6 text-xs uppercase tracking-wider font-semibold rounded-lg">
+                    Get Protected
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+
+      {/* Header Statement at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-[#2A2A2A]">
+        <div className="container-premium py-6 md:py-8">
+          <div className="text-center">
+            <p className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#999999] mb-2 md:mb-3" style={{ fontFamily: "DM Sans, sans-serif" }}>
+              TRAVIO VEHICLE SECURITY
+            </p>
+            <h2 className="font-bold text-xl md:text-2xl lg:text-3xl text-[#F5F5F5] px-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
+              The ultimate protection <span className="text-[#C9A84C]">for your vehicle.</span>
             </h2>
           </div>
-
-          {/* Centre number */}
-          <div className="absolute top-1/2 right-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-            <ChevronRight className="h-8 w-8 text-[#C9A84C]" />
-          </div>
-
-          {/* Separator line between panels (desktop) */}
-          {i < panels.length - 1 && (
-            <div className="hidden md:block absolute top-0 right-0 w-px h-full bg-[#2A2A2A] z-10" />
-          )}
-        </Link>
-      ))}
+        </div>
+      </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 pointer-events-none hidden md:flex">
-        <div className="animate-bounce-scroll">
-          <div className="w-px h-8 bg-[#C9A84C]/50" />
+      <div
+        className="hidden md:flex absolute bottom-32 left-1/2 -translate-x-1/2 flex-col items-center gap-2 cursor-pointer z-20"
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
+      >
+        <span className="text-[10px] uppercase tracking-[0.25em] text-[#555555]" style={{ fontFamily: "DM Sans, sans-serif" }}>Scroll</span>
+        <div className="w-6 h-10 rounded-full border border-[#2A2A2A] flex items-start justify-center p-2">
+          <div className="w-1.5 h-1.5 bg-[#C9A84C] rounded-full animate-bounce" />
         </div>
-        <p className="overline text-[#555555] text-[10px]">SCROLL</p>
       </div>
     </section>
   );
