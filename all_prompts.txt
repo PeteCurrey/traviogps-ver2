@@ -1,0 +1,315 @@
+<USER_REQUEST>
+please pull files from https://github.com/PeteCurrey/traviogps-ver2 and confim we have a clean Next.js build before we start any further work 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-26T10:25:22+01:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (Low). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+<USER_REQUEST>
+You are rebuilding the Travio GPS tracking website (Next.js 15 App Router, Tailwind CSS, Supabase, Vercel). The codebase already exists. The existing site is B2B fleet-focused. We are pivoting it completely to a premium B2C consumer product targeting owners of supercars, luxury cars, motorhomes, caravans, and high-value motorbikes.
+
+---
+
+## DESIGN SYSTEM — ESTABLISH THESE TOKENS GLOBALLY
+
+Update globals.css and tailwind.config.js with the following:
+
+**Colour palette:**
+- Background: #0A0A0A (near-black)
+- Surface: #111111 (cards, panels)
+- Surface raised: #1A1A1A
+- Border: #2A2A2A
+- Primary accent: #C9A84C (champagne gold)
+- Primary accent hover: #E2C06A
+- Text primary: #F5F5F5
+- Text secondary: #999999
+- Text muted: #555555
+- White: #FFFFFF
+- Danger/alert: #FF4444
+
+**Typography:**
+- Display / headings: Syne (Google Font, weights 400 700 800)
+- Body: DM Sans (Google Font, weights 300 400 500)
+- Label / overline: DM Sans, tracked wide, uppercase
+
+**Motion:**
+- Smooth scroll: Lenis
+- Scroll animations: GSAP ScrollTrigger with scrub (never IntersectionObserver)
+- Page transitions: GSAP timeline fadeUp on mount
+- Hover states: 200ms ease-out transform scale + opacity
+
+**Spacing scale:** Use Tailwind defaults. Sections get py-24 md:py-32 lg:py-40.
+
+**Border radius:** Minimal. Cards use rounded-2xl. Buttons use rounded-full.
+
+**Images:** All photography must be cinematic, dark, high-contrast. Supercars (Porsche, Ferrari, Lamborghini, Aston Martin), luxury SUVs (Range Rover, G-Wagon), motorhomes on dramatic landscapes, motorbikes on empty roads. Use Unsplash URLs with appropriate queries. NEVER use van/fleet imagery.
+
+---
+
+## FILE: app/globals.css
+Add CSS custom properties for all colours above. Import Syne and DM Sans from Google Fonts via @import.
+
+## FILE: tailwind.config.js
+Extend theme with all colour tokens, font families (syne, dm-sans), and any custom animation keyframes needed.
+
+---
+
+## FILE: app/page.tsx — FULL HOMEPAGE REBUILD
+
+Remove all existing content. Build the following sections in order:
+
+---
+
+### SECTION 1: HERO — Full viewport, cinematic split
+
+Layout: Full viewport height (100svh). Three panels side by side (desktop), stacked (mobile). Each panel is a full-bleed image card that expands slightly on hover with a GSAP scale animation.
+
+Panel 1 — SUPERCARS & LUXURY CARS
+- Background image: cinematic supercar (Porsche 911, dark road, golden hour) — use a high-quality Unsplash URL
+- Overline (small gold tracked uppercase): "THATCHAM S5 CERTIFIED"
+- H2 (Syne 800, white): "Supercar" / "Protection"
+- The second word renders in gold (#C9A84C)
+- On hover: subtle gold border appears at panel edge
+
+Panel 2 — MOTORHOMES & CARAVANS (centre panel, slightly taller)
+- Background: dramatic motorhome on a coastal road at dusk
+- Overline: "NATIONWIDE INSTALLATION"
+- H2: "Adventure" / "Secured"
+
+Panel 3 — MOTORBIKES
+- Background: motorbike on mountain pass, dramatic sky
+- Overline: "24/7 MONITORING"
+- H2: "Ride with" / "Confidence"
+
+Below panels: small animated scroll indicator (GSAP looping bounce), text "SCROLL" in tracked uppercase, muted colour.
+
+No CTA buttons in hero. The hero is pure emotion. Let the imagery do the selling.
+
+---
+
+### SECTION 2: MARQUEE TRUST BAR
+
+Full-width dark band (#111111). Continuous horizontal marquee (CSS animation, infinite loop) of trust signals separated by small gold diamond icons:
+
+"Thatcham S5 Certified" · "24/7 Secure Control Centre" · "Police Integrated Recovery" · "Insurance Premium Reduction" · "Nationwide Engineer Installation" · "Remote Immobilisation" · "5,000+ Vehicles Protected" · "Anti-Keyless Theft" · "App Controlled" · "Same-Week Installation"
+
+Text: DM Sans 13px, tracked wide, uppercase, #999999. Diamond separators: #C9A84C.
+
+---
+
+### SECTION 3: BRAND STATEMENT — "What is Travio?"
+
+Two-column layout (desktop). Left: large decorative number "01" in Syne 800, very large (text-[180px]), gold, low opacity (opacity-10), absolute positioned behind the heading. Heading: "Protection that matches your vehicle." Body copy (2 short paragraphs, DM Sans 400, secondary text colour):
+
+Para 1: "Your car is an investment. Whether it's a Porsche 911 on the driveway, a McLaren in the garage, or a £120,000 motorhome on tour — it deserves more than a standard tracker. Travio delivers Thatcham-certified, insurance-approved GPS protection built for high-value vehicles."
+
+Para 2: "We combine real-time location tracking, remote immobilisation, driver identification, and 24/7 monitoring from our Secure Control Centre — all controlled from a beautifully simple app."
+
+Right column: Stacked stats (animate up on scroll with GSAP):
+- "S5" / "Thatcham Certified" 
+- "94%" / "Recovery Rate"
+- "£6.5M+" / "Value Protected Per Week"
+- "48hr" / "Average Installation"
+
+Each stat: large number in Syne 800 gold, label in DM Sans uppercase muted.
+
+---
+
+### SECTION 4: PRODUCT CATEGORIES GRID
+
+Heading: "What do you want to protect?" (Syne 700, white, centred)
+Subheading: Small gold overline "BUILT FOR YOUR VEHICLE"
+
+Four cards in a 2x2 grid (desktop), single column (mobile). Each card is a dark surface (#111111) with a thin gold border on hover. Cards have a subtle background image (low opacity, darkened overlay) and:
+- Icon (lucide-react, gold)
+- Category name (Syne 700, white, large)
+- One-line descriptor (DM Sans, muted)
+- "Explore →" link (gold, small)
+
+Card 1: Shield icon — "Supercars & Sports Cars" — "Thatcham S5 protection for high-performance vehicles."
+Card 2: MapPin icon — "Luxury SUVs & Saloons" — "Real-time tracking for Range Rover, G-Wagon, and more."
+Card 3: Home icon — "Motorhomes & Caravans" — "Nationwide protection for your home on the road."
+Card 4: Zap icon — "Motorcycles & Scooters" — "Compact, covert tracking for two wheels."
+
+On hover each card: gold border appears, background image brightens slightly (GSAP), slight translateY(-4px).
+
+---
+
+### SECTION 5: THREAT REALITY SECTION — "Why You Need This"
+
+Dark background. Full-width section. Left: large cinematic image (luxury car being watched from distance, threatening mood). Right: copy block.
+
+Overline (gold): "THE THREAT IS REAL"
+Heading (Syne 800, white): "A car is stolen every 3 minutes in the UK."
+Body: "Organised crime gangs target high-value vehicles specifically. They use relay devices to clone your keyless entry signal and are gone in under 60 seconds. Without a Thatcham-approved tracker, your insurer may not cover you — and your vehicle may never be seen again."
+
+Below: Three inline stats in a row:
+- "90,000+" vehicles stolen in the UK last year
+- "60 seconds" to steal a keyless entry car
+- "58%" of stolen cars never recovered without a tracker
+
+Each stat: gold number, white label, muted separator.
+
+CTA below stats: Primary button "Get Protected Today" (gold fill, black text, rounded-full, GSAP hover scale) linking to /products.
+
+---
+
+### SECTION 6: HOW IT WORKS — 3 STEPS
+
+Centred heading: "How Travio Works" (Syne 700)
+Subheading overline: "SIMPLE. SEAMLESS. CERTAIN."
+
+Three steps in a horizontal row (desktop), vertical (mobile). Each step has:
+- Large gold step number (Syne 800, very large, low opacity behind)
+- Icon (lucide-react, gold)
+- Step title (Syne 700, white)
+- Step description (DM Sans, muted, max 2 sentences)
+
+Step 1 — "Choose Your Protection" — Select the Thatcham category right for your vehicle and insurer. S7 for peace of mind, S5 for maximum security.
+Step 2 — "We Install It" — A Thatcham-accredited Travio engineer comes to you — at home, work, or your dealership — usually within 48 hours.
+Step 3 — "Complete Control" — Monitor your vehicle live, set geofences, receive instant alerts, and immobilise remotely — all from the Travio app.
+
+Connecting line between steps on desktop (thin gold dashed line, GSAP draw-on animation).
+
+---
+
+### SECTION 7: APP PREVIEW
+
+Full-width dark section. Left: Large iPhone mockup (use a CSS-drawn phone frame, dark glass aesthetic) showing a mock dashboard screen. Right: Feature list.
+
+The mock app screen inside the iPhone: use a dark background (#0A0A0A), show:
+- A simple map snippet (dark map tile colour scheme)
+- Vehicle location pin (gold)
+- Status bar: "PROTECTED · STATIONARY · LONDON, SW3"
+- Three quick-action tiles: Live View / Geofence / Immobilise
+
+Right column heading (Syne 700): "Total control. One app."
+Feature bullets (each with a small gold tick icon and DM Sans text):
+- Real-time location on a beautifully dark map
+- Instant alerts: movement, ignition, geofence breach
+- One-tap remote immobilisation
+- Trip history and driver scoring
+- Battery and signal health monitoring
+- Shared access for family members
+
+CTA: "Coming to App Store & Google Play" — show placeholder app store badges (greyscale with gold on hover).
+
+---
+
+### SECTION 8: VEHICLE CATEGORIES MARQUEE
+
+A slow horizontal scroll of vehicle silhouettes/names. Alternating gold text and muted dividers:
+
+"Porsche 911" · "Ferrari SF90" · "Range Rover SVR" · "Lamborghini Urus" · "Aston Martin DB12" · "McLaren 720S" · "Bentley Continental" · "Mercedes G-Class" · "BMW M5" · "Rolls-Royce Ghost" · "Airstream Interstate" · "Bailey Motorhome" · "Ducati Panigale" · "Honda Goldwing" · "Swift Caravan"
+
+Text: Syne 400, large (text-2xl), auto-scroll left. This is pure brand aspiration.
+
+---
+
+### SECTION 9: TESTIMONIALS
+
+Three testimonials in a horizontal card grid. Each card: dark surface, gold quotation mark large in corner, testimonial text (DM Sans italic, white), customer name (Syne 700, gold), vehicle they protect (DM Sans muted), star rating.
+
+Sample testimonials:
+1. "My Ferrari 296 needed an S5 tracker for insurance — Travio had an engineer at my home in 24 hours. The app is genuinely beautiful." — James W., Ferrari 296 GTB Owner ★★★★★
+2. "We tour the UK in our Bürstner motorhome. Knowing Travio is monitoring it 24/7 while we sleep is priceless." — Sandra & Keith R., Motorhome Owners ★★★★★
+3. "The immobilisation feature alone is worth it. My Lamborghini Urus is in a public car park every day — I wouldn't leave it without Travio." — Daniel M., Lamborghini Urus Owner ★★★★★
+
+---
+
+### SECTION 10: FINAL CTA BAND
+
+Full-width cinematic image background (supercar on a dark, wet road at night, city lights reflecting). Dark overlay (rgba 0,0,0,0.75).
+
+Centred content:
+- Overline (gold, tracked): "GET STARTED TODAY"
+- Heading (Syne 800, white, large): "Your vehicle deserves" / "the best protection."
+- Second line in gold.
+- Subtext (DM Sans, muted): "Thatcham-certified. App-controlled. Installed at your door."
+- Two buttons side by side: Primary "Get a Quote" (gold fill) + Secondary "Book a Free Demo" (border gold, transparent bg)
+
+---
+
+### NAVIGATION UPDATES
+
+Update the existing nav component. Remove fleet-focused links. New structure:
+
+Left group: "Protection" (dropdown) | "Vehicles" (dropdown) | "How It Works"
+Logo: Centre
+Right group: "Pricing" | "About" | "Contact" | Button: "Get Protected" (gold, rounded-full)
+
+Protection dropdown items:
+- Thatcham S5 — Premium protection
+- Thatcham S7 — Essential protection
+- Remote Immobilisation
+- 24/7 Monitoring
+
+Vehicles dropdown items:
+- Supercars & Sports Cars
+- Luxury SUVs
+- Motorhomes & Caravans
+- Motorcycles
+
+---
+
+### FOOTER UPDATES
+
+Remove all fleet/business language. Update copy to:
+"Travio protects what you've worked for. Premium GPS tracking, Thatcham-certified, installed at your door."
+
+Column 1 — Products: S5 Protection, S7 Protection, Remote Immobilisation, App Features
+Column 2 — Vehicles: Supercars, Luxury SUVs, Motorhomes, Motorcycles
+Column 3 — Company: About, How It Works, Pricing, Contact
+Column 4 — Support: Book Installation, Help Centre, FAQ, Blog
+
+---
+
+## ANIMATION SPECIFICATION
+
+All sections animate in on scroll. Use GSAP ScrollTrigger with:
+- trigger: each section
+- start: "top 85%"
+- animation: gsap.fromTo(element, {opacity: 0, y: 40}, {opacity: 1, y: 0, duration: 0.8, ease: "power3.out"})
+
+Stagger children by 0.15s where multiple elements are in a row.
+
+Hero panels: on page load, GSAP timeline: panels fadeIn from y: 20 with stagger 0.2s.
+
+Marquee: pure CSS animation (transform: translateX), no GSAP needed.
+
+---
+
+## VERIFICATION CHECKLIST
+
+After implementation verify:
+- [ ] No van/fleet imagery anywhere on the page
+- [ ] Gold (#C9A84C) accent used consistently, not orange
+- [ ] Syne font loading correctly for all headings
+- [ ] GSAP and Lenis installed (check package.json)
+- [ ] All 10 sections present and in correct order
+- [ ] Nav dropdown structure updated
+- [ ] Footer updated with new copy/links
+- [ ] Mobile responsive: panels stack vertically in hero
+- [ ] No TypeScript errors
+- [ ] No placeholder "Lorem ipsum" text
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-26T10:37:57+01:00.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+please continue working through prompt 1 then 2 then 3 then 4 then 5. Please check your work to ensure nothing is missed
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-26T11:06:44+01:00.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+continue
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-26T11:17:05+01:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from Claude Sonnet 4.6 (Thinking) to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

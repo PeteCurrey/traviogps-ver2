@@ -1,11 +1,17 @@
-import { IndexClient } from "@/components/home/IndexClient";
 import type { Metadata } from "next";
+import { HomePage } from "@/components/home/HomePage";
 
 export const metadata: Metadata = {
-  title: "Travio | GPS Vehicle Tracking & Fleet Management UK",
-  description: "Travio provides real-time GPS vehicle tracking, dash cams, and fleet management software for UK businesses. Cut costs, boost productivity, and protect your fleet.",
+  title: "Travio | Premium GPS Tracking for Supercars, Luxury Cars & Motorhomes",
+  description:
+    "Thatcham-certified GPS tracking for supercars, luxury SUVs, motorhomes, caravans, and motorcycles. Real-time tracking, remote immobilisation, 24/7 monitoring. Installed at your door.",
+  openGraph: {
+    title: "Travio | Premium GPS Tracking",
+    description:
+      "Thatcham-certified GPS tracking for supercars, luxury cars & motorhomes. Installed at your door.",
+  },
 };
 
 export default function IndexPage() {
-  return <IndexClient />;
+  return <HomePage />;
 }

@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { MapPin } from "lucide-react";
 
 interface TravioLogoProps {
   className?: string;
@@ -8,29 +7,40 @@ interface TravioLogoProps {
 
 export function TravioLogo({ className, size = "md" }: TravioLogoProps) {
   const sizeClasses = {
-    sm: "text-base md:text-lg",
-    md: "text-lg md:text-xl",
-    lg: "text-xl md:text-2xl"
-  };
-
-  const iconSizes = {
-    sm: "h-4 w-4",
-    md: "h-5 w-5",
-    lg: "h-6 w-6"
+    sm: "text-lg",
+    md: "text-xl",
+    lg: "text-2xl",
   };
 
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <div className="relative">
-        <MapPin className={cn(iconSizes[size], "text-accent")} />
-        <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-accent rounded-full animate-pulse" />
+      {/* Gold diamond mark */}
+      <div className="relative flex items-center justify-center">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          className={cn(
+            size === "sm" ? "w-6 h-6" : size === "md" ? "w-7 h-7" : "w-8 h-8"
+          )}
+        >
+          <polygon
+            points="12,2 22,12 12,22 2,12"
+            fill="#C9A84C"
+            opacity="0.9"
+          />
+          <polygon
+            points="12,6 18,12 12,18 6,12"
+            fill="#0A0A0A"
+          />
+          <circle cx="12" cy="12" r="2" fill="#C9A84C" />
+        </svg>
       </div>
-      <span className={cn(
-        "font-bold tracking-tight",
-        sizeClasses[size]
-      )} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-        <span className="text-foreground">Trav</span>
-        <span className="text-accent">io</span>
+      <span
+        className={cn("font-bold tracking-tight leading-none", sizeClasses[size])}
+        style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
+      >
+        <span style={{ color: "#F5F5F5" }}>Trav</span>
+        <span style={{ color: "#C9A84C" }}>io</span>
       </span>
     </div>
   );

@@ -1,115 +1,117 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, ChevronDown, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TravioLogo } from "./TravioLogo";
-import { ThemeToggle } from "./ThemeToggle";
+
+const protectionDropdown = [
+  { label: "Thatcham S5", desc: "Premium protection", href: "/products/s5-protection" },
+  { label: "Thatcham S7", desc: "Essential protection", href: "/products/s7-protection" },
+  { label: "Remote Immobilisation", desc: "Stop your vehicle anywhere", href: "/products/remote-immobilisation" },
+  { label: "24/7 Monitoring", desc: "Always watching", href: "/app" },
+];
+
+const vehiclesDropdown = [
+  { label: "Supercars & Sports Cars", href: "/vehicles/supercars" },
+  { label: "Luxury SUVs", href: "/vehicles/luxury-suvs" },
+  { label: "Motorhomes & Caravans", href: "/vehicles/motorhomes-caravans" },
+  { label: "Motorcycles", href: "/vehicles/motorcycles" },
+];
 
 const leftNavLinks = [
-  { 
-    label: "Vehicle Tracking", 
-    href: "/vehicle-tracking",
-    submenu: [
-      { label: "GPS Trackers", href: "/vehicle-tracking" },
-      { label: "OBD Trackers", href: "/vehicle-tracking" },
-      { label: "Asset Trackers", href: "/vehicle-tracking" },
-    ]
-  },
-  { 
-    label: "Fleet Management", 
-    href: "/fleet-management",
-    submenu: [
-      { label: "Driver App", href: "/fleet-management" },
-      { label: "Vehicle Checks", href: "/fleet-management" },
-      { label: "Mileage Reports", href: "/fleet-management" },
-    ]
-  },
-  { 
-    label: "Dash Cams", 
-    href: "/dash-cams",
-    submenu: [
-      { label: "Connected Dash Cams", href: "/dash-cams" },
-      { label: "HD Cameras", href: "/dash-cams" },
-    ]
-  },
+  { label: "Protection", href: "/products/s5-protection", dropdown: protectionDropdown },
+  { label: "Vehicles", href: "/vehicles/supercars", dropdown: vehiclesDropdown },
+  { label: "How It Works", href: "/how-it-works" },
 ];
 
 const rightNavLinks = [
-  { 
-    label: "Solutions", 
-    href: "/solutions",
-    submenu: [
-      { label: "Construction", href: "/solutions/construction" },
-      { label: "Logistics", href: "/solutions/logistics" },
-      { label: "Delivery", href: "/solutions/delivery" },
-      { label: "Field Service", href: "/solutions/field-service" },
-    ]
-  },
   { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
-const allNavLinks = [...leftNavLinks, ...rightNavLinks];
-
-interface NavLinkItemProps {
-  link: {
-    label: string;
-    href: string;
-    submenu?: { label: string; href: string }[];
-  };
-  activeSubmenu: string | null;
-  setActiveSubmenu: (label: string | null) => void;
-  pathname: string;
+interface DropdownItem {
+  label: string;
+  desc?: string;
+  href: string;
 }
 
-function NavLinkItem({ link, activeSubmenu, setActiveSubmenu, pathname }: NavLinkItemProps) {
-  return (
-    <div
-      className="relative"
-      onMouseEnter={() => link.submenu && setActiveSubmenu(link.label)}
-      onMouseLeave={() => setActiveSubmenu(null)}
-    >
+interface NavLink {
+  label: string;
+  href: string;
+  dropdown?: DropdownItem[];
+}
+
+function NavItem({ link, closeAll }: { link: NavLink; closeAll: () => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  if (!link.dropdown) {
+    return (
       <Link
         href={link.href}
-        className={cn(
-          "px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1",
-          pathname === link.href
-            ? "text-accent"
-            : "text-foreground/80 hover:text-accent"
-        )}
+        className="px-3 py-2 text-sm font-medium text-[#999999] hover:text-[#F5F5F5] transition-colors duration-200"
+        onClick={closeAll}
       >
         {link.label}
-        {link.submenu && <ChevronDown className="h-3 w-3" />}
       </Link>
+    );
+  }
 
-      <AnimatePresence>
-        {link.submenu && activeSubmenu === link.label && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 pt-2 z-50"
-          >
-            <div className="bg-card border border-border rounded-lg shadow-elevated min-w-[200px] py-2">
-              {link.submenu.map((sublink) => (
-                <Link
-                  key={sublink.label}
-                  href={sublink.href}
-                  className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-accent hover:bg-secondary/50 transition-colors"
-                >
-                  {sublink.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+  return (
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#999999] hover:text-[#F5F5F5] transition-colors duration-200"
+        onClick={() => setOpen(!open)}
+      >
+        {link.label}
+        <ChevronDown
+          className={cn(
+            "h-3.5 w-3.5 transition-transform duration-200",
+            open ? "rotate-180" : ""
+          )}
+        />
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-0 pt-2 z-50 min-w-[220px]">
+          <div className="bg-[#111111] border border-[#2A2A2A] rounded-2xl shadow-2xl py-2 overflow-hidden">
+            {link.dropdown.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="block px-5 py-3 hover:bg-[#1A1A1A] transition-colors duration-150 group"
+                onClick={() => { setOpen(false); closeAll(); }}
+              >
+                <div className="text-sm font-medium text-[#F5F5F5] group-hover:text-[#C9A84C] transition-colors">
+                  {item.label}
+                </div>
+                {item.desc && (
+                  <div className="text-xs text-[#555555] mt-0.5">{item.desc}</div>
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -117,194 +119,139 @@ function NavLinkItem({ link, activeSubmenu, setActiveSubmenu, pathname }: NavLin
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
 
+  const closeAll = () => setIsMobileMenuOpen(false);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setActiveSubmenu(null);
   }, [pathname]);
 
   return (
     <>
-      {/* Top bar */}
-      <div className="hidden lg:block bg-charcoal border-b border-border/30">
-        <div className="container-premium flex justify-between items-center py-2 text-sm">
-          <div className="flex items-center gap-6 text-muted-foreground">
-            <a href="tel:+441onal" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Phone className="h-3.5 w-3.5" />
-              <span>0330 060 0499</span>
-            </a>
-            <a href="mailto:info@travio.com" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Mail className="h-3.5 w-3.5" />
-              <span>info@travio.com</span>
-            </a>
-          </div>
-          <div className="text-muted-foreground">
-            Trusted by 22,000+ Businesses
-          </div>
-        </div>
-      </div>
-
-      {/* Main navigation */}
-      <motion.header
+      <header
         className={cn(
-          "fixed top-0 lg:top-[41px] left-0 right-0 z-50 transition-all duration-500",
-          isScrolled 
-            ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-soft" 
-            : "bg-background/80 backdrop-blur-sm"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          isScrolled
+            ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#2A2A2A]"
+            : "bg-transparent"
         )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <nav className="container-premium">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-18 lg:h-20">
+            {/* Mobile hamburger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground"
+              className="lg:hidden p-2 text-[#F5F5F5]"
               aria-label="Toggle menu"
             >
               <Menu className="h-6 w-6" />
             </button>
 
-            {/* Left Navigation */}
-            <div className="hidden lg:flex items-center gap-1 flex-1 justify-start">
+            {/* Left nav */}
+            <div className="hidden lg:flex items-center gap-1 flex-1">
               {leftNavLinks.map((link) => (
-                <NavLinkItem
-                  key={link.label}
-                  link={link}
-                  activeSubmenu={activeSubmenu}
-                  setActiveSubmenu={setActiveSubmenu}
-                  pathname={pathname}
-                />
+                <NavItem key={link.label} link={link} closeAll={closeAll} />
               ))}
             </div>
 
-            {/* Logo */}
+            {/* Logo — centre */}
             <Link href="/" className="flex items-center justify-center lg:flex-none">
               <TravioLogo size="md" />
             </Link>
 
-            {/* Right Navigation */}
+            {/* Right nav */}
             <div className="hidden lg:flex items-center gap-1 flex-1 justify-end">
               {rightNavLinks.map((link) => (
-                <NavLinkItem
-                  key={link.label}
-                  link={link}
-                  activeSubmenu={activeSubmenu}
-                  setActiveSubmenu={setActiveSubmenu}
-                  pathname={pathname}
-                />
+                <NavItem key={link.label} link={link} closeAll={closeAll} />
               ))}
-              <ThemeToggle />
-              <Button asChild size="sm" className="ml-2 bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Link href="/get-quote">Get a Quote</Link>
-              </Button>
+              <Link
+                href="/get-quote"
+                className="ml-4 btn-gold text-sm py-2.5 px-5"
+              >
+                <Shield className="h-3.5 w-3.5" />
+                Get Protected
+              </Link>
             </div>
 
+            {/* Mobile spacer */}
             <div className="lg:hidden w-10" />
           </div>
         </nav>
-      </motion.header>
+      </header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 lg:hidden"
-          >
-            <div 
-              className="absolute inset-0 bg-background/80 backdrop-blur-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
-              className="absolute left-0 top-0 bottom-0 w-full max-w-sm bg-card border-r border-border shadow-elevated"
-            >
-              <div className="flex flex-col h-full pt-6 pb-8 px-6">
-                <div className="flex items-center justify-between mb-8">
-                  <TravioLogo size="sm" />
-                  <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-foreground"
-                    aria-label="Close menu"
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div className="absolute left-0 top-0 bottom-0 w-full max-w-sm bg-[#111111] border-r border-[#2A2A2A] overflow-y-auto">
+            <div className="flex items-center justify-between p-6 border-b border-[#2A2A2A]">
+              <TravioLogo size="sm" />
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 text-[#999999] hover:text-[#F5F5F5]"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <nav className="p-6 space-y-1">
+              <div className="overline mb-4 pb-2 border-b border-[#2A2A2A]">Protection</div>
+              {protectionDropdown.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block py-2.5 text-[#F5F5F5] hover:text-[#C9A84C] transition-colors"
+                  onClick={closeAll}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              <div className="overline mb-4 pb-2 border-b border-[#2A2A2A] pt-6">Vehicles</div>
+              {vehiclesDropdown.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block py-2.5 text-[#F5F5F5] hover:text-[#C9A84C] transition-colors"
+                  onClick={closeAll}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              <div className="pt-6 space-y-2">
+                {[{ label: "How It Works", href: "/how-it-works" }, ...rightNavLinks].map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="block py-2.5 text-[#999999] hover:text-[#F5F5F5] transition-colors"
+                    onClick={closeAll}
                   >
-                    <X className="h-6 w-6" />
-                  </button>
-                </div>
-
-                <nav className="flex-1 overflow-y-auto">
-                  {allNavLinks.map((link, index) => (
-                    <motion.div
-                      key={link.label}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <Link
-                        href={link.href}
-                        className={cn(
-                          "block py-3 text-lg font-medium border-b border-border/50 transition-colors",
-                          pathname === link.href
-                            ? "text-accent"
-                            : "text-foreground hover:text-accent"
-                        )}
-                      >
-                        {link.label}
-                      </Link>
-                      {link.submenu && (
-                        <div className="pl-4 py-2 space-y-2">
-                          {link.submenu.map((sublink) => (
-                            <Link
-                              key={sublink.label}
-                              href={sublink.href}
-                              className="block py-2 text-sm text-muted-foreground hover:text-accent transition-colors"
-                            >
-                              {sublink.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
-                </nav>
-
-                <div className="space-y-4 pt-6 border-t border-border/50">
-                  <div className="flex items-center justify-center">
-                    <ThemeToggle />
-                  </div>
-                  <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                    <Link href="/get-quote">Get a Quote</Link>
-                  </Button>
-                  <div className="text-center space-y-2 text-sm text-muted-foreground">
-                    <a href="tel:03300600499" className="block hover:text-accent transition-colors">
-                      0330 060 0499
-                    </a>
-                    <a href="mailto:info@travio.com" className="block hover:text-accent transition-colors">
-                      info@travio.com
-                    </a>
-                  </div>
-                </div>
+                    {link.label}
+                  </Link>
+                ))}
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </nav>
+
+            <div className="p-6 border-t border-[#2A2A2A]">
+              <Link href="/get-quote" className="btn-gold w-full justify-center" onClick={closeAll}>
+                <Shield className="h-4 w-4" />
+                Get Protected
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

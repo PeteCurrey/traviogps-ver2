@@ -1,21 +1,36 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { MainProvider } from "@/components/providers/MainProvider";
+import { LenisProvider } from "@/components/providers/LenisProvider";
 
-const inter = Inter({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "700", "800"],
+  variable: "--font-syne",
+  display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Travio GPS | Advanced Fleet Tracking & Dash Cams",
-  description: "Secure, reliable, and innovative GPS tracking solutions for businesses of all sizes. Monitor your fleet in real-time with Travio GPS.",
+  title: "Travio | Premium GPS Tracking for Supercars, Luxury Cars & Motorhomes",
+  description:
+    "Thatcham-certified GPS tracking for supercars, luxury SUVs, motorhomes, caravans, and motorcycles. Real-time tracking, remote immobilisation, 24/7 monitoring. Installed at your door.",
+  keywords:
+    "GPS tracker, Thatcham S5, Thatcham S7, supercar tracker, luxury car tracker, motorhome tracker, motorcycle tracker, UK",
+  openGraph: {
+    title: "Travio | Premium GPS Tracking",
+    description:
+      "Thatcham-certified GPS tracking for supercars, luxury cars & motorhomes. Installed at your door.",
+    type: "website",
+    locale: "en_GB",
+  },
 };
 
 export default function RootLayout({
@@ -24,10 +39,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased font-sans`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${syne.variable} ${dmSans.variable}`}
+    >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Travio",
+              "url": "https://travio.co.uk",
+              "logo": "https://travio.co.uk/logo.png",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "0800-123-4567",
+                "contactType": "customer service"
+              }
+            })
+          }}
+        />
+      </head>
+      <body className="antialiased font-dm-sans bg-travio-bg text-travio-text">
         <MainProvider>
-          {children}
+          <LenisProvider>{children}</LenisProvider>
         </MainProvider>
       </body>
     </html>
