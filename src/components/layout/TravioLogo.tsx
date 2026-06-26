@@ -25,14 +25,14 @@ export function TravioLogo({ className, size = "md" }: TravioLogoProps) {
         >
           <polygon
             points="12,2 22,12 12,22 2,12"
-            fill="#C9A84C"
+            fill="#FF6B1A"
             opacity="0.9"
           />
           <polygon
             points="12,6 18,12 12,18 6,12"
-            fill="#0A0A0A"
+            fill="#0B0F19"
           />
-          <circle cx="12" cy="12" r="2" fill="#C9A84C" />
+          <circle cx="12" cy="12" r="2" fill="#FF6B1A" />
         </svg>
       </div>
       <span
@@ -40,7 +40,7 @@ export function TravioLogo({ className, size = "md" }: TravioLogoProps) {
         style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
       >
         <span style={{ color: "#F5F5F5" }}>Trav</span>
-        <span style={{ color: "#C9A84C" }}>io</span>
+        <span style={{ color: "#FF6B1A" }}>io</span>
       </span>
     </div>
   );

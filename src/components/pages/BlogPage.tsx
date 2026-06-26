@@ -53,11 +53,11 @@ export function BlogPage() {
 
   return (
     <PageWrapper>
-      <section className="bg-[#0A0A0A] pt-32 pb-16 md:pt-40 md:pb-24 border-b border-[#2A2A2A]">
+      <section className="bg-[#0B0F19] pt-32 pb-16 md:pt-40 md:pb-24 border-b border-[#262D3D]">
         <div className="container-premium text-center">
           <p className="overline mb-4">TRAVIO JOURNAL</p>
           <h1 className="text-5xl md:text-6xl mb-6" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-            Security <span className="text-[#C9A84C]">Insights.</span>
+            Security <span className="text-[#FF6B1A]">Insights.</span>
           </h1>
           <p className="text-[#999999] max-w-2xl mx-auto leading-relaxed text-lg" style={{ fontFamily: "DM Sans, sans-serif" }}>
             The latest news, tips, and insights on vehicle security, Thatcham categories, and protecting your most valuable assets.
@@ -65,23 +65,23 @@ export function BlogPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-[#111111]" ref={ref}>
+      <section className="section-padding bg-[#111625]" ref={ref}>
         <div className="container-premium">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post, i) => (
-              <article key={i} className="bg-[#0A0A0A] rounded-2xl overflow-hidden border border-[#2A2A2A] hover:border-[#C9A84C] transition-colors group cursor-pointer flex flex-col" data-reveal>
+              <article key={i} className="bg-[#0B0F19] rounded-2xl overflow-hidden border border-[#262D3D] hover:border-[#FF6B1A] transition-colors group cursor-pointer flex flex-col" data-reveal>
                 <div className="h-48 relative overflow-hidden">
                   <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${post.image})` }} />
                   <div className="absolute inset-0 bg-black/20" />
-                  <div className="absolute top-4 left-4 bg-[#0A0A0A]/80 backdrop-blur text-[#C9A84C] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-medium" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  <div className="absolute top-4 left-4 bg-[#0B0F19]/80 backdrop-blur text-[#FF6B1A] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-medium" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     {post.category}
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="text-[#555555] text-xs mb-3" style={{ fontFamily: "DM Sans, sans-serif" }}>{post.date}</div>
-                  <h2 className="text-xl mb-3 text-[#F5F5F5] group-hover:text-[#C9A84C] transition-colors" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>{post.title}</h2>
+                  <h2 className="text-xl mb-3 text-[#F5F5F5] group-hover:text-[#FF6B1A] transition-colors" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>{post.title}</h2>
                   <p className="text-[#999999] text-sm leading-relaxed mb-6 flex-1" style={{ fontFamily: "DM Sans, sans-serif" }}>{post.excerpt}</p>
-                  <div className="flex items-center text-[#C9A84C] text-sm font-medium" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  <div className="flex items-center text-[#FF6B1A] text-sm font-medium" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     Read Article <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>

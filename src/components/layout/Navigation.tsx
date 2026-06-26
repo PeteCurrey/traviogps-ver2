@@ -93,15 +93,15 @@ function NavItem({ link, closeAll }: { link: NavLink; closeAll: () => void }) {
 
       {open && (
         <div className="absolute top-full left-0 pt-2 z-50 min-w-[220px]">
-          <div className="bg-[#111111] border border-[#2A2A2A] rounded-2xl shadow-2xl py-2 overflow-hidden">
+          <div className="bg-[#111625] border border-[#262D3D] rounded-2xl shadow-2xl py-2 overflow-hidden">
             {link.dropdown.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-5 py-3 hover:bg-[#1A1A1A] transition-colors duration-150 group"
+                className="block px-5 py-3 hover:bg-[#1E2533] transition-colors duration-150 group"
                 onClick={() => { setOpen(false); closeAll(); }}
               >
-                <div className="text-sm font-medium text-[#F5F5F5] group-hover:text-[#C9A84C] transition-colors">
+                <div className="text-sm font-medium text-[#F5F5F5] group-hover:text-[#FF6B1A] transition-colors">
                   {item.label}
                 </div>
                 {item.desc && (
@@ -139,7 +139,7 @@ export function Navigation() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#2A2A2A]"
+            ? "bg-[#0B0F19]/95 backdrop-blur-md border-b border-[#262D3D]"
             : "bg-transparent"
         )}
       >
@@ -193,8 +193,8 @@ export function Navigation() {
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           />
-          <div className="absolute left-0 top-0 bottom-0 w-full max-w-sm bg-[#111111] border-r border-[#2A2A2A] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b border-[#2A2A2A]">
+          <div className="absolute left-0 top-0 bottom-0 w-full max-w-sm bg-[#111625] border-r border-[#262D3D] overflow-y-auto">
+            <div className="flex items-center justify-between p-6 border-b border-[#262D3D]">
               <TravioLogo size="sm" />
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -205,24 +205,24 @@ export function Navigation() {
             </div>
 
             <nav className="p-6 space-y-1">
-              <div className="overline mb-4 pb-2 border-b border-[#2A2A2A]">Protection</div>
+              <div className="overline mb-4 pb-2 border-b border-[#262D3D]">Protection</div>
               {protectionDropdown.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block py-2.5 text-[#F5F5F5] hover:text-[#C9A84C] transition-colors"
+                  className="block py-2.5 text-[#F5F5F5] hover:text-[#FF6B1A] transition-colors"
                   onClick={closeAll}
                 >
                   {item.label}
                 </Link>
               ))}
 
-              <div className="overline mb-4 pb-2 border-b border-[#2A2A2A] pt-6">Vehicles</div>
+              <div className="overline mb-4 pb-2 border-b border-[#262D3D] pt-6">Vehicles</div>
               {vehiclesDropdown.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block py-2.5 text-[#F5F5F5] hover:text-[#C9A84C] transition-colors"
+                  className="block py-2.5 text-[#F5F5F5] hover:text-[#FF6B1A] transition-colors"
                   onClick={closeAll}
                 >
                   {item.label}
@@ -243,7 +243,7 @@ export function Navigation() {
               </div>
             </nav>
 
-            <div className="p-6 border-t border-[#2A2A2A]">
+            <div className="p-6 border-t border-[#262D3D]">
               <Link href="/get-quote" className="btn-gold w-full justify-center" onClick={closeAll}>
                 <Shield className="h-4 w-4" />
                 Get Protected

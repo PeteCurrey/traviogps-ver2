@@ -45,13 +45,13 @@ export function S7ProtectionPage() {
       <section className="relative min-h-[70vh] flex items-center">
         <div className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80)" }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-[#0B0F19]/80 to-[#0B0F19]/40" />
         <div className="relative z-10 container-premium py-32">
           <p className="overline mb-5">THATCHAM CATEGORY S7</p>
           <h1 className="text-5xl md:text-6xl mb-6 max-w-2xl leading-tight"
             style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
             Essential protection.
-            <span className="text-[#C9A84C] block">Total peace of mind.</span>
+            <span className="text-[#FF6B1A] block">Total peace of mind.</span>
           </h1>
           <p className="text-[#999999] max-w-xl leading-relaxed mb-10" style={{ fontFamily: "DM Sans, sans-serif" }}>
             Thatcham S7 is our entry-level tier — insurance-approved GPS tracking with 24/7 monitoring.
@@ -65,7 +65,7 @@ export function S7ProtectionPage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="section-padding bg-[#0A0A0A]" ref={featuresRef}>
+      <section id="features" className="section-padding bg-[#0B0F19]" ref={featuresRef}>
         <div className="container-premium">
           <div className="text-center mb-14" data-reveal>
             <p className="overline mb-4">WHAT YOU GET</p>
@@ -74,8 +74,8 @@ export function S7ProtectionPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feat) => (
               <div key={feat.title} className="glass-card p-8 text-center" data-reveal>
-                <div className="w-14 h-14 rounded-full bg-[#1A1A1A] border border-[#C9A84C]/30 flex items-center justify-center mx-auto mb-5">
-                  <feat.icon className="h-6 w-6 text-[#C9A84C]" />
+                <div className="w-14 h-14 rounded-full bg-[#1E2533] border border-[#FF6B1A]/30 flex items-center justify-center mx-auto mb-5">
+                  <feat.icon className="h-6 w-6 text-[#FF6B1A]" />
                 </div>
                 <h3 className="text-xl mb-3" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>{feat.title}</h3>
                 <p className="text-[#555555] text-sm" style={{ fontFamily: "DM Sans, sans-serif" }}>{feat.desc}</p>
@@ -86,17 +86,17 @@ export function S7ProtectionPage() {
       </section>
 
       {/* Pricing */}
-      <section className="section-padding bg-[#111111]" ref={pricingRef}>
+      <section className="section-padding bg-[#111625]" ref={pricingRef}>
         <div className="container-premium max-w-xl">
           <div className="text-center mb-12" data-reveal>
             <p className="overline mb-4">TRANSPARENT PRICING</p>
             <h2 className="text-4xl" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>S7 Essential</h2>
           </div>
-          <div className="bg-[#0A0A0A] border border-[#2A2A2A] rounded-2xl p-10" data-reveal>
-            <div className="flex flex-col md:flex-row md:items-end gap-4 mb-8 pb-8 border-b border-[#2A2A2A]">
+          <div className="bg-[#0B0F19] border border-[#262D3D] rounded-2xl p-10" data-reveal>
+            <div className="flex flex-col md:flex-row md:items-end gap-4 mb-8 pb-8 border-b border-[#262D3D]">
               <div>
                 <div className="text-[#555555] text-sm mb-1" style={{ fontFamily: "DM Sans, sans-serif" }}>One-off hardware cost</div>
-                <div className="text-5xl text-[#C9A84C]" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>£199</div>
+                <div className="text-5xl text-[#FF6B1A]" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>£199</div>
                 <div className="text-[#555555] text-sm" style={{ fontFamily: "DM Sans, sans-serif" }}>inc. VAT & installation</div>
               </div>
               <div className="md:ml-8">
@@ -108,7 +108,7 @@ export function S7ProtectionPage() {
             <ul className="space-y-4 mb-10">
               {["Real-time GPS tracking","24/7 Secure Control Centre","Geofencing & motion alerts","Trip history & app access","UK-wide engineer installation"].map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span className="text-[#C9A84C] text-lg">✓</span>
+                  <span className="text-[#FF6B1A] text-lg">✓</span>
                   <span className="text-[#999999]" style={{ fontFamily: "DM Sans, sans-serif" }}>{item}</span>
                 </li>
               ))}
@@ -119,9 +119,9 @@ export function S7ProtectionPage() {
       </section>
 
       {/* Upgrade prompt */}
-      <section className="section-padding bg-[#0A0A0A]">
+      <section className="section-padding bg-[#0B0F19]">
         <div className="container-premium max-w-2xl text-center">
-          <div className="bg-[#111111] border border-[#C9A84C]/30 rounded-2xl p-10">
+          <div className="bg-[#111625] border border-[#FF6B1A]/30 rounded-2xl p-10">
             <p className="overline mb-4">UPGRADE</p>
             <h2 className="text-3xl mb-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>
               Is your vehicle worth over £50,000?

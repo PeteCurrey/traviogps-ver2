@@ -37,7 +37,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[#2A2A2A]">
+    <footer className="bg-[#0B0F19] border-t border-[#262D3D]">
       <div className="container-premium py-16 lg:py-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand column */}
@@ -49,16 +49,16 @@ export function Footer() {
               Travio protects what you&apos;ve worked for. Premium GPS tracking, Thatcham-certified, installed at your door.
             </p>
             <div className="space-y-3">
-              <a href="tel:03300600499" className="flex items-center gap-3 text-sm text-[#999999] hover:text-[#C9A84C] transition-colors duration-200">
-                <Phone className="h-4 w-4 text-[#C9A84C]" />
+              <a href="tel:03300600499" className="flex items-center gap-3 text-sm text-[#999999] hover:text-[#FF6B1A] transition-colors duration-200">
+                <Phone className="h-4 w-4 text-[#FF6B1A]" />
                 <span>0330 060 0499</span>
               </a>
-              <a href="mailto:info@travio.co.uk" className="flex items-center gap-3 text-sm text-[#999999] hover:text-[#C9A84C] transition-colors duration-200">
-                <Mail className="h-4 w-4 text-[#C9A84C]" />
+              <a href="mailto:info@travio.co.uk" className="flex items-center gap-3 text-sm text-[#999999] hover:text-[#FF6B1A] transition-colors duration-200">
+                <Mail className="h-4 w-4 text-[#FF6B1A]" />
                 <span>info@travio.co.uk</span>
               </a>
               <div className="flex items-start gap-3 text-sm text-[#555555]">
-                <MapPin className="h-4 w-4 text-[#C9A84C] mt-0.5 flex-shrink-0" />
+                <MapPin className="h-4 w-4 text-[#FF6B1A] mt-0.5 flex-shrink-0" />
                 <span>Nelson House, George Mann Road, Leeds LS10 1DJ</span>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.products.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#C9A84C] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#FF6B1A] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     {link.label}
                   </Link>
                 </li>
@@ -88,7 +88,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.vehicles.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#C9A84C] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#FF6B1A] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     {link.label}
                   </Link>
                 </li>
@@ -104,7 +104,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#C9A84C] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#FF6B1A] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     {link.label}
                   </Link>
                 </li>
@@ -120,7 +120,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#C9A84C] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  <Link href={link.href} className="text-sm text-[#555555] hover:text-[#FF6B1A] transition-colors duration-200" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     {link.label}
                   </Link>
                 </li>
@@ -131,7 +131,7 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#2A2A2A]">
+      <div className="border-t border-[#262D3D]">
         <div className="container-premium py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-xs text-[#555555]" style={{ fontFamily: "DM Sans, sans-serif" }}>
             © {new Date().getFullYear()} Travio. All rights reserved. Registered in England & Wales.
@@ -144,7 +144,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-[#1A1A1A] flex items-center justify-center text-[#555555] hover:text-[#C9A84C] hover:bg-[#2A2A2A] transition-colors duration-200"
+                className="w-9 h-9 rounded-full bg-[#1E2533] flex items-center justify-center text-[#555555] hover:text-[#FF6B1A] hover:bg-[#262D3D] transition-colors duration-200"
                 aria-label={social.label}
               >
                 <social.icon className="h-4 w-4" />
@@ -153,8 +153,8 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6 text-xs text-[#555555]">
-            <Link href="/privacy" className="hover:text-[#C9A84C] transition-colors duration-200">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[#C9A84C] transition-colors duration-200">Terms</Link>
+            <Link href="/privacy" className="hover:text-[#FF6B1A] transition-colors duration-200">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#FF6B1A] transition-colors duration-200">Terms</Link>
           </div>
         </div>
       </div>

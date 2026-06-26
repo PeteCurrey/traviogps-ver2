@@ -13,12 +13,12 @@
 @layer base {
   :root {
     /* Core palette */
-    --travio-bg: #0A0A0A;
-    --travio-surface: #111111;
-    --travio-surface-raised: #1A1A1A;
-    --travio-border: #2A2A2A;
-    --travio-gold: #C9A84C;
-    --travio-gold-hover: #E2C06A;
+    --travio-bg: #0B0F19;
+    --travio-surface: #111625;
+    --travio-surface-raised: #1E2533;
+    --travio-border: #262D3D;
+    --travio-gold: #FF6B1A;
+    --travio-gold-hover: #FF8533;
     --travio-text: #F5F5F5;
     --travio-text-secondary: #999999;
     --travio-text-muted: #555555;
@@ -26,36 +26,36 @@
     --travio-danger: #FF4444;
 
     /* Shadcn/Radix compatible tokens (kept for UI components) */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 96%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 96%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 0 0% 96%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 80%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 40 53% 54%;
-    --accent-foreground: 0 0% 4%;
-    --destructive: 0 100% 63%;
+    --background: 220 25% 7%;
+    --foreground: 210 20% 95%;
+    --card: 220 22% 10%;
+    --card-foreground: 210 20% 95%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 210 20% 95%;
+    --primary-foreground: 220 25% 7%;
+    --secondary: 220 18% 16%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 210 10% 55%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 16%;
-    --input: 0 0% 12%;
-    --ring: 40 53% 54%;
+    --border: 220 15% 18%;
+    --input: 220 15% 16%;
+    --ring: 24 95% 53%;
     --radius: 1rem;
 
     /* Sidebar tokens */
-    --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 40 53% 54%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 0 0% 80%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 40 53% 54%;
+    --sidebar-background: 220 22% 10%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 18% 16%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 24 95% 53%;
   }
 }
 
@@ -66,12 +66,12 @@
   }
 
   html {
-    background-color: #0A0A0A;
+    background-color: #0B0F19;
     color: #F5F5F5;
   }
 
   body {
-    background-color: #0A0A0A;
+    background-color: #0B0F19;
     color: #F5F5F5;
     font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
     font-weight: 400;
@@ -92,24 +92,24 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #0A0A0A;
+    background: #0B0F19;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #2A2A2A;
+    background: #262D3D;
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #C9A84C;
+    background: #FF6B1A;
   }
 }
 
 @layer components {
   /* Button styles */
   .btn-gold {
-    background-color: #C9A84C;
-    color: #0A0A0A;
+    background-color: #FF6B1A;
+    color: #0B0F19;
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     border-radius: 9999px;
@@ -124,7 +124,7 @@
     letter-spacing: 0.01em;
   }
   .btn-gold:hover {
-    background-color: #E2C06A;
+    background-color: #FF8533;
     transform: scale(1.02);
   }
 
@@ -139,13 +139,13 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid #2A2A2A;
+    border: 1px solid #262D3D;
     cursor: pointer;
     font-size: 0.9rem;
   }
   .btn-ghost:hover {
-    border-color: #C9A84C;
-    color: #C9A84C;
+    border-color: #FF6B1A;
+    color: #FF6B1A;
     transform: scale(1.02);
   }
 
@@ -156,7 +156,7 @@
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #C9A84C;
+    color: #FF6B1A;
   }
 
   /* Section spacing */
@@ -191,7 +191,7 @@
 
   .gold-tick-list li::before {
     content: '✓';
-    color: #C9A84C;
+    color: #FF6B1A;
     font-weight: 700;
     flex-shrink: 0;
     margin-top: 0.05rem;
@@ -199,14 +199,14 @@
 
   /* Glass card */
   .glass-card {
-    background-color: #111111;
-    border: 1px solid #2A2A2A;
+    background-color: #111625;
+    border: 1px solid #262D3D;
     border-radius: 1rem;
     transition: border-color 200ms ease-out, transform 200ms ease-out;
   }
 
   .glass-card:hover {
-    border-color: #C9A84C;
+    border-color: #FF6B1A;
     transform: translateY(-4px);
   }
 
@@ -235,8 +235,8 @@
 
   /* Gold border on focus */
   .input-gold {
-    background-color: #111111;
-    border: 1px solid #2A2A2A;
+    background-color: #111625;
+    border: 1px solid #262D3D;
     border-radius: 0.5rem;
     color: #F5F5F5;
     padding: 0.75rem 1rem;
@@ -247,7 +247,7 @@
   }
 
   .input-gold:focus {
-    border-color: #C9A84C;
+    border-color: #FF6B1A;
   }
 
   .input-gold::placeholder {
@@ -354,11 +354,11 @@
   }
 
   /* Text colour utilities */
-  .text-gold { color: #C9A84C; }
-  .text-gold-hover:hover { color: #E2C06A; }
-  .bg-gold { background-color: #C9A84C; }
-  .bg-surface { background-color: #111111; }
-  .bg-surface-raised { background-color: #1A1A1A; }
-  .border-gold { border-color: #C9A84C; }
-  .border-travio { border-color: #2A2A2A; }
+  .text-gold { color: #FF6B1A; }
+  .text-gold-hover:hover { color: #FF8533; }
+  .bg-gold { background-color: #FF6B1A; }
+  .bg-surface { background-color: #111625; }
+  .bg-surface-raised { background-color: #1E2533; }
+  .border-gold { border-color: #FF6B1A; }
+  .border-travio { border-color: #262D3D; }
 }

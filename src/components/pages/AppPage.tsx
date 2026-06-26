@@ -65,7 +65,7 @@ export function AppPage() {
   return (
     <PageWrapper>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center bg-[#0A0A0A]">
+      <section className="relative min-h-[70vh] flex items-center bg-[#0B0F19]">
         <div className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1621361365424-06f0e1eb5c49?w=1200&q=80)" }} />
         <div className="relative z-10 container-premium py-32 text-center">
@@ -73,7 +73,7 @@ export function AppPage() {
           <h1 className="text-5xl md:text-7xl mb-6 leading-tight"
             style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
             Your vehicle.
-            <span className="text-[#C9A84C] block">Always in your hand.</span>
+            <span className="text-[#FF6B1A] block">Always in your hand.</span>
           </h1>
           <p className="text-[#999999] max-w-xl mx-auto leading-relaxed mb-4" style={{ fontFamily: "DM Sans, sans-serif" }}>
             Available iOS and Android — coming soon.
@@ -82,7 +82,7 @@ export function AppPage() {
       </section>
 
       {/* Features */}
-      <section className="section-padding bg-[#0A0A0A]" ref={featuresRef}>
+      <section className="section-padding bg-[#0B0F19]" ref={featuresRef}>
         <div className="container-premium">
           <div className="text-center mb-14" data-reveal>
             <p className="overline mb-4">APP FEATURES</p>
@@ -91,7 +91,7 @@ export function AppPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feat) => (
               <div key={feat.title} className="glass-card p-8" data-reveal>
-                <feat.icon className="h-8 w-8 text-[#C9A84C] mb-5" />
+                <feat.icon className="h-8 w-8 text-[#FF6B1A] mb-5" />
                 <h3 className="text-xl mb-3" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>{feat.title}</h3>
                 <p className="text-[#555555] leading-relaxed" style={{ fontFamily: "DM Sans, sans-serif" }}>{feat.desc}</p>
               </div>
@@ -101,18 +101,18 @@ export function AppPage() {
       </section>
 
       {/* iPhone mockup */}
-      <section className="section-padding bg-[#111111]" ref={mockupRef}>
+      <section className="section-padding bg-[#111625]" ref={mockupRef}>
         <div className="container-premium">
           <div className="flex justify-center" data-reveal>
             <div className="relative w-64 md:w-80">
-              <div className="relative bg-[#0A0A0A] rounded-[3rem] border-2 border-[#2A2A2A] overflow-hidden shadow-2xl" style={{ aspectRatio: "9/19.5" }}>
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#0A0A0A] rounded-b-2xl z-10" />
+              <div className="relative bg-[#0B0F19] rounded-[3rem] border-2 border-[#262D3D] overflow-hidden shadow-2xl" style={{ aspectRatio: "9/19.5" }}>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#0B0F19] rounded-b-2xl z-10" />
                 <div className="absolute inset-2 rounded-[2.5rem] overflow-hidden bg-[#0D0D0D]">
                   <div className="px-4 pt-8 pb-2">
-                    <div className="bg-[#111111] rounded-xl p-3 mb-3">
+                    <div className="bg-[#111625] rounded-xl p-3 mb-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
-                        <span className="text-[8px] text-[#C9A84C] font-medium tracking-widest uppercase" style={{ fontFamily: "DM Sans, sans-serif" }}>PROTECTED · STATIONARY</span>
+                        <div className="w-2 h-2 rounded-full bg-[#FF6B1A] animate-pulse" />
+                        <span className="text-[8px] text-[#FF6B1A] font-medium tracking-widest uppercase" style={{ fontFamily: "DM Sans, sans-serif" }}>PROTECTED · STATIONARY</span>
                       </div>
                     </div>
                     <div className="bg-[#0F1923] rounded-xl h-32 mb-3 relative overflow-hidden">
@@ -121,14 +121,14 @@ export function AppPage() {
                         {[...Array(8)].map((_, i) => <div key={i} className="absolute top-0 bottom-0 border-r border-[#1A2A3A]" style={{ left: `${i * 14}%` }} />)}
                       </div>
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <div className="w-4 h-4 rounded-full bg-[#C9A84C] flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-[#0A0A0A]" />
+                        <div className="w-4 h-4 rounded-full bg-[#FF6B1A] flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-[#0B0F19]" />
                         </div>
                       </div>
                     </div>
                     <div className="grid grid-cols-3 gap-1.5">
                       {["Live View", "Geofence", "Immobilise"].map((a) => (
-                        <div key={a} className="bg-[#111111] rounded-lg p-2 text-center border border-[#2A2A2A]">
+                        <div key={a} className="bg-[#111625] rounded-lg p-2 text-center border border-[#262D3D]">
                           <div className="text-[7px] text-[#999999]" style={{ fontFamily: "DM Sans, sans-serif" }}>{a}</div>
                         </div>
                       ))}
@@ -136,14 +136,14 @@ export function AppPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-0 rounded-[3rem] bg-[#C9A84C]/5 blur-xl -z-10 scale-110" />
+              <div className="absolute inset-0 rounded-[3rem] bg-[#FF6B1A]/5 blur-xl -z-10 scale-110" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Waitlist */}
-      <section className="section-padding bg-[#0A0A0A]">
+      <section className="section-padding bg-[#0B0F19]">
         <div className="container-premium max-w-lg">
           <div className="text-center mb-10">
             <p className="overline mb-4">BE FIRST</p>
@@ -153,7 +153,7 @@ export function AppPage() {
           </div>
           {submitted ? (
             <div className="text-center py-8">
-              <div className="text-[#C9A84C] text-5xl mb-4">✓</div>
+              <div className="text-[#FF6B1A] text-5xl mb-4">✓</div>
               <p className="text-[#F5F5F5] text-lg" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>You&apos;re on the list!</p>
               <p className="text-[#999999] mt-2" style={{ fontFamily: "DM Sans, sans-serif" }}>We&apos;ll be in touch as soon as the app launches.</p>
             </div>
@@ -165,13 +165,13 @@ export function AppPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
-                className="w-full bg-[#111111] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C] transition-colors"
+                className="w-full bg-[#111625] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A] transition-colors"
                 style={{ fontFamily: "DM Sans, sans-serif" }}
               />
               <select
                 value={vehicleType}
                 onChange={(e) => setVehicleType(e.target.value)}
-                className="w-full bg-[#111111] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#999999] focus:outline-none focus:border-[#C9A84C] transition-colors appearance-none"
+                className="w-full bg-[#111625] border border-[#262D3D] rounded-xl px-4 py-3 text-[#999999] focus:outline-none focus:border-[#FF6B1A] transition-colors appearance-none"
                 style={{ fontFamily: "DM Sans, sans-serif" }}
               >
                 <option value="">Vehicle type (optional)</option>

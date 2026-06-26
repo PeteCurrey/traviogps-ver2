@@ -116,16 +116,16 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="border border-[#2A2A2A] rounded-2xl overflow-hidden">
+    <div className="border border-[#262D3D] rounded-2xl overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 text-left hover:bg-[#111111] transition-colors duration-200"
+        className="w-full flex items-center justify-between p-6 text-left hover:bg-[#111625] transition-colors duration-200"
       >
         <span className="font-medium text-[#F5F5F5] pr-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>
           {q}
         </span>
         <ChevronDown
-          className={`h-5 w-5 text-[#C9A84C] flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`h-5 w-5 text-[#FF6B1A] flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
       <div
@@ -161,10 +161,10 @@ export function S5ProtectionPage() {
                 "url(https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80)",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent lg:via-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-[#0B0F19]/40 to-transparent lg:via-transparent" />
         </div>
         {/* Content */}
-        <div className="flex items-center bg-[#0A0A0A] px-8 md:px-12 lg:px-16 py-24 lg:py-32">
+        <div className="flex items-center bg-[#0B0F19] px-8 md:px-12 lg:px-16 py-24 lg:py-32">
           <div>
             <p className="overline mb-5">THATCHAM CATEGORY S5</p>
             <h1
@@ -172,7 +172,7 @@ export function S5ProtectionPage() {
               style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
             >
               The ultimate protection for your{" "}
-              <span className="text-[#C9A84C]">supercar.</span>
+              <span className="text-[#FF6B1A]">supercar.</span>
             </h1>
             <p className="text-[#999999] leading-relaxed mb-10 max-w-lg" style={{ fontFamily: "DM Sans, sans-serif" }}>
               Category S5 is the highest Thatcham security certification available.
@@ -189,7 +189,7 @@ export function S5ProtectionPage() {
       </section>
 
       {/* Features */}
-      <section id="whats-included" className="section-padding bg-[#0A0A0A]" ref={featuresRef}>
+      <section id="whats-included" className="section-padding bg-[#0B0F19]" ref={featuresRef}>
         <div className="container-premium">
           <div className="text-center mb-14" data-reveal>
             <p className="overline mb-4">COMPLETE COVERAGE</p>
@@ -200,7 +200,7 @@ export function S5ProtectionPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feat) => (
               <div key={feat.title} className="glass-card p-8" data-reveal>
-                <feat.icon className="h-8 w-8 text-[#C9A84C] mb-5" />
+                <feat.icon className="h-8 w-8 text-[#FF6B1A] mb-5" />
                 <h3 className="text-xl mb-3" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>
                   {feat.title}
                 </h3>
@@ -214,7 +214,7 @@ export function S5ProtectionPage() {
       </section>
 
       {/* Comparison */}
-      <section className="section-padding bg-[#111111]" ref={comparisonRef}>
+      <section className="section-padding bg-[#111625]" ref={comparisonRef}>
         <div className="container-premium">
           <div className="text-center mb-14" data-reveal>
             <p className="overline mb-4">S7 VS S5</p>
@@ -231,24 +231,24 @@ export function S5ProtectionPage() {
                     <div className="text-[#999999] font-bold" style={{ fontFamily: "Syne, sans-serif" }}>S7 Essential</div>
                   </th>
                   <th className="py-4 px-6 text-center">
-                    <div className="bg-[#C9A84C] text-[#0A0A0A] text-xs font-bold py-1.5 px-4 rounded-full mb-2 inline-block" style={{ fontFamily: "DM Sans, sans-serif" }}>RECOMMENDED FOR SUPERCARS</div>
-                    <div className="text-[#C9A84C] font-bold" style={{ fontFamily: "Syne, sans-serif" }}>S5 Premium</div>
+                    <div className="bg-[#FF6B1A] text-[#0B0F19] text-xs font-bold py-1.5 px-4 rounded-full mb-2 inline-block" style={{ fontFamily: "DM Sans, sans-serif" }}>RECOMMENDED FOR SUPERCARS</div>
+                    <div className="text-[#FF6B1A] font-bold" style={{ fontFamily: "Syne, sans-serif" }}>S5 Premium</div>
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {comparison.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? "bg-[#0A0A0A]/50" : ""}>
+                  <tr key={row.feature} className={i % 2 === 0 ? "bg-[#0B0F19]/50" : ""}>
                     <td className="py-4 px-6 text-[#999999] text-sm" style={{ fontFamily: "DM Sans, sans-serif" }}>{row.feature}</td>
                     <td className="py-4 px-6 text-center">
                       {row.s7 ? (
-                        <Check className="h-5 w-5 text-[#C9A84C] mx-auto" />
+                        <Check className="h-5 w-5 text-[#FF6B1A] mx-auto" />
                       ) : (
-                        <X className="h-5 w-5 text-[#2A2A2A] mx-auto" />
+                        <X className="h-5 w-5 text-[#262D3D] mx-auto" />
                       )}
                     </td>
                     <td className="py-4 px-6 text-center">
-                      <Check className="h-5 w-5 text-[#C9A84C] mx-auto" />
+                      <Check className="h-5 w-5 text-[#FF6B1A] mx-auto" />
                     </td>
                   </tr>
                 ))}
@@ -259,13 +259,13 @@ export function S5ProtectionPage() {
       </section>
 
       {/* Insurance */}
-      <section className="section-padding bg-[#0A0A0A]" ref={insuranceRef}>
+      <section className="section-padding bg-[#0B0F19]" ref={insuranceRef}>
         <div className="container-premium">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div data-reveal>
               <p className="overline mb-4">INSURANCE BENEFITS</p>
               <h2 className="text-4xl md:text-5xl mb-6" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>
-                S5 and your <span className="text-[#C9A84C]">insurance</span>
+                S5 and your <span className="text-[#FF6B1A]">insurance</span>
               </h2>
               <p className="text-[#999999] leading-relaxed" style={{ fontFamily: "DM Sans, sans-serif" }}>
                 Leading UK specialist insurers including Adrian Flux, Footman James, and Hagerty now require Thatcham S5 for vehicles valued over £50,000. Installing Travio S5 protection also typically reduces your annual premium by 15–25%.
@@ -277,8 +277,8 @@ export function S5ProtectionPage() {
                 { val: "£50k+", label: "Vehicles typically requiring S5" },
                 { val: "94%", label: "Recovery rate with S5" },
               ].map((s) => (
-                <div key={s.val} className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-6 text-center">
-                  <div className="text-2xl md:text-3xl text-[#C9A84C] mb-2" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>{s.val}</div>
+                <div key={s.val} className="bg-[#111625] border border-[#262D3D] rounded-2xl p-6 text-center">
+                  <div className="text-2xl md:text-3xl text-[#FF6B1A] mb-2" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>{s.val}</div>
                   <div className="text-[#555555] text-xs" style={{ fontFamily: "DM Sans, sans-serif" }}>{s.label}</div>
                 </div>
               ))}
@@ -288,17 +288,17 @@ export function S5ProtectionPage() {
       </section>
 
       {/* Pricing */}
-      <section className="section-padding bg-[#111111]" ref={pricingRef}>
+      <section className="section-padding bg-[#111625]" ref={pricingRef}>
         <div className="container-premium max-w-2xl">
           <div className="text-center mb-12" data-reveal>
             <p className="overline mb-4">TRANSPARENT PRICING</p>
             <h2 className="text-4xl" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>S5 Premium Protection</h2>
           </div>
-          <div className="bg-[#0A0A0A] border-2 border-[#C9A84C] rounded-2xl p-10" data-reveal>
-            <div className="flex flex-col md:flex-row md:items-end gap-4 mb-8 pb-8 border-b border-[#2A2A2A]">
+          <div className="bg-[#0B0F19] border-2 border-[#FF6B1A] rounded-2xl p-10" data-reveal>
+            <div className="flex flex-col md:flex-row md:items-end gap-4 mb-8 pb-8 border-b border-[#262D3D]">
               <div>
                 <div className="text-[#555555] text-sm mb-1" style={{ fontFamily: "DM Sans, sans-serif" }}>One-off hardware cost</div>
-                <div className="text-5xl text-[#C9A84C]" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>£349</div>
+                <div className="text-5xl text-[#FF6B1A]" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>£349</div>
                 <div className="text-[#555555] text-sm" style={{ fontFamily: "DM Sans, sans-serif" }}>inc. VAT & installation</div>
               </div>
               <div className="md:ml-8">
@@ -316,7 +316,7 @@ export function S5ProtectionPage() {
                 "Police-integrated recovery (94% success)",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-[#C9A84C] flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-[#FF6B1A] flex-shrink-0 mt-0.5" />
                   <span className="text-[#999999]" style={{ fontFamily: "DM Sans, sans-serif" }}>{item}</span>
                 </li>
               ))}
@@ -332,7 +332,7 @@ export function S5ProtectionPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section-padding bg-[#0A0A0A]" ref={faqRef}>
+      <section className="section-padding bg-[#0B0F19]" ref={faqRef}>
         <div className="container-premium max-w-3xl">
           <div className="text-center mb-12" data-reveal>
             <p className="overline mb-4">COMMON QUESTIONS</p>

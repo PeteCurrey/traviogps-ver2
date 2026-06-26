@@ -74,13 +74,13 @@ export function RemoteImmobilisationPage() {
       <section className="relative min-h-[70vh] flex items-center">
         <div className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80)" }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-[#0B0F19]/80 to-[#0B0F19]/40" />
         <div className="relative z-10 container-premium py-32">
           <p className="overline mb-5">REMOTE IMMOBILISATION</p>
           <h1 className="text-5xl md:text-6xl mb-6 max-w-2xl leading-tight"
             style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
             Stop your vehicle.
-            <span className="text-[#C9A84C] block">From anywhere.</span>
+            <span className="text-[#FF6B1A] block">From anywhere.</span>
           </h1>
           <p className="text-[#999999] max-w-xl leading-relaxed mb-10" style={{ fontFamily: "DM Sans, sans-serif" }}>
             Remote immobilisation lets you disable your engine via the Travio app — whether you&apos;re in the next room or on another continent.
@@ -90,23 +90,23 @@ export function RemoteImmobilisationPage() {
       </section>
 
       {/* How it works steps */}
-      <section className="section-padding bg-[#0A0A0A]" ref={stepsRef}>
+      <section className="section-padding bg-[#0B0F19]" ref={stepsRef}>
         <div className="container-premium">
           <div className="text-center mb-14" data-reveal>
             <p className="overline mb-4">HOW IT WORKS</p>
             <h2 className="text-4xl" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>Three steps to safety</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-16 left-[16.5%] right-[16.5%] h-px border-t border-dashed border-[#C9A84C]/30" />
+            <div className="hidden md:block absolute top-16 left-[16.5%] right-[16.5%] h-px border-t border-dashed border-[#FF6B1A]/30" />
             {steps.map((step) => (
               <div key={step.num} className="text-center" data-reveal>
                 <div className="relative inline-flex items-center justify-center mb-6">
                   <span className="absolute text-[80px] leading-none select-none"
-                    style={{ fontFamily: "Syne, sans-serif", fontWeight: 800, color: "#C9A84C", opacity: 0.08 }}>
+                    style={{ fontFamily: "Syne, sans-serif", fontWeight: 800, color: "#FF6B1A", opacity: 0.08 }}>
                     {step.num}
                   </span>
-                  <div className="relative z-10 w-14 h-14 rounded-full bg-[#1A1A1A] border border-[#C9A84C]/50 flex items-center justify-center">
-                    <step.icon className="h-6 w-6 text-[#C9A84C]" />
+                  <div className="relative z-10 w-14 h-14 rounded-full bg-[#1E2533] border border-[#FF6B1A]/50 flex items-center justify-center">
+                    <step.icon className="h-6 w-6 text-[#FF6B1A]" />
                   </div>
                 </div>
                 <h3 className="text-xl mb-3" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>{step.title}</h3>
@@ -118,7 +118,7 @@ export function RemoteImmobilisationPage() {
       </section>
 
       {/* Feature cards */}
-      <section className="section-padding bg-[#111111]" ref={featRef}>
+      <section className="section-padding bg-[#111625]" ref={featRef}>
         <div className="container-premium">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featureCards.map((card) => (
@@ -132,9 +132,9 @@ export function RemoteImmobilisationPage() {
       </section>
 
       {/* Availability callout */}
-      <section className="section-padding bg-[#0A0A0A]">
+      <section className="section-padding bg-[#0B0F19]">
         <div className="container-premium max-w-2xl text-center">
-          <div className="bg-[#111111] border border-[#C9A84C]/30 rounded-2xl p-10">
+          <div className="bg-[#111625] border border-[#FF6B1A]/30 rounded-2xl p-10">
             <p className="overline mb-4">AVAILABILITY</p>
             <h2 className="text-3xl mb-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>
               Included in S5. Available on S7.

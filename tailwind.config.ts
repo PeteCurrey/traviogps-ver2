@@ -64,12 +64,12 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // Travio B2C design tokens
-        "travio-bg": "#0A0A0A",
-        "travio-surface": "#111111",
-        "travio-surface-raised": "#1A1A1A",
-        "travio-border": "#2A2A2A",
-        "travio-gold": "#C9A84C",
-        "travio-gold-hover": "#E2C06A",
+        "travio-bg": "#0B0F19",
+        "travio-surface": "#111625",
+        "travio-surface-raised": "#1E2533",
+        "travio-border": "#262D3D",
+        "travio-gold": "#FF6B1A",
+        "travio-gold-hover": "#FF8533",
         "travio-text": "#F5F5F5",
         "travio-text-secondary": "#999999",
         "travio-text-muted": "#555555",
@@ -129,8 +129,8 @@ export default {
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(201, 168, 76, 0.3)" },
-          "50%": { boxShadow: "0 0 40px rgba(201, 168, 76, 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(255, 107, 26, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(255, 107, 26, 0.6)" },
         },
       },
       animation: {
@@ -148,9 +148,9 @@ export default {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-gold":
-          "linear-gradient(135deg, #C9A84C 0%, #E2C06A 50%, #C9A84C 100%)",
+          "linear-gradient(135deg, #FF6B1A 0%, #FF8533 50%, #FF6B1A 100%)",
         "gradient-dark":
-          "linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.8) 60%, rgba(10,10,10,0.95) 100%)",
+          "linear-gradient(180deg, rgba(11, 15, 25, 0) 0%, rgba(11, 15, 25, 0.8) 60%, rgba(11, 15, 25, 0.95) 100%)",
       },
     },
   },

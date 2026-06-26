@@ -97,7 +97,7 @@ function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-[#0A0A0A] pt-20 lg:pt-[104px] pb-48 md:pb-56" ref={heroRef}>
+    <section className="relative min-h-screen bg-[#0B0F19] pt-20 lg:pt-[104px] pb-48 md:pb-56" ref={heroRef}>
       <div className="h-[calc(100vh-280px)] md:h-[calc(100vh-320px)] lg:h-[calc(100vh-340px)] grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-8">
         {panels.map((panel, i) => (
           <div key={i} data-hero-card className="relative h-full">
@@ -113,11 +113,11 @@ function HeroSection() {
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
               {/* Gold border on hover */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#C9A84C] transition-all duration-300 pointer-events-none z-10 rounded-xl" />
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#FF6B1A] transition-all duration-300 pointer-events-none z-10 rounded-xl" />
 
               {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-10">
-                <span className="text-xs uppercase tracking-[0.25em] text-[#C9A84C]/80 group-hover:text-[#C9A84C] mb-3 transition-colors" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                <span className="text-xs uppercase tracking-[0.25em] text-[#FF6B1A]/80 group-hover:text-[#FF6B1A] mb-3 transition-colors" style={{ fontFamily: "DM Sans, sans-serif" }}>
                   {panel.overline}
                 </span>
                 <h3
@@ -126,7 +126,7 @@ function HeroSection() {
                 >
                   {panel.line1}
                   <br />
-                  <span className="text-[#C9A84C]">{panel.line2}</span>
+                  <span className="text-[#FF6B1A]">{panel.line2}</span>
                 </h3>
 
                 <div className="mt-8 transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0">
@@ -141,14 +141,14 @@ function HeroSection() {
       </div>
 
       {/* Header Statement at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-[#2A2A2A]">
+      <div className="absolute bottom-0 left-0 right-0 border-t border-[#262D3D]">
         <div className="container-premium py-6 md:py-8">
           <div className="text-center">
             <p className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#999999] mb-2 md:mb-3" style={{ fontFamily: "DM Sans, sans-serif" }}>
               TRAVIO VEHICLE SECURITY
             </p>
             <h2 className="font-bold text-xl md:text-2xl lg:text-3xl text-[#F5F5F5] px-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-              The ultimate protection <span className="text-[#C9A84C]">for your vehicle.</span>
+              The ultimate protection <span className="text-[#FF6B1A]">for your vehicle.</span>
             </h2>
           </div>
         </div>
@@ -160,8 +160,8 @@ function HeroSection() {
         onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
       >
         <span className="text-[10px] uppercase tracking-[0.25em] text-[#555555]" style={{ fontFamily: "DM Sans, sans-serif" }}>Scroll</span>
-        <div className="w-6 h-10 rounded-full border border-[#2A2A2A] flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-[#C9A84C] rounded-full animate-bounce" />
+        <div className="w-6 h-10 rounded-full border border-[#262D3D] flex items-start justify-center p-2">
+          <div className="w-1.5 h-1.5 bg-[#FF6B1A] rounded-full animate-bounce" />
         </div>
       </div>
     </section>
@@ -186,7 +186,7 @@ function TrustMarquee() {
   const doubled = [...items, ...items];
 
   return (
-    <section className="bg-[#111111] border-y border-[#2A2A2A] py-4 overflow-hidden">
+    <section className="bg-[#111625] border-y border-[#262D3D] py-4 overflow-hidden">
       <div className="flex animate-marquee whitespace-nowrap">
         {doubled.map((item, i) => (
           <span key={i} className="flex items-center flex-shrink-0">
@@ -196,7 +196,7 @@ function TrustMarquee() {
             >
               {item}
             </span>
-            <span className="text-[#C9A84C] text-base flex-shrink-0">◆</span>
+            <span className="text-[#FF6B1A] text-base flex-shrink-0">◆</span>
           </span>
         ))}
       </div>
@@ -216,7 +216,7 @@ function BrandStatement() {
   ];
 
   return (
-    <section className="section-padding bg-[#0A0A0A]" ref={ref}>
+    <section className="section-padding bg-[#0B0F19]" ref={ref}>
       <div className="container-premium">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left */}
@@ -228,7 +228,7 @@ function BrandStatement() {
                 style={{
                   fontFamily: "Syne, sans-serif",
                   fontWeight: 800,
-                  color: "#C9A84C",
+                  color: "#FF6B1A",
                   opacity: 0.06,
                 }}
               >
@@ -239,7 +239,7 @@ function BrandStatement() {
                 style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
               >
                 Protection that matches
-                <span className="text-[#C9A84C]"> your vehicle.</span>
+                <span className="text-[#FF6B1A]"> your vehicle.</span>
               </h2>
             </div>
             <div className="space-y-5" style={{ fontFamily: "DM Sans, sans-serif" }}>
@@ -263,10 +263,10 @@ function BrandStatement() {
             {stats.map((stat) => (
               <div
                 key={stat.value}
-                className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-6"
+                className="bg-[#111625] border border-[#262D3D] rounded-2xl p-6"
               >
                 <div
-                  className="text-4xl md:text-5xl text-[#C9A84C] mb-2 leading-none"
+                  className="text-4xl md:text-5xl text-[#FF6B1A] mb-2 leading-none"
                   style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
                 >
                   {stat.value}
@@ -323,7 +323,7 @@ function ProductCategoriesGrid() {
   ];
 
   return (
-    <section className="section-padding bg-[#0A0A0A]" ref={ref}>
+    <section className="section-padding bg-[#0B0F19]" ref={ref}>
       <div className="container-premium">
         <div className="text-center mb-14" data-reveal>
           <p className="overline mb-4">BUILT FOR YOUR VEHICLE</p>
@@ -349,7 +349,7 @@ function ProductCategoriesGrid() {
                 style={{ backgroundImage: `url(${cat.image})` }}
               />
               <div className="relative z-10 p-8">
-                <cat.icon className="h-8 w-8 text-[#C9A84C] mb-5" />
+                <cat.icon className="h-8 w-8 text-[#FF6B1A] mb-5" />
                 <h3
                   className="text-2xl mb-2"
                   style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}
@@ -362,7 +362,7 @@ function ProductCategoriesGrid() {
                 >
                   {cat.desc}
                 </p>
-                <span className="text-[#C9A84C] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="text-[#FF6B1A] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                   Explore <ChevronRight className="h-4 w-4" />
                 </span>
               </div>
@@ -379,7 +379,7 @@ function ThreatReality() {
   const ref = useScrollReveal();
 
   return (
-    <section className="section-padding bg-[#0A0A0A]" ref={ref}>
+    <section className="section-padding bg-[#0B0F19]" ref={ref}>
       <div className="container-premium">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: image */}
@@ -391,7 +391,7 @@ function ThreatReality() {
                   "url(https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80)",
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-transparent to-[#0A0A0A]/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-transparent to-[#0B0F19]/30" />
           </div>
 
           {/* Right: content */}
@@ -402,7 +402,7 @@ function ThreatReality() {
               style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
             >
               A car is stolen every{" "}
-              <span className="text-[#C9A84C]">3 minutes</span> in the UK.
+              <span className="text-[#FF6B1A]">3 minutes</span> in the UK.
             </h2>
             <p
               className="text-[#999999] leading-relaxed mb-8"
@@ -415,7 +415,7 @@ function ThreatReality() {
             </p>
 
             {/* Inline stats */}
-            <div className="grid grid-cols-3 gap-4 mb-8 py-6 border-y border-[#2A2A2A]">
+            <div className="grid grid-cols-3 gap-4 mb-8 py-6 border-y border-[#262D3D]">
               {[
                 { val: "90,000+", label: "vehicles stolen last year" },
                 { val: "60 sec", label: "to steal a keyless car" },
@@ -423,7 +423,7 @@ function ThreatReality() {
               ].map((s) => (
                 <div key={s.val} className="text-center">
                   <div
-                    className="text-xl md:text-2xl text-[#C9A84C] mb-1"
+                    className="text-xl md:text-2xl text-[#FF6B1A] mb-1"
                     style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
                   >
                     {s.val}
@@ -471,7 +471,7 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="section-padding bg-[#111111]" ref={ref}>
+    <section className="section-padding bg-[#111625]" ref={ref}>
       <div className="container-premium">
         <div className="text-center mb-14" data-reveal>
           <p className="overline mb-4">SIMPLE. SEAMLESS. CERTAIN.</p>
@@ -485,7 +485,7 @@ function HowItWorks() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {/* Connecting dashed line (desktop) */}
-          <div className="hidden md:block absolute top-16 left-[16.5%] right-[16.5%] h-px border-t border-dashed border-[#C9A84C]/30 z-0" />
+          <div className="hidden md:block absolute top-16 left-[16.5%] right-[16.5%] h-px border-t border-dashed border-[#FF6B1A]/30 z-0" />
 
           {steps.map((step) => (
             <div key={step.num} className="relative text-center" data-reveal>
@@ -496,14 +496,14 @@ function HowItWorks() {
                   style={{
                     fontFamily: "Syne, sans-serif",
                     fontWeight: 800,
-                    color: "#C9A84C",
+                    color: "#FF6B1A",
                     opacity: 0.08,
                   }}
                 >
                   {step.num}
                 </span>
-                <div className="relative z-10 w-14 h-14 rounded-full bg-[#1A1A1A] border border-[#C9A84C]/50 flex items-center justify-center">
-                  <step.icon className="h-6 w-6 text-[#C9A84C]" />
+                <div className="relative z-10 w-14 h-14 rounded-full bg-[#1E2533] border border-[#FF6B1A]/50 flex items-center justify-center">
+                  <step.icon className="h-6 w-6 text-[#FF6B1A]" />
                 </div>
               </div>
               <h3
@@ -537,7 +537,7 @@ function AppPreview() {
   ];
 
   return (
-    <section className="section-padding bg-[#0A0A0A]" ref={ref}>
+    <section className="section-padding bg-[#0B0F19]" ref={ref}>
       <div className="container-premium">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* iPhone mockup */}
@@ -545,19 +545,19 @@ function AppPreview() {
             <div className="relative w-64 md:w-72">
               {/* Phone frame */}
               <div
-                className="relative bg-[#0A0A0A] rounded-[3rem] border-2 border-[#2A2A2A] overflow-hidden shadow-2xl"
+                className="relative bg-[#0B0F19] rounded-[3rem] border-2 border-[#262D3D] overflow-hidden shadow-2xl"
                 style={{ aspectRatio: "9/19.5" }}
               >
                 {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#0A0A0A] rounded-b-2xl z-10" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#0B0F19] rounded-b-2xl z-10" />
                 {/* Screen */}
                 <div className="absolute inset-2 rounded-[2.5rem] overflow-hidden bg-[#0D0D0D]">
                   {/* Status bar */}
                   <div className="px-4 pt-8 pb-2">
-                    <div className="bg-[#111111] rounded-xl p-3 mb-3">
+                    <div className="bg-[#111625] rounded-xl p-3 mb-3">
                       <div className="flex items-center gap-2 mb-1">
-                        <div className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
-                        <span className="text-[8px] text-[#C9A84C] font-medium tracking-widest uppercase" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                        <div className="w-2 h-2 rounded-full bg-[#FF6B1A] animate-pulse" />
+                        <span className="text-[8px] text-[#FF6B1A] font-medium tracking-widest uppercase" style={{ fontFamily: "DM Sans, sans-serif" }}>
                           PROTECTED · STATIONARY · LONDON, SW3
                         </span>
                       </div>
@@ -583,10 +583,10 @@ function AppPreview() {
                       </div>
                       {/* Location pin */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <div className="w-4 h-4 rounded-full bg-[#C9A84C] flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-[#0A0A0A]" />
+                        <div className="w-4 h-4 rounded-full bg-[#FF6B1A] flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-[#0B0F19]" />
                         </div>
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-3 bg-[#C9A84C]" />
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-3 bg-[#FF6B1A]" />
                       </div>
                     </div>
                     {/* Quick actions */}
@@ -594,7 +594,7 @@ function AppPreview() {
                       {["Live View", "Geofence", "Immobilise"].map((action) => (
                         <div
                           key={action}
-                          className="bg-[#111111] rounded-lg p-2 text-center border border-[#2A2A2A]"
+                          className="bg-[#111625] rounded-lg p-2 text-center border border-[#262D3D]"
                         >
                           <div className="text-[7px] text-[#999999] font-medium" style={{ fontFamily: "DM Sans, sans-serif" }}>
                             {action}
@@ -606,7 +606,7 @@ function AppPreview() {
                 </div>
               </div>
               {/* Glow */}
-              <div className="absolute inset-0 rounded-[3rem] bg-[#C9A84C]/5 blur-xl -z-10 scale-110" />
+              <div className="absolute inset-0 rounded-[3rem] bg-[#FF6B1A]/5 blur-xl -z-10 scale-110" />
             </div>
           </div>
 
@@ -618,14 +618,14 @@ function AppPreview() {
               style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}
             >
               Total control.{" "}
-              <span className="text-[#C9A84C]">One app.</span>
+              <span className="text-[#FF6B1A]">One app.</span>
             </h2>
 
             <ul className="space-y-4 mb-10">
               {features.map((feat) => (
                 <li key={feat.text} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <feat.icon className="h-4 w-4 text-[#C9A84C]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#1E2533] border border-[#262D3D] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <feat.icon className="h-4 w-4 text-[#FF6B1A]" />
                   </div>
                   <span className="text-[#999999] text-sm leading-relaxed" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     {feat.text}
@@ -638,7 +638,7 @@ function AppPreview() {
               {["App Store", "Google Play"].map((store) => (
                 <div
                   key={store}
-                  className="flex items-center gap-2 px-4 py-2.5 bg-[#111111] border border-[#2A2A2A] rounded-xl hover:border-[#C9A84C] transition-colors duration-200 cursor-not-allowed opacity-60"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-[#111625] border border-[#262D3D] rounded-xl hover:border-[#FF6B1A] transition-colors duration-200 cursor-not-allowed opacity-60"
                 >
                   <Smartphone className="h-4 w-4 text-[#999999]" />
                   <div>
@@ -681,19 +681,19 @@ function VehicleMarquee() {
   const doubled = [...vehicles, ...vehicles];
 
   return (
-    <section className="py-12 bg-[#111111] border-y border-[#2A2A2A] overflow-hidden">
+    <section className="py-12 bg-[#111625] border-y border-[#262D3D] overflow-hidden">
       <div className="flex animate-marquee-reverse whitespace-nowrap">
         {doubled.map((v, i) => (
           <span key={i} className="flex items-center flex-shrink-0">
             <span
               className={`text-2xl px-8 flex-shrink-0 ${
-                i % 3 === 0 ? "text-[#C9A84C]" : "text-[#2A2A2A]"
+                i % 3 === 0 ? "text-[#FF6B1A]" : "text-[#262D3D]"
               }`}
               style={{ fontFamily: "Syne, sans-serif", fontWeight: 400 }}
             >
               {v}
             </span>
-            <span className="text-[#2A2A2A] text-lg flex-shrink-0">·</span>
+            <span className="text-[#262D3D] text-lg flex-shrink-0">·</span>
           </span>
         ))}
       </div>
@@ -727,7 +727,7 @@ function Testimonials() {
   ];
 
   return (
-    <section className="section-padding bg-[#0A0A0A]" ref={ref}>
+    <section className="section-padding bg-[#0B0F19]" ref={ref}>
       <div className="container-premium">
         <div className="text-center mb-14" data-reveal>
           <p className="overline mb-4">TRUSTED BY OWNERS</p>
@@ -743,12 +743,12 @@ function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-8 relative hover:border-[#C9A84C]/30 transition-colors duration-300"
+              className="bg-[#111625] border border-[#262D3D] rounded-2xl p-8 relative hover:border-[#FF6B1A]/30 transition-colors duration-300"
               data-reveal
             >
               {/* Gold quote mark */}
               <div
-                className="absolute top-6 right-8 text-6xl leading-none select-none text-[#C9A84C] opacity-20"
+                className="absolute top-6 right-8 text-6xl leading-none select-none text-[#FF6B1A] opacity-20"
                 style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
               >
                 "
@@ -756,7 +756,7 @@ function Testimonials() {
               {/* Stars */}
               <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-[#C9A84C] text-[#C9A84C]" />
+                  <Star key={i} className="h-4 w-4 fill-[#FF6B1A] text-[#FF6B1A]" />
                 ))}
               </div>
               <p
@@ -767,7 +767,7 @@ function Testimonials() {
               </p>
               <div>
                 <div
-                  className="text-[#C9A84C] font-bold"
+                  className="text-[#FF6B1A] font-bold"
                   style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}
                 >
                   {t.name}
@@ -810,7 +810,7 @@ function FinalCTA() {
           style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
         >
           Your vehicle deserves{" "}
-          <span className="text-[#C9A84C]">the best protection.</span>
+          <span className="text-[#FF6B1A]">the best protection.</span>
         </h2>
         <p
           className="text-[#999999] text-lg mb-10 max-w-lg mx-auto"

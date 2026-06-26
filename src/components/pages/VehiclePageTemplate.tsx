@@ -66,10 +66,10 @@ interface VehiclePageTemplateProps {
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-[#2A2A2A] rounded-2xl overflow-hidden">
+    <div className="border border-[#262D3D] rounded-2xl overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 text-left hover:bg-[#111111] transition-colors duration-200"
+        className="w-full flex items-center justify-between p-6 text-left hover:bg-[#111625] transition-colors duration-200"
       >
         <span
           className="font-medium text-[#F5F5F5] pr-4"
@@ -78,7 +78,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
           {q}
         </span>
         <ChevronDown
-          className={`h-5 w-5 text-[#C9A84C] flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`h-5 w-5 text-[#FF6B1A] flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
       <div
@@ -121,7 +121,7 @@ export function VehiclePageTemplate({
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-[#0A0A0A]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/60 to-[#0B0F19]/20" />
         <div className="relative z-10 container-premium pb-20 pt-32">
           <p className="overline mb-5">{overline}</p>
           <h1
@@ -132,7 +132,7 @@ export function VehiclePageTemplate({
             <br />
             {h1Line2}
             <br />
-            <span className="text-[#C9A84C]">{h1Gold}</span>
+            <span className="text-[#FF6B1A]">{h1Gold}</span>
           </h1>
           <p
             className="text-[#999999] max-w-xl leading-relaxed mb-10"
@@ -153,7 +153,7 @@ export function VehiclePageTemplate({
 
       {/* Threats */}
       <section
-        className="section-padding bg-[#0A0A0A]"
+        className="section-padding bg-[#0B0F19]"
         ref={threatRef}
       >
         <div className="container-premium">
@@ -170,7 +170,7 @@ export function VehiclePageTemplate({
             {threats.map((threat) => (
               <div
                 key={threat.title}
-                className="bg-[#111111] border border-[#FF4444]/20 rounded-2xl p-8"
+                className="bg-[#111625] border border-[#FF4444]/20 rounded-2xl p-8"
                 data-reveal
               >
                 <AlertTriangle className="h-7 w-7 text-[#FF4444] mb-4" />
@@ -194,9 +194,9 @@ export function VehiclePageTemplate({
 
       {/* Unique feature (optional) */}
       {uniqueFeature && (
-        <section className="py-16 bg-[#111111]">
+        <section className="py-16 bg-[#111625]">
           <div className="container-premium">
-            <div className="bg-[#0A0A0A] border border-[#C9A84C]/30 rounded-2xl p-10 max-w-2xl mx-auto text-center">
+            <div className="bg-[#0B0F19] border border-[#FF6B1A]/30 rounded-2xl p-10 max-w-2xl mx-auto text-center">
               <p className="overline mb-4">UNIQUE FEATURE</p>
               <h3
                 className="text-2xl mb-4"
@@ -216,7 +216,7 @@ export function VehiclePageTemplate({
       )}
 
       {/* Recommended protection */}
-      <section className="section-padding bg-[#111111]" ref={pricingRef}>
+      <section className="section-padding bg-[#111625]" ref={pricingRef}>
         <div className="container-premium">
           <div className="text-center mb-14" data-reveal>
             <p className="overline mb-4">RECOMMENDED PROTECTION</p>
@@ -230,7 +230,7 @@ export function VehiclePageTemplate({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {/* S7 */}
             <div
-              className="bg-[#0A0A0A] border border-[#2A2A2A] rounded-2xl p-8"
+              className="bg-[#0B0F19] border border-[#262D3D] rounded-2xl p-8"
               data-reveal
             >
               <p className="overline text-[#555555] mb-3">S7 ESSENTIAL</p>
@@ -254,7 +254,7 @@ export function VehiclePageTemplate({
                   "App control",
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-[#C9A84C]" />
+                    <Check className="h-4 w-4 text-[#FF6B1A]" />
                     <span
                       className="text-[#999999] text-sm"
                       style={{ fontFamily: "DM Sans, sans-serif" }}
@@ -271,16 +271,16 @@ export function VehiclePageTemplate({
 
             {/* S5 recommended */}
             <div
-              className="bg-[#0A0A0A] border-2 border-[#C9A84C] rounded-2xl p-8 relative"
+              className="bg-[#0B0F19] border-2 border-[#FF6B1A] rounded-2xl p-8 relative"
               data-reveal
             >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#C9A84C] text-[#0A0A0A] text-xs font-bold py-1 px-4 rounded-full whitespace-nowrap"
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF6B1A] text-[#0B0F19] text-xs font-bold py-1 px-4 rounded-full whitespace-nowrap"
                 style={{ fontFamily: "DM Sans, sans-serif" }}>
                 RECOMMENDED
               </div>
               <p className="overline mb-3">S5 PREMIUM</p>
               <div
-                className="text-3xl text-[#C9A84C] mb-1"
+                className="text-3xl text-[#FF6B1A] mb-1"
                 style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
               >
                 £349
@@ -300,7 +300,7 @@ export function VehiclePageTemplate({
                   "Anti-jamming protection",
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-[#C9A84C]" />
+                    <Check className="h-4 w-4 text-[#FF6B1A]" />
                     <span
                       className="text-[#F5F5F5] text-sm"
                       style={{ fontFamily: "DM Sans, sans-serif" }}
@@ -319,18 +319,18 @@ export function VehiclePageTemplate({
       </section>
 
       {/* Testimonial */}
-      <section className="section-padding bg-[#0A0A0A]" ref={testimonialRef}>
+      <section className="section-padding bg-[#0B0F19]" ref={testimonialRef}>
         <div className="container-premium max-w-2xl" data-reveal>
-          <div className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-10 relative">
+          <div className="bg-[#111625] border border-[#262D3D] rounded-2xl p-10 relative">
             <div
-              className="absolute top-6 right-8 text-6xl leading-none select-none text-[#C9A84C] opacity-20"
+              className="absolute top-6 right-8 text-6xl leading-none select-none text-[#FF6B1A] opacity-20"
               style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
             >
               &ldquo;
             </div>
             <div className="flex gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-[#C9A84C] text-[#C9A84C]" />
+                <Star key={i} className="h-4 w-4 fill-[#FF6B1A] text-[#FF6B1A]" />
               ))}
             </div>
             <p
@@ -340,7 +340,7 @@ export function VehiclePageTemplate({
               &ldquo;{testimonial.quote}&rdquo;
             </p>
             <div
-              className="text-[#C9A84C] font-bold"
+              className="text-[#FF6B1A] font-bold"
               style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}
             >
               {testimonial.name}
@@ -356,7 +356,7 @@ export function VehiclePageTemplate({
       </section>
 
       {/* FAQ */}
-      <section className="section-padding bg-[#111111]" ref={faqRef}>
+      <section className="section-padding bg-[#111625]" ref={faqRef}>
         <div className="container-premium max-w-3xl">
           <div className="text-center mb-12" data-reveal>
             <p className="overline mb-4">COMMON QUESTIONS</p>

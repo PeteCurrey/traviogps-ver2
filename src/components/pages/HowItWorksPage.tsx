@@ -52,11 +52,11 @@ export function HowItWorksPage() {
 
   return (
     <PageWrapper>
-      <section className="bg-[#0A0A0A] pt-32 pb-16 md:pt-40 md:pb-24 border-b border-[#2A2A2A]">
+      <section className="bg-[#0B0F19] pt-32 pb-16 md:pt-40 md:pb-24 border-b border-[#262D3D]">
         <div className="container-premium text-center">
           <p className="overline mb-4">THE PROCESS</p>
           <h1 className="text-5xl md:text-6xl mb-6" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-            Simple. Seamless. <span className="text-[#C9A84C]">Certain.</span>
+            Simple. Seamless. <span className="text-[#FF6B1A]">Certain.</span>
           </h1>
           <p className="text-[#999999] max-w-2xl mx-auto leading-relaxed text-lg" style={{ fontFamily: "DM Sans, sans-serif" }}>
             From ordering to 24/7 protection in under 48 hours. Here is how Travio secures your most valuable assets.
@@ -64,13 +64,13 @@ export function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-[#111111]" ref={ref}>
+      <section className="section-padding bg-[#111625]" ref={ref}>
         <div className="container-premium max-w-4xl">
           <div className="space-y-12">
             {steps.map((step, i) => (
-              <div key={i} className="flex flex-col md:flex-row gap-8 items-start bg-[#0A0A0A] p-8 rounded-3xl border border-[#2A2A2A]" data-reveal>
-                <div className="w-16 h-16 rounded-2xl bg-[#C9A84C]/10 flex items-center justify-center shrink-0 border border-[#C9A84C]/20">
-                  <step.icon className="h-8 w-8 text-[#C9A84C]" />
+              <div key={i} className="flex flex-col md:flex-row gap-8 items-start bg-[#0B0F19] p-8 rounded-3xl border border-[#262D3D]" data-reveal>
+                <div className="w-16 h-16 rounded-2xl bg-[#FF6B1A]/10 flex items-center justify-center shrink-0 border border-[#FF6B1A]/20">
+                  <step.icon className="h-8 w-8 text-[#FF6B1A]" />
                 </div>
                 <div>
                   <h3 className="text-2xl mb-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>{step.title}</h3>

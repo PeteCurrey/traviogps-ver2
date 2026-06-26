@@ -51,7 +51,7 @@ export function GetQuotePage() {
 
   return (
     <PageWrapper>
-      <section className="min-h-screen bg-[#0A0A0A] pt-32 pb-24">
+      <section className="min-h-screen bg-[#0B0F19] pt-32 pb-24">
         <div className="container-premium max-w-3xl">
           
           {/* Progress Bar */}
@@ -59,21 +59,21 @@ export function GetQuotePage() {
             <div className="flex justify-between mb-4">
               {[1,2,3,4].map(s => (
                 <div key={s} className="flex flex-col items-center gap-2">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${step >= s ? 'bg-[#C9A84C] text-[#0A0A0A]' : 'bg-[#111111] text-[#555555] border border-[#2A2A2A]'}`} style={{ fontFamily: "Syne, sans-serif" }}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${step >= s ? 'bg-[#FF6B1A] text-[#0B0F19]' : 'bg-[#111625] text-[#555555] border border-[#262D3D]'}`} style={{ fontFamily: "Syne, sans-serif" }}>
                     {step > s ? <Check className="w-4 h-4" /> : s}
                   </div>
-                  <span className={`text-xs uppercase tracking-wider hidden sm:block ${step >= s ? 'text-[#C9A84C]' : 'text-[#555555]'}`} style={{ fontFamily: "DM Sans, sans-serif" }}>
+                  <span className={`text-xs uppercase tracking-wider hidden sm:block ${step >= s ? 'text-[#FF6B1A]' : 'text-[#555555]'}`} style={{ fontFamily: "DM Sans, sans-serif" }}>
                     {s === 1 ? "Vehicle" : s === 2 ? "Location" : s === 3 ? "Details" : "Recommendation"}
                   </span>
                 </div>
               ))}
             </div>
-            <div className="h-1 bg-[#111111] rounded-full overflow-hidden">
-              <div className="h-full bg-[#C9A84C] transition-all duration-500 ease-in-out" style={{ width: `${(step / 4) * 100}%` }} />
+            <div className="h-1 bg-[#111625] rounded-full overflow-hidden">
+              <div className="h-full bg-[#FF6B1A] transition-all duration-500 ease-in-out" style={{ width: `${(step / 4) * 100}%` }} />
             </div>
           </div>
 
-          <div ref={containerRef} className="bg-[#111111] border border-[#2A2A2A] rounded-3xl p-8 md:p-12 shadow-2xl">
+          <div ref={containerRef} className="bg-[#111625] border border-[#262D3D] rounded-3xl p-8 md:p-12 shadow-2xl">
             
             {/* STEP 1: VEHICLE */}
             {step === 1 && (
@@ -88,7 +88,7 @@ export function GetQuotePage() {
                     <label className="block text-sm text-[#999999] mb-3">Vehicle Type</label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                       {["Supercar", "Luxury SUV", "Motorhome", "Motorcycle", "Classic Car", "Other"].map(type => (
-                        <button key={type} onClick={() => setVehicleType(type)} className={`py-3 px-4 rounded-xl border text-sm font-medium transition-colors ${vehicleType === type ? 'bg-[#C9A84C]/10 border-[#C9A84C] text-[#C9A84C]' : 'bg-[#0A0A0A] border-[#2A2A2A] text-[#999999] hover:border-[#555555]'}`}>
+                        <button key={type} onClick={() => setVehicleType(type)} className={`py-3 px-4 rounded-xl border text-sm font-medium transition-colors ${vehicleType === type ? 'bg-[#FF6B1A]/10 border-[#FF6B1A] text-[#FF6B1A]' : 'bg-[#0B0F19] border-[#262D3D] text-[#999999] hover:border-[#555555]'}`}>
                           {type}
                         </button>
                       ))}
@@ -98,18 +98,18 @@ export function GetQuotePage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">Make</label>
-                      <input value={make} onChange={(e)=>setMake(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C]" placeholder="e.g. Porsche" />
+                      <input value={make} onChange={(e)=>setMake(e.target.value)} type="text" className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A]" placeholder="e.g. Porsche" />
                     </div>
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">Model</label>
-                      <input value={model} onChange={(e)=>setModel(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C]" placeholder="e.g. 911 GT3" />
+                      <input value={model} onChange={(e)=>setModel(e.target.value)} type="text" className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A]" placeholder="e.g. 911 GT3" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">Year</label>
-                      <select value={year} onChange={(e)=>setYear(e.target.value)} className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C] appearance-none">
+                      <select value={year} onChange={(e)=>setYear(e.target.value)} className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A] appearance-none">
                         <option value="">Select Year</option>
                         {Array.from({length: 25}, (_, i) => new Date().getFullYear() - i).map(y => (
                           <option key={y} value={y}>{y}</option>
@@ -118,7 +118,7 @@ export function GetQuotePage() {
                     </div>
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">Keyless Entry?</label>
-                      <select value={keyless} onChange={(e)=>setKeyless(e.target.value)} className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C] appearance-none">
+                      <select value={keyless} onChange={(e)=>setKeyless(e.target.value)} className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A] appearance-none">
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -128,11 +128,11 @@ export function GetQuotePage() {
 
                   <div>
                     <label className="block text-sm text-[#999999] mb-2">Estimated Value: £{value.toLocaleString()}</label>
-                    <input type="range" min="5000" max="500000" step="5000" value={value} onChange={(e)=>setValue(Number(e.target.value))} className="w-full accent-[#C9A84C]" />
+                    <input type="range" min="5000" max="500000" step="5000" value={value} onChange={(e)=>setValue(Number(e.target.value))} className="w-full accent-[#FF6B1A]" />
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-[#2A2A2A] flex justify-end">
+                <div className="pt-6 border-t border-[#262D3D] flex justify-end">
                   <button disabled={!isStep1Valid} onClick={() => goToStep(2)} className="btn-gold flex items-center disabled:opacity-50 disabled:cursor-not-allowed">
                     Next Step <ArrowRight className="ml-2 w-4 h-4" />
                   </button>
@@ -151,14 +151,14 @@ export function GetQuotePage() {
                 <div className="space-y-6">
                   <div>
                     <label className="block text-sm text-[#999999] mb-2">Postcode</label>
-                    <input value={postcode} onChange={(e)=>setPostcode(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C] uppercase" placeholder="e.g. SW1A 1AA" />
+                    <input value={postcode} onChange={(e)=>setPostcode(e.target.value)} type="text" className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A] uppercase" placeholder="e.g. SW1A 1AA" />
                   </div>
 
                   <div>
                     <label className="block text-sm text-[#999999] mb-3">Overnight Storage</label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {["Garage", "Driveway", "Public Road", "Storage Site"].map(type => (
-                        <button key={type} onClick={() => setStorage(type)} className={`py-3 px-4 rounded-xl border text-sm font-medium transition-colors text-left ${storage === type ? 'bg-[#C9A84C]/10 border-[#C9A84C] text-[#C9A84C]' : 'bg-[#0A0A0A] border-[#2A2A2A] text-[#999999] hover:border-[#555555]'}`}>
+                        <button key={type} onClick={() => setStorage(type)} className={`py-3 px-4 rounded-xl border text-sm font-medium transition-colors text-left ${storage === type ? 'bg-[#FF6B1A]/10 border-[#FF6B1A] text-[#FF6B1A]' : 'bg-[#0B0F19] border-[#262D3D] text-[#999999] hover:border-[#555555]'}`}>
                           {type}
                         </button>
                       ))}
@@ -168,13 +168,13 @@ export function GetQuotePage() {
                   <div>
                     <label className="block text-sm text-[#999999] mb-3">Existing Tracker?</label>
                     <div className="flex gap-4">
-                      <button onClick={() => setExistingTracker("Yes")} className={`flex-1 py-3 px-4 rounded-xl border text-sm font-medium transition-colors ${existingTracker === "Yes" ? 'bg-[#C9A84C]/10 border-[#C9A84C] text-[#C9A84C]' : 'bg-[#0A0A0A] border-[#2A2A2A] text-[#999999] hover:border-[#555555]'}`}>Yes</button>
-                      <button onClick={() => setExistingTracker("No")} className={`flex-1 py-3 px-4 rounded-xl border text-sm font-medium transition-colors ${existingTracker === "No" ? 'bg-[#C9A84C]/10 border-[#C9A84C] text-[#C9A84C]' : 'bg-[#0A0A0A] border-[#2A2A2A] text-[#999999] hover:border-[#555555]'}`}>No</button>
+                      <button onClick={() => setExistingTracker("Yes")} className={`flex-1 py-3 px-4 rounded-xl border text-sm font-medium transition-colors ${existingTracker === "Yes" ? 'bg-[#FF6B1A]/10 border-[#FF6B1A] text-[#FF6B1A]' : 'bg-[#0B0F19] border-[#262D3D] text-[#999999] hover:border-[#555555]'}`}>Yes</button>
+                      <button onClick={() => setExistingTracker("No")} className={`flex-1 py-3 px-4 rounded-xl border text-sm font-medium transition-colors ${existingTracker === "No" ? 'bg-[#FF6B1A]/10 border-[#FF6B1A] text-[#FF6B1A]' : 'bg-[#0B0F19] border-[#262D3D] text-[#999999] hover:border-[#555555]'}`}>No</button>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-[#2A2A2A] flex justify-between">
+                <div className="pt-6 border-t border-[#262D3D] flex justify-between">
                   <button onClick={() => goToStep(1)} className="btn-ghost flex items-center">
                     <ArrowLeft className="mr-2 w-4 h-4" /> Back
                   </button>
@@ -197,22 +197,22 @@ export function GetQuotePage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">First Name</label>
-                      <input value={firstName} onChange={(e)=>setFirstName(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C]" />
+                      <input value={firstName} onChange={(e)=>setFirstName(e.target.value)} type="text" className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A]" />
                     </div>
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">Last Name</label>
-                      <input value={lastName} onChange={(e)=>setLastName(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C]" />
+                      <input value={lastName} onChange={(e)=>setLastName(e.target.value)} type="text" className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A]" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">Email</label>
-                      <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C]" />
+                      <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A]" />
                     </div>
                     <div>
                       <label className="block text-sm text-[#999999] mb-2">Phone</label>
-                      <input value={phone} onChange={(e)=>setPhone(e.target.value)} type="tel" className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#C9A84C]" />
+                      <input value={phone} onChange={(e)=>setPhone(e.target.value)} type="tel" className="w-full bg-[#0B0F19] border border-[#262D3D] rounded-xl px-4 py-3 text-[#F5F5F5] focus:outline-none focus:border-[#FF6B1A]" />
                     </div>
                   </div>
 
@@ -220,7 +220,7 @@ export function GetQuotePage() {
                     <label className="block text-sm text-[#999999] mb-3">Preferred Contact Time</label>
                     <div className="grid grid-cols-3 gap-3">
                       {["Morning", "Afternoon", "Evening"].map(time => (
-                        <button key={time} onClick={() => setContactTime(time)} className={`py-3 px-4 rounded-xl border text-sm font-medium transition-colors text-center ${contactTime === time ? 'bg-[#C9A84C]/10 border-[#C9A84C] text-[#C9A84C]' : 'bg-[#0A0A0A] border-[#2A2A2A] text-[#999999] hover:border-[#555555]'}`}>
+                        <button key={time} onClick={() => setContactTime(time)} className={`py-3 px-4 rounded-xl border text-sm font-medium transition-colors text-center ${contactTime === time ? 'bg-[#FF6B1A]/10 border-[#FF6B1A] text-[#FF6B1A]' : 'bg-[#0B0F19] border-[#262D3D] text-[#999999] hover:border-[#555555]'}`}>
                           {time}
                         </button>
                       ))}
@@ -228,7 +228,7 @@ export function GetQuotePage() {
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-[#2A2A2A] flex justify-between">
+                <div className="pt-6 border-t border-[#262D3D] flex justify-between">
                   <button onClick={() => goToStep(2)} className="btn-ghost flex items-center">
                     <ArrowLeft className="mr-2 w-4 h-4" /> Back
                   </button>
@@ -242,22 +242,22 @@ export function GetQuotePage() {
             {/* STEP 4: RECOMMENDATION */}
             {step === 4 && (
               <div className="space-y-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C9A84C]/10 text-[#C9A84C] mb-2">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#FF6B1A]/10 text-[#FF6B1A] mb-2">
                   <Check className="w-8 h-8" />
                 </div>
                 <div>
                   <h2 className="text-3xl mb-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>Your Recommendation</h2>
                   <p className="text-[#F5F5F5] text-lg max-w-lg mx-auto leading-relaxed" style={{ fontFamily: "DM Sans, sans-serif" }}>
-                    Based on your {value >= 50000 ? `£${value.toLocaleString()}` : ""} {make} {model}, insurers will likely require a <span className="text-[#C9A84C] font-bold">Thatcham Category S5</span> tracker.
+                    Based on your {value >= 50000 ? `£${value.toLocaleString()}` : ""} {make} {model}, insurers will likely require a <span className="text-[#FF6B1A] font-bold">Thatcham Category S5</span> tracker.
                   </p>
                 </div>
                 
-                <div className="bg-[#0A0A0A] border-2 border-[#C9A84C] rounded-2xl p-6 md:p-8 max-w-md mx-auto relative text-left">
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#C9A84C] text-[#0A0A0A] text-xs font-bold py-1 px-4 rounded-full tracking-wider" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                <div className="bg-[#0B0F19] border-2 border-[#FF6B1A] rounded-2xl p-6 md:p-8 max-w-md mx-auto relative text-left">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#FF6B1A] text-[#0B0F19] text-xs font-bold py-1 px-4 rounded-full tracking-wider" style={{ fontFamily: "DM Sans, sans-serif" }}>
                     PRIMARY RECOMMENDATION
                   </div>
-                  <h3 className="text-2xl mb-2 text-[#C9A84C]" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>S5 Premium</h3>
-                  <p className="text-[#999999] text-sm mb-6 pb-6 border-b border-[#2A2A2A]">Includes Driver ID, remote immobilisation, and 24/7 monitoring.</p>
+                  <h3 className="text-2xl mb-2 text-[#FF6B1A]" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>S5 Premium</h3>
+                  <p className="text-[#999999] text-sm mb-6 pb-6 border-b border-[#262D3D]">Includes Driver ID, remote immobilisation, and 24/7 monitoring.</p>
                   
                   <div className="flex items-end gap-2 mb-6">
                     <span className="text-4xl text-[#F5F5F5]" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>£349</span>
